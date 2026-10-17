@@ -1,4 +1,4 @@
 {
-  "payload": "{\"issued\":\"2026-10-18\",\"revoked\":[\"336659\"],\"seq\":3}",
-  "sig": "045e555424739cd5e0918e1328617c6b7dd45be5aeab43eef3a7ed5dcf59d15c0fcd6ea0ed654837daafeb5d2d3aef1f1e91fd14fd9beeee04115443fb88060f"
+  "payload": "{\"issued\":\"2026-10-18\",\"revoked\":[\"D384C0\"],\"seq\":1}",
+  "sig": "ef5d56663fc7358dfc6fd5f1fc8dc783dce717e4d11203c82266f5aa822c5ec3c73ea7c1329103b90001cce460de775f2d5cbf49d895b249c8ea27b71fe1f30b"
 }
