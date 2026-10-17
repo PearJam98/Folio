@@ -1,4 +1,4 @@
 {
-  "payload": "{\"issued\":\"2026-10-18\",\"revoked\":[],\"seq\":2}",
+  "payload": "{\"issued\":\"2026-10-18\",\"revoked\":[],\"seq\":1}",
   "sig": "5a8420aac1270c82150620f31b72cfd03ba4d037f3a165ce2f40261bc25c108a268896ccce30651bfcdf52d9e5c9c5616a51706ba3f98943904270bc4dd9b903"
 }
