@@ -1,0 +1,4 @@
+{
+  "payload": "{\"issued\":\"2026-10-18\",\"revoked\":[\"0EE0DC\",\"D384C0\",\"FBC94A\"],\"seq\":3}",
+  "sig": "2e4ca85eac85026c31c771698682d0c59d74dc64521cf571a105c5b89863ffba29326c99ac77e358504cafc4a75907ca3e232a969ef8c8cdddeae7b76b350700"
+}
