@@ -21,12 +21,8 @@
 <link rel="icon" id="favicon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" href="IRANSansX-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="IRANSansX-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  @font-face{font-family:"IRANSansX";src:url("IRANSansX-Regular.woff2") format("woff2");font-weight:100 599;font-style:normal;font-display:swap}
-  @font-face{font-family:"IRANSansX";src:url("IRANSansX-Bold.woff2") format("woff2");font-weight:600 900;font-style:normal;font-display:swap}
   :root{
     --ink:#1f2430;
     --blue:#3b6ef6;
@@ -46,7 +42,7 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--mist);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  :lang(fa){font-family:"IRANSansX","Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.9}
+  :lang(fa){font-family:"Vazirmatn","Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.9}
   :lang(en){font-family:"Manrope","Segoe UI",system-ui,sans-serif;line-height:1.65}
   a{color:inherit}
   h1,h2,h3{text-wrap:balance}
@@ -121,7 +117,6 @@
   .ficon{width:18px;height:18px;padding:5px;box-sizing:content-box;border-radius:10px;fill:none;stroke:var(--c);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;background:rgba(0,0,0,.05);background:color-mix(in srgb,var(--c) 11%,#fff);flex:none}
   .chips{display:flex;flex-wrap:wrap;gap:6px;direction:ltr;justify-content:flex-start}
   .chips code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.78rem;padding:0 11px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:var(--ink);line-height:1.7}
-  @supports (background:color-mix(in srgb,red 10%,white)){.chips code{background:color-mix(in srgb,var(--c) 4%,#fff);border-color:color-mix(in srgb,var(--c) 13%,#fff);color:color-mix(in srgb,var(--c) 55%,#222)}}
   .frow .count{padding-block:2px;font-size:.84rem;color:var(--muted);white-space:nowrap}
 
   .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
@@ -305,19 +300,19 @@
   <section id="formats" class="sec wrap">
     <div class="sec-head"><h2 data-i18n="fmt_title">فرمت‌های پشتیبانی‌شده</h2><p data-i18n="fmt_sub">۵۲ پسوند در ۵ خانواده</p></div>
     <div class="frame">
-      <div class="frow" style="--c:#1565C0"><h4><svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fmt-word"/></svg>Word</h4>
+      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#1565C0" aria-hidden="true"><use href="#i-fmt-word"/></svg>Word</h4>
         <div class="chips"><code>.doc</code><code>.docx</code><code>.docm</code><code>.dot</code><code>.dotx</code><code>.dotm</code><code>.rtf</code><code>.odt</code></div>
         <span class="count" data-n="8">۸ پسوند</span></div>
-      <div class="frow" style="--c:#BF360C"><h4><svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fmt-ppt"/></svg>PowerPoint</h4>
+      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#BF360C" aria-hidden="true"><use href="#i-fmt-ppt"/></svg>PowerPoint</h4>
         <div class="chips"><code>.ppt</code><code>.pptx</code><code>.pptm</code><code>.pot</code><code>.potx</code><code>.potm</code><code>.pps</code><code>.ppsx</code><code>.ppsm</code><code>.odp</code></div>
         <span class="count" data-n="10">۱۰ پسوند</span></div>
-      <div class="frow" style="--c:#2E7D32"><h4><svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fmt-xls"/></svg>Excel</h4>
+      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#2E7D32" aria-hidden="true"><use href="#i-fmt-xls"/></svg>Excel</h4>
         <div class="chips"><code>.xls</code><code>.xlsx</code><code>.xlsm</code><code>.xlsb</code><code>.xlt</code><code>.xltx</code><code>.xltm</code><code>.ods</code></div>
         <span class="count" data-n="8">۸ پسوند</span></div>
-      <div class="frow" style="--c:#AD1457"><h4><svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fmt-pdf"/></svg>PDF</h4>
+      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#AD1457" aria-hidden="true"><use href="#i-fmt-pdf"/></svg>PDF</h4>
         <div class="chips"><code>.pdf</code></div>
         <span class="count" data-n="1">۱ پسوند</span></div>
-      <div class="frow" style="--c:#5E35B1"><h4><svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fmt-img"/></svg><span data-i18n="images">تصاویر</span></h4>
+      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#5E35B1" aria-hidden="true"><use href="#i-fmt-img"/></svg><span data-i18n="images">تصاویر</span></h4>
         <div class="chips"><code>.jpg</code><code>.jpeg</code><code>.jfif</code><code>.jpe</code><code>.png</code><code>.gif</code><code>.bmp</code><code>.dib</code><code>.tif</code><code>.tiff</code><code>.webp</code><code>.heic</code><code>.heif</code><code>.avif</code><code>.jp2</code><code>.j2k</code><code>.jpx</code><code>.ico</code><code>.tga</code><code>.pcx</code><code>.ppm</code><code>.pgm</code><code>.pbm</code><code>.psd</code><code>.psb</code></div>
         <span class="count" data-n="25">۲۵ پسوند</span></div>
     </div>
