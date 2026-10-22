@@ -4,12 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Folio | فولیو</title>
+<script>try{if(localStorage.getItem("folio-lang")==="en"){var d=document.documentElement;d.lang="en";d.dir="ltr"}}catch(e){}</script>
+<title>فولیو | Folio؛ دستیار هوشمند کپی‌سنتر و مراکز چاپ</title>
 <meta name="description" content="فولیو؛ دستیار هوشمند برای کپی‌سنتر و مراکز چاپ. شمارش صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.">
-<meta property="og:title" content="Folio | فولیو">
-<meta property="og:description" content="دستیار هوشمند برای کپی‌سنتر و مراکز چاپ">
+<meta property="og:title" content="فولیو | Folio؛ دستیار هوشمند کپی‌سنتر و مراکز چاپ">
+<meta property="og:description" content="فولیو؛ دستیار هوشمند برای کپی‌سنتر و مراکز چاپ. شمارش صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#2147c9">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:site_name" content="Folio">
+<meta property="og:image" content="screenshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="فولیو | دستیار هوشمند کپی‌سنتر و مراکز چاپ">
+<meta name="twitter:description" content="مدیریت سفارش‌های چاپ، محاسبه هزینه و تنظیمات چاپ در یک محیط یکپارچه.">
+<meta name="twitter:image" content="screenshot.png">
+<meta name="theme-color" content="#3f5fd6">
 <link rel="icon" id="favicon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,18 +25,22 @@
 <style>
   :root{
     color-scheme:light;
-    --ink:#0b1533;        /* deep navy text */
-    --blue:#2147c9;       /* Folio blue */
-    --blue-deep:#17359c;
+    --ink:#2a3552;        /* deep navy text */
+    --blue:#3f5fd6;       /* Folio blue */
+    --blue-deep:#3350bd;
     --facet:#a4cbff;      /* bird facets */
-    --mist:#f3f6fc;       /* page background */
+    --mist:#f6f8fd;       /* page background */
     --paper:#ffffff;
-    --line:#dbe3f3;
-    --muted:#55617f;
-    --tint:#e9effc;
-    --rose:#d63c3c;
+    --line:#e6ecf7;
+    --hair:#edf1fa;
+    --muted:#5f6b88;
+    --tint:#edf1fc;
+    --rose:#b4414f;
     --amber-bg:#fff0d2; --amber-ink:#8a4b00;
-    --radius:14px;
+    --radius:18px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --sec:clamp(56px,8vw,96px);
+    --shadow:0 1px 2px rgba(63,95,214,.04),0 18px 48px -24px rgba(63,95,214,.24);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -36,36 +48,41 @@
   :lang(fa){font-family:"Vazirmatn","Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.9}
   :lang(en){font-family:"Manrope","Segoe UI",system-ui,sans-serif;line-height:1.65}
   a{color:inherit}
+  h1,h2,h3{text-wrap:balance}
+  p{text-wrap:pretty}
   :focus-visible{outline:3px solid #7aa2ff;outline-offset:3px;border-radius:6px}
   .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
   .num{font-variant-numeric:tabular-nums}
 
   /* ---------- header ---------- */
-  header.site{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header.site{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.72);-webkit-backdrop-filter:saturate(1.5) blur(14px);backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid transparent;transition:background .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
+  header.site.scrolled{background:rgba(255,255,255,.92);border-bottom-color:var(--line);box-shadow:0 12px 30px -22px rgba(63,95,214,.3)}
   .bar{display:flex;align-items:center;gap:16px;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Manrope",sans-serif;font-weight:800;font-size:1.3rem;color:var(--ink);letter-spacing:-.01em}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Manrope",sans-serif;font-weight:700;font-size:1.3rem;color:var(--ink);letter-spacing:-.01em}
   .brand svg{width:32px;height:32px}
   nav.links{display:flex;gap:2px;margin-inline-start:20px}
-  nav.links a{padding:6px 14px;border-radius:8px;text-decoration:none;color:var(--muted);font-size:.93rem;font-weight:500}
+  nav.links a{padding:6px 14px;border-radius:10px;text-decoration:none;color:var(--muted);font-size:.93rem;font-weight:500;transition:background .2s var(--ease),color .2s var(--ease)}
   nav.links a:hover{background:var(--mist);color:var(--ink)}
+  nav.links a[aria-current="true"]{background:var(--tint);color:var(--blue-deep)}
   .spacer{flex:1}
-  .lang{display:inline-flex;border:1px solid var(--line);border-radius:9px;padding:2px;background:var(--paper)}
-  .lang button{border:0;background:transparent;font:inherit;font-size:.82rem;font-weight:600;color:var(--muted);padding:2px 12px;border-radius:7px;cursor:pointer;line-height:1.7}
+  .lang{display:inline-flex;border:1px solid var(--line);border-radius:12px;padding:2px;background:var(--paper)}
+  .lang button{transition:background .2s var(--ease),color .2s var(--ease);border:0;background:transparent;font:inherit;font-size:.82rem;font-weight:600;color:var(--muted);padding:2px 12px;border-radius:10px;cursor:pointer;line-height:1.7}
   .lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
 
   /* ---------- buttons ---------- */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:11px;padding:12px 24px;font:inherit;font-weight:700;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .15s,box-shadow .15s,border-color .15s}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:12px 24px;font:inherit;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
   .btn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-  .btn.primary{background:var(--blue);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 8px 20px -6px rgba(33,71,201,.55)}
+  .btn.primary{background:var(--blue);color:#fff}
   .btn.primary:hover{background:var(--blue-deep)}
+  .btn.primary:active{background:#2a43a3}
   .btn.ghost{background:var(--paper);border-color:var(--line);color:var(--ink)}
-  .btn.ghost:hover{border-color:#b9c7e6}
-  .btn.small{padding:6px 16px;font-size:.9rem;border-radius:9px}
+  .btn.ghost:hover{background:var(--tint);border-color:#b9c7e6}
+  .btn.small{padding:6px 16px;font-size:.9rem;border-radius:12px}
 
   /* ---------- hero ---------- */
   .hero{position:relative;overflow-x:clip;background:linear-gradient(180deg,#fff 0%,var(--mist) 100%);border-bottom:1px solid var(--line)}
   .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:48px;align-items:center;padding:56px 0 64px}
-  h1{margin:0 0 18px;font-size:clamp(1.9rem,4.4vw,3.15rem);font-weight:800;color:var(--ink)}
+  h1{margin:0 0 18px;font-size:clamp(1.9rem,4.4vw,3.15rem);font-weight:700;color:var(--ink)}
   :lang(fa) h1{line-height:1.45}
   :lang(en) h1{line-height:1.12;letter-spacing:-.025em}
   .lead{margin:0 0 28px;max-width:520px;color:var(--muted);font-size:1.05rem}
@@ -75,57 +92,88 @@
   .ghost-bird{position:absolute;inset-inline-end:-110px;top:-70px;width:560px;height:560px;opacity:.3;pointer-events:none}
 
   /* app screenshot */
-  .stage{position:relative}
-  .stage img{display:block;width:100%;height:auto}
+  .stage{position:relative;isolation:isolate}
+  .stage::before{content:"";position:absolute;inset:10% -5% -6%;z-index:-1;background:radial-gradient(closest-side,rgba(63,95,214,.24),rgba(164,203,255,.12) 60%,transparent);filter:blur(28px)}
+  .stage img{display:block;width:100%;height:auto;filter:drop-shadow(0 30px 44px rgba(50,70,150,.16)) drop-shadow(0 4px 12px rgba(50,70,150,.07))}
 
   /* ---------- sections ---------- */
-  section.sec{padding-top:68px;scroll-margin-top:64px}
-  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
-  .sec-head h2{margin:0;font-size:1.65rem;font-weight:800;letter-spacing:0}
+  section.sec{padding-top:var(--sec);scroll-margin-top:calc(88px - var(--sec))}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(20px,3vw,32px)}
+  .sec-head h2{margin:0;font-size:clamp(1.5rem,2.6vw,2rem);font-weight:700;letter-spacing:0}
   :lang(en) .sec-head h2{letter-spacing:-.02em}
   .sec-head p{margin:0;color:var(--muted);font-size:.95rem}
 
-  .frame{border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden}
+  .frame{border:1px solid var(--line);border-radius:26px;background:var(--paper);overflow:hidden;box-shadow:var(--shadow)}
   .fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-block-start:-1px;margin-inline-start:-1px}
-  .fcell{position:relative;padding:24px 26px 26px;border-block-start:1px solid var(--line);border-inline-start:1px solid var(--line)}
+  .fcell{position:relative;padding:24px 26px 26px;border-block-start:1px solid var(--hair);border-inline-start:1px solid var(--hair);transition:background .3s var(--ease)}
+  .fcell:not(.lead-cell):hover{background:#fafcff}
   .fcell.lead-cell{background:linear-gradient(180deg,#f3f7ff,#fff)}
-  .fcell svg{width:26px;height:26px;fill:none;stroke:var(--blue);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px;display:block}
-  .fcell h3{margin:0 0 4px;font-size:1.04rem;font-weight:700}
+  .fcell svg{width:26px;height:26px;fill:none;stroke:var(--blue);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:16px;display:block;box-sizing:content-box;padding:9px;background:var(--tint);border-radius:16px}
+  .fcell h3{margin:0 0 4px;font-size:1.04rem;font-weight:600}
   .fcell p{margin:0;color:var(--muted);font-size:.93rem;line-height:1.85}
   :lang(en) .fcell p{line-height:1.6}
-  .soon{position:absolute;inset-block-start:22px;inset-inline-end:22px;background:var(--amber-bg);color:var(--amber-ink);font-size:.74rem;font-weight:700;padding:0 10px;border-radius:999px}
+  .soon{position:absolute;inset-block-start:22px;inset-inline-end:22px;background:var(--amber-bg);color:var(--amber-ink);font-size:.74rem;font-weight:600;padding:0 10px;border-radius:999px}
 
-  .frow{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 24px;border-top:1px solid var(--line)}
+  .frow{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 24px;border-top:1px solid var(--hair)}
   .frow:first-child{border-top:0}
-  .frow h4{margin:0;font-size:1rem;display:flex;align-items:center;gap:10px;font-weight:700}
+  .frow{transition:background .25s var(--ease)}
+  .frow:hover{background:#fafcff}
+  .frow h4{margin:0;font-size:1rem;display:flex;align-items:center;gap:10px;font-weight:600}
   .dot{width:10px;height:10px;border-radius:3px}
   .chips{display:flex;flex-wrap:wrap;gap:6px;direction:ltr;justify-content:flex-start}
-  .chips code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.78rem;padding:0 9px;border-radius:6px;background:var(--mist);border:1px solid var(--line);color:var(--ink);line-height:1.7}
+  .chips code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.78rem;padding:0 11px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:var(--ink);line-height:1.7}
   .frow .count{font-size:.84rem;color:var(--muted);white-space:nowrap}
 
-  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;max-width:860px}
-  .plan{position:relative;border:1px solid var(--line);background:var(--paper);border-radius:20px;padding:28px 28px 24px}
-  .plan h3{margin:0 0 14px;font-size:1.1rem;font-weight:700}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .plan{position:relative;border:1px solid var(--line);background:var(--paper);border-radius:26px;padding:28px 28px 24px;box-shadow:var(--shadow);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .plan:hover{transform:translateY(-3px)}
+  .plan h3{margin:0 0 14px;font-size:1.1rem;font-weight:600}
   .price{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-  .price .now{font-size:3.4rem;line-height:1.1;font-weight:800;color:var(--blue-deep)}
+  .price .now{font-size:clamp(2.8rem,6vw,3.6rem);line-height:1.1;font-weight:600;color:var(--blue-deep)}
   .price .unit{font-size:1rem;font-weight:600;color:var(--ink)}
   .price .old{font-size:1.05rem;color:var(--muted);text-decoration:line-through}
-  .off{background:var(--rose);color:#fff;font-size:.76rem;font-weight:700;padding:0 10px;border-radius:999px}
+  .off{background:#fdecee;color:var(--rose);font-size:.76rem;font-weight:600;padding:0 10px;border-radius:999px}
   .for{margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line);color:var(--muted);font-size:.93rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .plan.best{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 30px 50px -28px rgba(33,71,201,.7)}
+  .plan.best{background:linear-gradient(155deg,#4f70df 0%,#3f5fd6 50%,#3752c0 100%);border-color:#4766d9;color:#fff;box-shadow:0 30px 50px -28px rgba(63,95,214,.75)}
   .plan.best .now{color:#fff}.plan.best .unit{color:#e6edff}.plan.best .old{color:#b9caf7}
   .plan.best .for{border-top-color:rgba(255,255,255,.3);color:#dbe5ff}
   .plan.best .off{background:#fff;color:var(--rose)}
-  .flag{position:absolute;inset-block-start:24px;inset-inline-end:26px;background:#fff;color:var(--blue-deep);font-size:.76rem;font-weight:800;padding:0 12px;border-radius:999px}
+  .flag{position:absolute;inset-block-start:24px;inset-inline-end:26px;background:#fff;color:var(--blue-deep);font-size:.76rem;font-weight:700;padding:0 12px;border-radius:999px}
 
-  .contact{margin-top:22px;max-width:860px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;border:1px solid var(--line);background:var(--paper);border-radius:var(--radius);padding:14px 14px 14px 22px}
-  html[dir="rtl"] .contact{padding:14px 22px 14px 14px}
-  .contact span{font-weight:600}
+  .faq-list details{padding:18px 24px;border-top:1px solid var(--hair)}
+  .faq-list details:first-child{border-top:0}
+  .faq-list summary{cursor:pointer;font-weight:600}
+  .faq-list details p{margin:10px 0 0;color:var(--muted);font-size:.94rem}
+  .contact{margin-top:40px}
+  .contact-t{margin:0 0 16px;font-size:1.05rem;font-weight:600}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .ctile{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;box-shadow:var(--shadow);transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
+  .ctile:hover{transform:translateY(-2px);border-color:#c9d6f5}
+  .ctile svg{width:22px;height:22px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;box-sizing:content-box;padding:11px;background:var(--tint);border-radius:14px;flex:none}
+  .ct-text{display:flex;flex-direction:column;min-width:0;line-height:1.5}
+  .ct-text small{color:var(--muted);font-size:.8rem}
+  .ct-text b{font-weight:600;font-size:1.02rem;color:var(--ink)}
 
   footer{margin-top:72px;border-top:1px solid var(--line);background:var(--paper)}
   .foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:20px 0;color:var(--muted);font-size:.9rem}
   .foot a{color:var(--blue-deep);text-decoration:none;font-weight:600}
   .foot a:hover{text-decoration:underline}
+  .foot-links{display:flex;flex-wrap:wrap;gap:8px 22px}
+  .foot-links a{display:inline-flex;align-items:center;gap:8px}
+  .foot-links svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+  .trial{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 44px;align-items:center;padding:34px 40px;border-radius:26px;color:#fff;background:linear-gradient(135deg,#5a7be6 0%,#3f5fd6 52%,#3450bd 100%);box-shadow:0 34px 60px -34px rgba(63,95,214,.7)}
+  .trial::before{content:"";position:absolute;inset:-40% -10% auto auto;width:420px;height:420px;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.28),transparent)}
+  .trial .t-bird{position:absolute;inset-inline-start:-30px;bottom:-70px;width:260px;height:260px;opacity:.13;z-index:-1;pointer-events:none}
+  .t-days{display:flex;flex-direction:column;align-items:center;line-height:1;padding-inline-end:44px;border-inline-end:1px solid rgba(255,255,255,.28)}
+  .t-num{font-size:clamp(3.8rem,8vw,5.6rem);font-weight:600;letter-spacing:-.02em}
+  .t-unit{margin-top:10px;font-size:1.05rem;font-weight:600;opacity:.9}
+  .trial p{margin:0 0 18px;color:#fff;opacity:.92}
+  .key-label{display:block;margin-bottom:8px;font-size:.82rem;font-weight:600;opacity:.85}
+  .key{display:flex;gap:12px;align-items:center;direction:ltr;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:10px 10px 10px 18px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .key code{flex:1;min-width:0;font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.95rem;letter-spacing:.04em;line-height:1.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .key .btn{flex:none;background:#fff;color:var(--blue-deep);border-color:#fff}
+  .key .btn:hover{background:var(--tint)}
 
   /* ---------- responsive ---------- */
   @media (max-width:900px){
@@ -135,12 +183,25 @@
   }
   @media (max-width:720px){
     nav.links{display:none}
-    header .btn.small{display:none}
+    .bar{gap:10px}
+    header .btn.small{padding:6px 14px}
+    header .btn.small svg{display:none}
     .frow{grid-template-columns:1fr;gap:8px}
     section.sec{padding-top:52px}
     .plan{padding:24px 22px 20px}
+    .trial{grid-template-columns:1fr;padding:26px 20px}
+    .t-days{flex-direction:row;gap:12px;align-items:baseline;padding:0 0 18px;border-inline-end:0;border-bottom:1px solid rgba(255,255,255,.28);justify-self:stretch}
+    .t-unit{margin:0}
   }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:no-preference){
+    .hero-copy>*{animation:rise .8s var(--ease) both}
+    .hero-copy>:nth-child(2){animation-delay:.08s}
+    .hero-copy>:nth-child(3){animation-delay:.16s}
+    .hero-copy>:nth-child(4){animation-delay:.24s}
+    .stage{animation:rise 1s var(--ease) .2s both}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -155,7 +216,10 @@
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
   <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
   <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
   <symbol id="bird" viewBox="0 0 512 512">
     <polygon fill="#a8cfff" points="95,62 4,112 95,140"/>
@@ -172,16 +236,17 @@
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Folio"><svg viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg>Folio</a>
     <nav class="links">
-      <a href="#features" data-i18n="nav_features"></a>
-      <a href="#formats" data-i18n="nav_formats"></a>
-      <a href="#pricing" data-i18n="nav_pricing"></a>
+      <a href="#features" data-i18n="nav_features">امکانات</a>
+      <a href="#formats" data-i18n="nav_formats">فرمت‌ها</a>
+      <a href="#trial" data-i18n="nav_trial">آزمایشی</a>
+      <a href="#pricing" data-i18n="nav_pricing">تعرفه</a>
     </nav>
     <div class="spacer"></div>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-lang="fa" aria-pressed="true">فارسی</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <a class="btn primary small js-dl" href="https://github.com/PearJam98/folio/releases/latest"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl_btn"></span></a>
+    <a class="btn primary small js-dl" href="https://github.com/PearJam98/folio/releases/latest"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl_btn">دانلود فولیو</span></a>
   </div>
 </header>
 
@@ -190,83 +255,117 @@
     <svg class="ghost-bird" viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg>
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <h1 data-i18n="h1"></h1>
-        <p class="lead" data-i18n="lead"></p>
+        <h1 data-i18n="h1">مدیریت سفارش‌های چاپ، ساده‌تر و سریع‌تر</h1>
+        <p class="lead" data-i18n="lead">فولیو نرم‌افزار ویندوزی دفاتر فنی و کپی‌سنترهاست؛ از شمارش صفحه‌ها و محاسبه تعداد برگ و هزینه تا تنظیمات و ارسال فایل‌ها برای چاپ، همه را در یک محیط یکپارچه مدیریت کنید.</p>
         <div class="cta">
-          <a class="btn primary js-dl" href="https://github.com/PearJam98/folio/releases/latest"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl_btn"></span></a>
-          <a class="btn ghost" href="#pricing" data-i18n="hero_pricing"></a>
+          <a class="btn primary js-dl" href="https://github.com/PearJam98/folio/releases/latest"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl_btn">دانلود فولیو</span></a>
+          <a class="btn ghost" href="#pricing" data-i18n="hero_pricing">مشاهده تعرفه‌ها</a>
         </div>
-        <p class="dl-meta" id="dlMeta"></p>
+        <p class="dl-meta" id="dlMeta">آخرین نسخه · ویندوز ۱۰ به بالا (۶۴ بیتی)</p>
       </div>
 
       <div class="stage">
-        <img src="screenshot.png" width="917" height="580" alt="" data-i18n-alt="shot_alt" fetchpriority="high">
+        <img src="screenshot.png" width="917" height="580" alt="پنجره‌ی اصلی فولیو: فهرست فایل‌ها با تعداد صفحه و برگ هر فایل و پنل محاسبه‌ی هزینه" data-i18n-alt="shot_alt" fetchpriority="high">
       </div>
     </div>
   </div>
 
   <section id="features" class="sec wrap">
-    <div class="sec-head"><h2 data-i18n="feat_title"></h2></div>
+    <div class="sec-head"><h2 data-i18n="feat_title">امکانات اصلی</h2></div>
     <div class="frame"><div class="fgrid">
-      <article class="fcell lead-cell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-count"/></svg><h3 data-i18n="f1_t"></h3><p data-i18n="f1_d"></p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calc"/></svg><h3 data-i18n="f2_t"></h3><p data-i18n="f2_d"></p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg><h3 data-i18n="f3_t"></h3><p data-i18n="f3_d"></p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-align"/></svg><h3 data-i18n="f4_t"></h3><p data-i18n="f4_d"></p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rotate"/></svg><h3 data-i18n="f5_t"></h3><p data-i18n="f5_d"></p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clip"/></svg><h3 data-i18n="f6_t"></h3><p data-i18n="f6_d"></p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg><h3 data-i18n="f7_t"></h3><p data-i18n="f7_d"></p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-layers"/></svg><h3 data-i18n="f8_t"></h3><p data-i18n="f8_d"></p></article>
-      <article class="fcell"><span class="soon" data-i18n="soon"></span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-card"/></svg><h3 data-i18n="f9_t"></h3><p data-i18n="f9_d"></p></article>
+      <article class="fcell lead-cell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-count"/></svg><h3 data-i18n="f1_t">شمارش هوشمند صفحه‌ها</h3><p data-i18n="f1_d">شمارش خودکار صفحه‌های چندین فایل به‌صورت یکجا، حتی فایل‌ها و آرشیوهای رمزدار؛ فایل تکراری یا معیوب هم هشدار داده می‌شود.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calc"/></svg><h3 data-i18n="f2_t">محاسبه‌ی دقیق برگ و هزینه</h3><p data-i18n="f2_d">محاسبه‌ی هزینه بر پایه‌ی اندازه‌ی کاغذ (A5 / A4 / A3)، سیاه‌وسفید یا رنگی و یک‌رو یا دورو، با تعرفه‌ی قابل‌ویرایش خودتان.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg><h3 data-i18n="f3_t">ارسال مستقیم به چاپگر</h3><p data-i18n="f3_d">انتخاب چاپگر، کاغذ، مقیاس، کیفیت، حاشیه، تعداد نسخه و Collate؛ چیدمان ۲ تا ۹ صفحه در هر طرف برگ و چاپ Booklet.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-align"/></svg><h3 data-i18n="f4_t">منگنه‌ی سمت راست برای فارسی</h3><p data-i18n="f4_d">ترتیب صفحه‌ها خودکار معکوس می‌شود تا اسناد فارسی و عربی را حتی با چاپگرهایی که فقط سمت چپ منگنه می‌زنند، بتوان از سمت راست منگنه کرد.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rotate"/></svg><h3 data-i18n="f5_t">جهت چاپ خودکار</h3><p data-i18n="f5_d">جهت عمودی یا افقی هر فایل خودکار تشخیص داده می‌شود؛ در چاپ چندصفحه‌ای در هر برگ هم صفحه‌ها بر اساس شکل غالب فایل چیده می‌شوند، همان‌طور که مشتری انتظار دارد.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clip"/></svg><h3 data-i18n="f6_t">منگنه و فنر سیمی</h3><p data-i18n="f6_d">تعداد منگنه‌ی موردنیاز و اندازه‌ی پیشنهادی فنر سیمی برای صحافی هر فایل خودکار برآورد می‌شود و بازه‌های آن قابل‌ویرایش است.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg><h3 data-i18n="f7_t">انتخاب صفحه و تعداد نسخه</h3><p data-i18n="f7_d">با پیش‌نمایش بندانگشتی، فقط بازه‌ی موردنظر یا صفحه‌های زوج/فرد را چاپ کنید و برای هر فایل نسخه‌ی جداگانه تعیین کنید.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-layers"/></svg><h3 data-i18n="f8_t">پشتیبانی از قالب‌های گوناگون</h3><p data-i18n="f8_d">فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و حتی آرشیوهای فشرده بدون تبدیل دستی چاپ می‌شوند و همه را می‌توانید به PDF هم تبدیل کنید.</p></article>
+      <article class="fcell"><span class="soon" data-i18n="soon">به‌زودی</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-card"/></svg><h3 data-i18n="f9_t">ارتباط با کارتخوان / صندوق</h3><p data-i18n="f9_d">در نسخه‌های بعدی، مبلغ نهایی چاپ مستقیم برای کارتخوان یا صندوق فرستاده می‌شود؛ بدون تایپ دستی و بدون خطای انسانی.</p></article>
     </div></div>
   </section>
 
   <section id="formats" class="sec wrap">
-    <div class="sec-head"><h2 data-i18n="fmt_title"></h2><p data-i18n="fmt_sub"></p></div>
+    <div class="sec-head"><h2 data-i18n="fmt_title">فرمت‌های پشتیبانی‌شده</h2><p data-i18n="fmt_sub">۵۲ پسوند در ۵ خانواده</p></div>
     <div class="frame">
       <div class="frow"><h4><span class="dot" style="background:#2f6fdb"></span>Word</h4>
         <div class="chips"><code>.doc</code><code>.docx</code><code>.rtf</code><code>.odt</code><code>…</code></div>
-        <span class="count" data-n="8"></span></div>
+        <span class="count" data-n="8">۸ پسوند</span></div>
       <div class="frow"><h4><span class="dot" style="background:#e0662d"></span>PowerPoint</h4>
         <div class="chips"><code>.ppt</code><code>.pptx</code><code>.ppsx</code><code>.odp</code><code>…</code></div>
-        <span class="count" data-n="10"></span></div>
+        <span class="count" data-n="10">۱۰ پسوند</span></div>
       <div class="frow"><h4><span class="dot" style="background:#2e9b57"></span>Excel</h4>
         <div class="chips"><code>.xls</code><code>.xlsx</code><code>.xlsb</code><code>.ods</code><code>…</code></div>
-        <span class="count" data-n="8"></span></div>
+        <span class="count" data-n="8">۸ پسوند</span></div>
       <div class="frow"><h4><span class="dot" style="background:#d63b5c"></span>PDF</h4>
         <div class="chips"><code>.pdf</code></div>
-        <span class="count" data-n="1"></span></div>
-      <div class="frow"><h4><span class="dot" style="background:#8a5bd6"></span><span data-i18n="images"></span></h4>
+        <span class="count" data-n="1">۱ پسوند</span></div>
+      <div class="frow"><h4><span class="dot" style="background:#8a5bd6"></span><span data-i18n="images">تصاویر</span></h4>
         <div class="chips"><code>.jpg</code><code>.png</code><code>.webp</code><code>.heic</code><code>.tiff</code><code>.psd</code><code>…</code></div>
-        <span class="count" data-n="25"></span></div>
+        <span class="count" data-n="25">۲۵ پسوند</span></div>
+    </div>
+  </section>
+
+  <section id="trial" class="sec wrap">
+    <div class="sec-head"><h2 data-i18n="trial_title">۱۴ روز رایگان امتحان کنید</h2></div>
+    <div class="trial">
+      <svg class="t-bird" viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg>
+      <div class="t-days"><span class="t-num" data-i18n="trial_num">۱۴</span><span class="t-unit" data-i18n="trial_unit">روز رایگان</span></div>
+      <div>
+        <p data-i18n="trial_d">فولیو را دانلود و نصب کنید. برای دریافت راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه، از طریق تلگرام یا اینستاگرام با ما در ارتباط باشید.</p>
+        <div class="cta">
+          <a class="btn ghost" href="https://t.me/PearJam98" target="_blank" rel="noopener" data-i18n="trial_contact_tg">دریافت نسخه آزمایشی در تلگرام</a>
+          <a class="btn ghost" href="https://www.instagram.com/FolioAppFa/" target="_blank" rel="noopener" data-i18n="trial_contact_ig">پیام در اینستاگرام</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="sec wrap">
+    <div class="sec-head"><h2 data-i18n="faq_title">قبل از دانلود، این‌ها را بدانید</h2></div>
+    <div class="frame faq-list">
+      <details><summary data-i18n="faq1_q">فولیو روی چه سیستم‌عاملی اجرا می‌شود؟</summary><p data-i18n="faq1_a">فولیو برای ویندوز ۱۰ به بالا و نسخه‌ی ۶۴ بیتی ارائه شده است.</p></details>
+      <details><summary data-i18n="faq2_q">چطور می‌توانم فولیو را امتحان کنم؟</summary><p data-i18n="faq2_a">نسخه را از دکمه‌ی دانلود دریافت کنید؛ برای راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه با ما در تلگرام یا اینستاگرام تماس بگیرید.</p></details>
+      <details><summary data-i18n="faq3_q">فولیو از چه فایل‌هایی پشتیبانی می‌کند؟</summary><p data-i18n="faq3_a">فولیو از فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و آرشیوهای فشرده پشتیبانی می‌کند. فهرست قالب‌ها در بخش فرمت‌های پشتیبانی‌شده آمده است.</p></details>
+      <details><summary data-i18n="faq4_q">هزینه‌ی لایسنس چقدر است؟</summary><p data-i18n="faq4_a">قیمت لایسنس‌های ۶ و ۱۲ ماهه در بخش تعرفه درج شده است. برای خرید یا دریافت راهنمایی بیشتر با ما تماس بگیرید.</p></details>
     </div>
   </section>
 
   <section id="pricing" class="sec wrap">
-    <div class="sec-head"><h2 data-i18n="price_title"></h2></div>
+    <div class="sec-head"><h2 data-i18n="price_title">تعرفه‌ی اشتراک</h2></div>
     <div class="plans">
       <div class="plan">
-        <h3 data-i18n="p6_t"></h3>
-        <div class="price"><span class="now" data-i18n="p6_now"></span><span class="unit" data-i18n="unit"></span><span class="old" data-i18n="p6_old"></span><span class="off" data-i18n="p6_off"></span></div>
-        <p class="for"><span data-i18n="p6_for"></span><span data-i18n="p6_per"></span></p>
+        <h3 data-i18n="p6_t">لایسنس ۶ ماهه</h3>
+        <div class="price"><span class="now" data-i18n="p6_now">۶</span><span class="unit" data-i18n="unit">میلیون تومان</span><span class="old" data-i18n="p6_old">۹</span><span class="off" data-i18n="p6_off">۳۳٪ تخفیف</span></div>
+        <p class="for"><span data-i18n="p6_for">برای ۶ ماه</span><span data-i18n="p6_per">هر ماه ۱ میلیون تومان</span></p>
       </div>
       <div class="plan best">
-        <span class="flag" data-i18n="best"></span>
-        <h3 data-i18n="p12_t"></h3>
-        <div class="price"><span class="now" data-i18n="p12_now"></span><span class="unit" data-i18n="unit"></span><span class="old" data-i18n="p12_old"></span><span class="off" data-i18n="p12_off"></span></div>
-        <p class="for"><span data-i18n="p12_for"></span><span data-i18n="p12_per"></span></p>
+        <span class="flag" data-i18n="best">به‌صرفه‌تر</span>
+        <h3 data-i18n="p12_t">لایسنس ۱۲ ماهه</h3>
+        <div class="price"><span class="now" data-i18n="p12_now">۹</span><span class="unit" data-i18n="unit">میلیون تومان</span><span class="old" data-i18n="p12_old">۱۵</span><span class="off" data-i18n="p12_off">۴۰٪ تخفیف</span></div>
+        <p class="for"><span data-i18n="p12_for">برای ۱۲ ماه</span><span data-i18n="p12_per">هر ماه ۰٫۷۵ میلیون تومان</span></p>
       </div>
     </div>
     <div class="contact">
-      <span data-i18n="contact_t"></span>
-      <a class="btn ghost small" href="tel:+989188078428" dir="ltr"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>0918 807 8428</a>
+      <p class="contact-t" data-i18n="contact_t">برای خرید و دریافت راهنمایی، تماس بگیرید</p>
+      <div class="contact-grid">
+        <a class="ctile" href="tel:+989188078428"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span class="ct-text"><small data-i18n="ct_phone">تماس تلفنی</small><b dir="ltr">0918 807 8428</b></span></a>
+        <a class="ctile" href="https://t.me/PearJam98" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-telegram"/></svg><span class="ct-text"><small data-i18n="tg">تلگرام</small><b dir="ltr">@PearJam98</b></span></a>
+        <a class="ctile" href="https://www.instagram.com/FolioAppFa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg><span class="ct-text"><small data-i18n="ig">اینستاگرام</small><b dir="ltr">@FolioAppFa</b></span></a>
+      </div>
     </div>
   </section>
+
 </main>
 
 <footer>
   <div class="wrap foot">
     <span>Folio <bdi dir="ltr" id="footVer"></bdi></span>
-    <a href="https://github.com/PearJam98/folio" data-i18n="gh"></a>
+    <div class="foot-links">
+      <a href="https://t.me/PearJam98" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="tg">تلگرام</span></a>
+      <a href="https://www.instagram.com/FolioAppFa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg><span data-i18n="ig">اینستاگرام</span></a>
+      <a href="https://github.com/PearJam98/folio" data-i18n="gh">فولیو در گیت‌هاب</a>
+    </div>
   </div>
 </footer>
 
@@ -280,10 +379,10 @@
       meta_title: "فولیو | Folio؛ دستیار هوشمند کپی‌سنتر و مراکز چاپ",
       meta_desc: "فولیو؛ دستیار هوشمند برای کپی‌سنتر و مراکز چاپ. شمارش صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.",
       nav_features: "امکانات", nav_formats: "فرمت‌ها", nav_pricing: "تعرفه",
-      h1: "فایل مشتری را بکشید؛ برگ و هزینه آماده است",
-      lead: "فولیو دستیار ویندوزی کپی‌سنترها و مراکز چاپ است. فایل‌ها را بکشید و رها کنید؛ فولیو صفحه‌ها را می‌شمارد، برگ و هزینه را محاسبه می‌کند، جهت چاپ را خودکار تنظیم می‌کند و فایل‌ها را مستقیم به چاپگر می‌فرستد.",
+      h1: "مدیریت سفارش‌های چاپ، ساده‌تر و سریع‌تر",
+      lead: "فولیو نرم‌افزار ویندوزی دفاتر فنی و کپی‌سنترهاست؛ از شمارش صفحه‌ها و محاسبه تعداد برگ و هزینه تا تنظیمات و ارسال فایل‌ها برای چاپ، همه را در یک محیط یکپارچه مدیریت کنید.",
       shot_alt: "پنجره‌ی اصلی فولیو: فهرست فایل‌ها با تعداد صفحه و برگ هر فایل و پنل محاسبه‌ی هزینه",
-      dl_btn: "دانلود فولیو", hero_pricing: "تعرفه‌ی خرید",
+      dl_btn: "دانلود فولیو", hero_pricing: "مشاهده تعرفه‌ها",
       sys: "ویندوز ۱۰ به بالا (۶۴ بیتی)",
       feat_title: "امکانات اصلی",
       f1_t: "شمارش هوشمند صفحه‌ها", f1_d: "شمارش خودکار صفحه‌های چندین فایل به‌صورت یکجا، حتی فایل‌ها و آرشیوهای رمزدار؛ فایل تکراری یا معیوب هم هشدار داده می‌شود.",
@@ -302,17 +401,28 @@
       p6_t: "لایسنس ۶ ماهه", p6_now: "۶", p6_old: "۹", p6_off: "۳۳٪ تخفیف", p6_for: "برای ۶ ماه", p6_per: "هر ماه ۱ میلیون تومان",
       p12_t: "لایسنس ۱۲ ماهه", p12_now: "۹", p12_old: "۱۵", p12_off: "۴۰٪ تخفیف", p12_for: "برای ۱۲ ماه", p12_per: "هر ماه ۰٫۷۵ میلیون تومان",
       contact_t: "برای خرید و دریافت راهنمایی، تماس بگیرید",
-      gh: "فولیو در گیت‌هاب",
+      ct_phone: "تماس تلفنی",
+      gh: "فولیو در گیت‌هاب", ig: "اینستاگرام", tg: "تلگرام",
+      nav_trial: "آزمایشی",
+      trial_title: "۱۴ روز رایگان امتحان کنید",
+      trial_d: "فولیو را دانلود و نصب کنید. برای دریافت راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه، از طریق تلگرام یا اینستاگرام با ما در ارتباط باشید.",
+      trial_num: "۱۴", trial_unit: "روز رایگان",
+      trial_contact_tg: "دریافت نسخه آزمایشی در تلگرام", trial_contact_ig: "پیام در اینستاگرام",
+      faq_title: "قبل از دانلود، این‌ها را بدانید",
+      faq1_q: "فولیو روی چه سیستم‌عاملی اجرا می‌شود؟", faq1_a: "فولیو برای ویندوز ۱۰ به بالا و نسخه‌ی ۶۴ بیتی ارائه شده است.",
+      faq2_q: "چطور می‌توانم فولیو را امتحان کنم؟", faq2_a: "نسخه را از دکمه‌ی دانلود دریافت کنید؛ برای راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه با ما در تلگرام یا اینستاگرام تماس بگیرید.",
+      faq3_q: "فولیو از چه فایل‌هایی پشتیبانی می‌کند؟", faq3_a: "فولیو از فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و آرشیوهای فشرده پشتیبانی می‌کند. فهرست قالب‌ها در بخش فرمت‌های پشتیبانی‌شده آمده است.",
+      faq4_q: "هزینه‌ی لایسنس چقدر است؟", faq4_a: "قیمت لایسنس‌های ۶ و ۱۲ ماهه در بخش تعرفه درج شده است. برای خرید یا دریافت راهنمایی بیشتر با ما تماس بگیرید.",
       meta: function(v, mb, sys){ return (v ? "نسخه <bdi dir='ltr'>" + v + "</bdi>" + (mb ? " · " + fa(mb) + " مگابایت" : "") + " · " : "آخرین نسخه · ") + sys; }
     },
     en: {
       meta_title: "Folio | The smart assistant for copy centers & print shops",
       meta_desc: "Folio is a smart assistant for copy centers and print shops: page counting, sheet and cost calculation, and direct printing.",
       nav_features: "Features", nav_formats: "Formats", nav_pricing: "Pricing",
-      h1: "Drop in a customer's files. Sheets and cost are ready.",
-      lead: "Folio is a Windows assistant for copy centers and print shops. Drag and drop files; Folio counts the pages, calculates sheets and cost, sets the print orientation automatically and sends the files straight to the printer.",
+      h1: "Simplify print job management",
+      lead: "Folio is Windows software for copy centers and print shops. Manage page counting, sheet and cost calculation, print settings, and sending files to the printer in one place.",
       shot_alt: "Folio's main window: the file list with pages and sheets for each file, and the cost panel",
-      dl_btn: "Download Folio", hero_pricing: "Pricing",
+      dl_btn: "Download Folio", hero_pricing: "View pricing",
       sys: "Windows 10 or later (64-bit)",
       feat_title: "Key features",
       f1_t: "Smart page counting", f1_d: "Counts the pages of many files at once, even password-protected files and archives. Duplicate or damaged files are flagged.",
@@ -330,8 +440,19 @@
       price_title: "Subscription pricing", best: "Best value", unit: "million toman",
       p6_t: "6-month license", p6_now: "6", p6_old: "9", p6_off: "33% off", p6_for: "for 6 months", p6_per: "1 million toman per month",
       p12_t: "12-month license", p12_now: "9", p12_old: "15", p12_off: "40% off", p12_for: "for 12 months", p12_per: "0.75 million toman per month",
-      contact_t: "To buy or get help, call",
-      gh: "Folio on GitHub",
+      contact_t: "To buy or get help, contact us",
+      ct_phone: "Phone",
+      gh: "Folio on GitHub", ig: "Instagram", tg: "Telegram",
+      nav_trial: "Free trial",
+      trial_title: "Try it free for 14 days",
+      trial_d: "Download and install Folio. Contact us on Telegram or Instagram for help activating the 14-day trial.",
+      trial_num: "14", trial_unit: "days free",
+      trial_contact_tg: "Get trial help on Telegram", trial_contact_ig: "Message on Instagram",
+      faq_title: "Before you download",
+      faq1_q: "Which operating systems does Folio support?", faq1_a: "Folio is available for 64-bit Windows 10 and later.",
+      faq2_q: "How can I try Folio?", faq2_a: "Download Folio using the download button, then contact us on Telegram or Instagram for help activating the 14-day trial.",
+      faq3_q: "Which file types does Folio support?", faq3_a: "Folio supports Word, PowerPoint, Excel and PDF files, images, and compressed archives. See the supported formats section for details.",
+      faq4_q: "How much does a license cost?", faq4_a: "Prices for the 6- and 12-month licenses are listed in the pricing section. Contact us if you need help or want to purchase a license.",
       meta: function(v, mb, sys){ return (v ? "Version <bdi dir='ltr'>" + v + "</bdi>" + (mb ? " · " + mb + " MB" : "") : "Latest release") + " · " + sys; }
     }
   };
@@ -358,6 +479,14 @@
     document.title = t.meta_title;
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute("content", t.meta_desc);
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    var twTitle = document.querySelector('meta[name="twitter:title"]');
+    var twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (ogTitle) ogTitle.setAttribute("content", t.meta_title);
+    if (ogDesc) ogDesc.setAttribute("content", t.meta_desc);
+    if (twTitle) twTitle.setAttribute("content", t.meta_title);
+    if (twDesc) twDesc.setAttribute("content", t.meta_desc);
     document.querySelectorAll("[data-i18n]").forEach(function(el){ el.textContent = t[el.getAttribute("data-i18n")]; });
     document.querySelectorAll("[data-i18n-alt]").forEach(function(el){ el.setAttribute("alt", t[el.getAttribute("data-i18n-alt")]); });
     document.querySelectorAll("[data-n]").forEach(function(el){ el.textContent = t.ext(+el.getAttribute("data-n")); });
@@ -402,6 +531,26 @@
       renderMeta();
     })
     .catch(function(){ /* keep the /releases/latest fallback link */ });
+
+  // header shadow on scroll + active nav link
+  var head = document.querySelector("header.site");
+  var navLinks = {};
+  document.querySelectorAll("nav.links a").forEach(function(a){ navLinks[a.getAttribute("href").slice(1)] = a; });
+  function clearNav(){ Object.keys(navLinks).forEach(function(k){ navLinks[k].removeAttribute("aria-current"); }); }
+  function onScroll(){
+    head.classList.toggle("scrolled", window.scrollY > 8);
+    if (window.scrollY < 200) clearNav();
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting && window.scrollY >= 200){ clearNav(); navLinks[e.target.id].setAttribute("aria-current", "true"); }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    Object.keys(navLinks).forEach(function(k){ var sec = document.getElementById(k); if (sec) io.observe(sec); });
+  }
 
   apply();
 })();
