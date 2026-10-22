@@ -4,43 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<script>try{if(localStorage.getItem("folio-lang")==="en"){var d=document.documentElement;d.lang="en";d.dir="ltr"}}catch(e){}</script>
-<title>فولیو | Folio؛ دستیار هوشمند کپی‌سنتر و مراکز چاپ</title>
-<meta name="description" content="فولیو؛ دستیار هوشمند برای کپی‌سنتر و مراکز چاپ. شمارش صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.">
-<meta property="og:title" content="فولیو | Folio؛ دستیار هوشمند کپی‌سنتر و مراکز چاپ">
-<meta property="og:description" content="فولیو؛ دستیار هوشمند برای کپی‌سنتر و مراکز چاپ. شمارش صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.">
+<script>document.documentElement.classList.add("js");try{if(localStorage.getItem("folio-lang")==="en"){var d=document.documentElement;d.lang="en";d.dir="ltr"}}catch(e){}</script>
+<title>فولیو | Folio؛ نرم‌افزار مدیریت چاپ برای کپی‌سنتر و مراکز چاپ</title>
+<meta name="description" content="فولیو؛ نرم‌افزار مدیریت چاپ برای کپی‌سنتر و مراکز چاپ. شمارش خودکار صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.">
+<meta property="og:title" content="فولیو | Folio؛ نرم‌افزار مدیریت چاپ برای کپی‌سنتر و مراکز چاپ">
+<meta property="og:description" content="فولیو؛ نرم‌افزار مدیریت چاپ برای کپی‌سنتر و مراکز چاپ. شمارش خودکار صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:site_name" content="Folio">
 <meta property="og:image" content="screenshot.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="فولیو | دستیار هوشمند کپی‌سنتر و مراکز چاپ">
-<meta name="twitter:description" content="مدیریت سفارش‌های چاپ، محاسبه هزینه و تنظیمات چاپ در یک محیط یکپارچه.">
+<meta name="twitter:title" content="فولیو | نرم‌افزار مدیریت چاپ برای کپی‌سنتر و مراکز چاپ">
+<meta name="twitter:description" content="مدیریت سفارش‌های چاپ، محاسبه هزینه و تنظیمات چاپ در یک برنامه.">
 <meta name="twitter:image" content="screenshot.png">
-<meta name="theme-color" content="#3f5fd6">
+<meta name="theme-color" content="#3b6ef6">
 <link rel="icon" id="favicon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    color-scheme:light;
-    --ink:#2a3552;        /* deep navy text */
-    --blue:#3f5fd6;       /* Folio blue */
-    --blue-deep:#3350bd;
-    --facet:#a4cbff;      /* bird facets */
-    --mist:#f6f8fd;       /* page background */
+    --ink:#1f2430;
+    --blue:#3b6ef6;
+    --blue-deep:#2f5ce0;
+    --mist:#f5f6fa;
     --paper:#ffffff;
-    --line:#e6ecf7;
-    --hair:#edf1fa;
-    --muted:#5f6b88;
-    --tint:#edf1fc;
-    --rose:#b4414f;
+    --line:#dcdee5;
+    --hair:#edeef3;
+    --muted:#686e7a;
+    --tint:#e7edff;
     --amber-bg:#fff0d2; --amber-ink:#8a4b00;
     --radius:18px;
     --ease:cubic-bezier(.22,.61,.36,1);
     --sec:clamp(56px,8vw,96px);
-    --shadow:0 1px 2px rgba(63,95,214,.04),0 18px 48px -24px rgba(63,95,214,.24);
+    --shadow:0 1px 2px rgba(59,110,246,.04),0 18px 48px -24px rgba(59,110,246,.24);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -50,13 +47,12 @@
   a{color:inherit}
   h1,h2,h3{text-wrap:balance}
   p{text-wrap:pretty}
-  :focus-visible{outline:3px solid #7aa2ff;outline-offset:3px;border-radius:6px}
+  :focus-visible{outline:3px solid #6397ee;outline-offset:3px;border-radius:6px}
   .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-  .num{font-variant-numeric:tabular-nums}
 
   /* ---------- header ---------- */
   header.site{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.72);-webkit-backdrop-filter:saturate(1.5) blur(14px);backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid transparent;transition:background .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
-  header.site.scrolled{background:rgba(255,255,255,.92);border-bottom-color:var(--line);box-shadow:0 12px 30px -22px rgba(63,95,214,.3)}
+  header.site.scrolled{background:rgba(255,255,255,.92);border-bottom-color:var(--line);box-shadow:0 12px 30px -22px rgba(59,110,246,.3)}
   .bar{display:flex;align-items:center;gap:16px;height:64px}
   .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Manrope",sans-serif;font-weight:700;font-size:1.3rem;color:var(--ink);letter-spacing:-.01em}
   .brand svg{width:32px;height:32px}
@@ -74,9 +70,9 @@
   .btn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
   .btn.primary{background:var(--blue);color:#fff}
   .btn.primary:hover{background:var(--blue-deep)}
-  .btn.primary:active{background:#2a43a3}
+  .btn.primary:active{background:#2649b8}
   .btn.ghost{background:var(--paper);border-color:var(--line);color:var(--ink)}
-  .btn.ghost:hover{background:var(--tint);border-color:#b9c7e6}
+  .btn.ghost:hover{background:var(--tint);border-color:#c7d4fb}
   .btn.small{padding:6px 16px;font-size:.9rem;border-radius:12px}
 
   /* ---------- hero ---------- */
@@ -93,36 +89,35 @@
 
   /* app screenshot */
   .stage{position:relative;isolation:isolate}
-  .stage::before{content:"";position:absolute;inset:10% -5% -6%;z-index:-1;background:radial-gradient(closest-side,rgba(63,95,214,.24),rgba(164,203,255,.12) 60%,transparent);filter:blur(28px)}
-  .stage img{display:block;width:100%;height:auto;filter:drop-shadow(0 30px 44px rgba(50,70,150,.16)) drop-shadow(0 4px 12px rgba(50,70,150,.07))}
+  .stage::before{content:"";position:absolute;inset:10% -5% -6%;z-index:-1;background:radial-gradient(closest-side,rgba(59,110,246,.24),rgba(164,203,255,.12) 60%,transparent);filter:blur(28px)}
+  .stage img{display:block;width:100%;height:auto;filter:drop-shadow(0 30px 44px rgba(40,70,170,.16)) drop-shadow(0 4px 12px rgba(40,70,170,.07))}
 
   /* ---------- sections ---------- */
   section.sec{padding-top:var(--sec);scroll-margin-top:calc(88px - var(--sec))}
   .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(20px,3vw,32px)}
-  .sec-head h2{margin:0;font-size:clamp(1.5rem,2.6vw,2rem);font-weight:700;letter-spacing:0}
+  .sec-head h2{margin:0;font-size:clamp(1.5rem,2.6vw,2rem);font-weight:700}
   :lang(en) .sec-head h2{letter-spacing:-.02em}
   .sec-head p{margin:0;color:var(--muted);font-size:.95rem}
 
   .frame{border:1px solid var(--line);border-radius:26px;background:var(--paper);overflow:hidden;box-shadow:var(--shadow)}
   .fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-block-start:-1px;margin-inline-start:-1px}
   .fcell{position:relative;padding:24px 26px 26px;border-block-start:1px solid var(--hair);border-inline-start:1px solid var(--hair);transition:background .3s var(--ease)}
-  .fcell:not(.lead-cell):hover{background:#fafcff}
-  .fcell.lead-cell{background:linear-gradient(180deg,#f3f7ff,#fff)}
+  .fcell:not(.lead-cell):hover{background:#f8f9fc}
+  .fcell.lead-cell{background:linear-gradient(180deg,#f0f4ff,#fff)}
   .fcell svg{width:26px;height:26px;fill:none;stroke:var(--blue);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:16px;display:block;box-sizing:content-box;padding:9px;background:var(--tint);border-radius:16px}
   .fcell h3{margin:0 0 4px;font-size:1.04rem;font-weight:600}
   .fcell p{margin:0;color:var(--muted);font-size:.93rem;line-height:1.85}
   :lang(en) .fcell p{line-height:1.6}
   .soon{position:absolute;inset-block-start:22px;inset-inline-end:22px;background:var(--amber-bg);color:var(--amber-ink);font-size:.74rem;font-weight:600;padding:0 10px;border-radius:999px}
 
-  .frow{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 24px;border-top:1px solid var(--hair)}
+  .frow{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:16px;align-items:start;padding:14px 24px;border-top:1px solid var(--hair);transition:background .25s var(--ease)}
   .frow:first-child{border-top:0}
-  .frow{transition:background .25s var(--ease)}
-  .frow:hover{background:#fafcff}
-  .frow h4{margin:0;font-size:1rem;display:flex;align-items:center;gap:10px;font-weight:600}
+  .frow:hover{background:#f8f9fc}
+  .frow h4{margin:0;padding-block:2px;font-size:1rem;display:flex;align-items:center;gap:10px;font-weight:600}
   .dot{width:10px;height:10px;border-radius:3px}
   .chips{display:flex;flex-wrap:wrap;gap:6px;direction:ltr;justify-content:flex-start}
   .chips code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.78rem;padding:0 11px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:var(--ink);line-height:1.7}
-  .frow .count{font-size:.84rem;color:var(--muted);white-space:nowrap}
+  .frow .count{padding-block:2px;font-size:.84rem;color:var(--muted);white-space:nowrap}
 
   .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
   .plan{position:relative;border:1px solid var(--line);background:var(--paper);border-radius:26px;padding:28px 28px 24px;box-shadow:var(--shadow);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
@@ -132,24 +127,31 @@
   .price .now{font-size:clamp(2.8rem,6vw,3.6rem);line-height:1.1;font-weight:600;color:var(--blue-deep)}
   .price .unit{font-size:1rem;font-weight:600;color:var(--ink)}
   .price .old{font-size:1.05rem;color:var(--muted);text-decoration:line-through}
-  .off{background:#fdecee;color:var(--rose);font-size:.76rem;font-weight:600;padding:0 10px;border-radius:999px}
+  .off{background:#e4f6f0;color:#07835f;font-size:.76rem;font-weight:600;padding:0 10px;border-radius:999px}
   .for{margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line);color:var(--muted);font-size:.93rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .plan.best{background:linear-gradient(155deg,#4f70df 0%,#3f5fd6 50%,#3752c0 100%);border-color:#4766d9;color:#fff;box-shadow:0 30px 50px -28px rgba(63,95,214,.75)}
+  .plan.best{background:linear-gradient(155deg,#5a86fa 0%,#3b6ef6 50%,#2f5ce0 100%);border-color:#4a79f7;color:#fff;box-shadow:0 30px 50px -28px rgba(59,110,246,.75)}
   .plan.best .now{color:#fff}.plan.best .unit{color:#e6edff}.plan.best .old{color:#b9caf7}
   .plan.best .for{border-top-color:rgba(255,255,255,.3);color:#dbe5ff}
-  .plan.best .off{background:#fff;color:var(--rose)}
+  .plan.best .off{background:#fff;color:#07835f}
   .flag{position:absolute;inset-block-start:24px;inset-inline-end:26px;background:#fff;color:var(--blue-deep);font-size:.76rem;font-weight:700;padding:0 12px;border-radius:999px}
 
   .faq-list details{padding:18px 24px;border-top:1px solid var(--hair)}
   .faq-list details:first-child{border-top:0}
-  .faq-list summary{cursor:pointer;font-weight:600}
+  .faq-list summary{cursor:pointer;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"";flex:none;width:8px;height:8px;margin-top:-4px;border:solid var(--muted);border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .3s var(--ease)}
+  .faq-list details[open] summary::after{transform:rotate(-135deg)}
   .faq-list details p{margin:10px 0 0;color:var(--muted);font-size:.94rem}
+  /* smooth open/close where supported (Chromium); other browsers just snap */
+  .faq-list details{interpolate-size:allow-keywords}
+  .faq-list details::details-content{block-size:0;overflow:hidden;opacity:0;transition:block-size .35s var(--ease),opacity .3s var(--ease),content-visibility .35s allow-discrete}
+  .faq-list details[open]::details-content{block-size:auto;opacity:1}
   .contact{margin-top:40px}
   .contact-t{margin:0 0 16px;font-size:1.05rem;font-weight:600}
   .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
   .ctile{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;box-shadow:var(--shadow);transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
-  .ctile:hover{transform:translateY(-2px);border-color:#c9d6f5}
-  .ctile svg{width:22px;height:22px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;box-sizing:content-box;padding:11px;background:var(--tint);border-radius:14px;flex:none}
+  .ctile:hover{transform:translateY(-2px);border-color:#c7d4fb}
+  .ctile svg{width:24px;height:24px;fill:none;stroke:var(--blue);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;box-sizing:content-box;padding:11px;background:var(--tint);border-radius:14px;flex:none;shape-rendering:geometricPrecision}
   .ct-text{display:flex;flex-direction:column;min-width:0;line-height:1.5}
   .ct-text small{color:var(--muted);font-size:.8rem}
   .ct-text b{font-weight:600;font-size:1.02rem;color:var(--ink)}
@@ -162,18 +164,24 @@
   .foot-links a{display:inline-flex;align-items:center;gap:8px}
   .foot-links svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-  .trial{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 44px;align-items:center;padding:34px 40px;border-radius:26px;color:#fff;background:linear-gradient(135deg,#5a7be6 0%,#3f5fd6 52%,#3450bd 100%);box-shadow:0 34px 60px -34px rgba(63,95,214,.7)}
+  .trial{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 44px;align-items:center;padding:34px 40px;border-radius:26px;color:#fff;background:linear-gradient(135deg,#5a86fa 0%,#3b6ef6 52%,#2f5ce0 100%);box-shadow:0 34px 60px -34px rgba(59,110,246,.7)}
   .trial::before{content:"";position:absolute;inset:-40% -10% auto auto;width:420px;height:420px;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.28),transparent)}
   .trial .t-bird{position:absolute;inset-inline-start:-30px;bottom:-70px;width:260px;height:260px;opacity:.13;z-index:-1;pointer-events:none}
   .t-days{display:flex;flex-direction:column;align-items:center;line-height:1;padding-inline-end:44px;border-inline-end:1px solid rgba(255,255,255,.28)}
-  .t-num{font-size:clamp(3.8rem,8vw,5.6rem);font-weight:600;letter-spacing:-.02em}
-  .t-unit{margin-top:10px;font-size:1.05rem;font-weight:600;opacity:.9}
+  .t-num{font-size:clamp(3.8rem,8vw,5.6rem);font-weight:600;letter-spacing:-.02em;line-height:1}
+  .t-unit{margin-top:10px;font-size:1.05rem;font-weight:600;opacity:.9;line-height:1.4}
   .trial p{margin:0 0 18px;color:#fff;opacity:.92}
-  .key-label{display:block;margin-bottom:8px;font-size:.82rem;font-weight:600;opacity:.85}
-  .key{display:flex;gap:12px;align-items:center;direction:ltr;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:10px 10px 10px 18px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-  .key code{flex:1;min-width:0;font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.95rem;letter-spacing:.04em;line-height:1.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .key .btn{flex:none;background:#fff;color:var(--blue-deep);border-color:#fff}
-  .key .btn:hover{background:var(--tint)}
+  .trial .cta .btn{flex:1 1 200px;max-width:240px;background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.34);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .2s var(--ease),background .2s var(--ease),border-color .2s var(--ease)}
+  .trial .cta .btn:hover{background:rgba(255,255,255,.24);border-color:rgba(255,255,255,.5);transform:translateY(-2px)}
+  .trial .cta .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+  /* ---------- scroll reveal (only active when JS runs) ---------- */
+  .js .rv:not(.in){opacity:0}
+  .js .rv.in{animation:rise .7s var(--ease) var(--d,0s) backwards}
+
+  /* ---------- language crossfade ---------- */
+  body{transition:opacity .16s var(--ease)}
+  body.swap{opacity:0}
 
   /* ---------- responsive ---------- */
   @media (max-width:900px){
@@ -208,19 +216,18 @@
 <!-- icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-count" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
-  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="4.5" y="2.5" width="15" height="19" rx="3"/><rect x="7.5" y="5.5" width="9" height="3.5" rx="1"/><path stroke-width="2.4" d="M8 12.5h.01M12 12.5h.01M16 12.5h.01M8 15.5h.01M12 15.5h.01M8 18.5h.01M12 18.5h.01M16 15.5v3"/></symbol>
   <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
   <symbol id="i-align" viewBox="0 0 24 24"><path d="M20 6H8M20 12H4M20 18H10"/></symbol>
   <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
-  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M21 11.5l-8.5 8.5a5 5 0 0 1-7-7L14 4.5a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 8"/></symbol>
+  <symbol id="i-bind" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="18" rx="2"/><path d="M3.5 7h7M3.5 12h7M3.5 17h7"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
   <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
   <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></symbol>
-  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
-  <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></symbol>
-  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M20.8 3.5 3.1 10.4l6.3 2.5 2.4 6.7 3.1-3.7 4.7 3.5z"/><path d="M9.4 12.9 20.8 3.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5.6 3h3.1c.4 0 .8.3.9.7l.8 3.4c.1.4 0 .8-.3 1.1L8.6 9.5a12.5 12.5 0 0 0 5.9 5.9l1.3-1.5c.3-.3.7-.4 1.1-.3l3.4.8c.4.1.7.5.7.9v3.1c0 1-.8 1.9-1.9 1.9C10.5 20.3 3.7 13.5 3.7 4.9 3.7 3.8 4.6 3 5.6 3z"/></symbol>
   <symbol id="bird" viewBox="0 0 512 512">
     <polygon fill="#a8cfff" points="95,62 4,112 95,140"/>
     <polygon fill="#c4dcff" points="95,62 212,140 95,218"/>
@@ -256,7 +263,7 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1 data-i18n="h1">مدیریت سفارش‌های چاپ، ساده‌تر و سریع‌تر</h1>
-        <p class="lead" data-i18n="lead">فولیو نرم‌افزار ویندوزی دفاتر فنی و کپی‌سنترهاست؛ از شمارش صفحه‌ها و محاسبه تعداد برگ و هزینه تا تنظیمات و ارسال فایل‌ها برای چاپ، همه را در یک محیط یکپارچه مدیریت کنید.</p>
+        <p class="lead" data-i18n="lead">فولیو نرم‌افزار ویندوزی دفاتر فنی و کپی‌سنترهاست؛ از شمارش صفحه‌ها و محاسبه تعداد برگ و هزینه تا تنظیمات و ارسال فایل‌ها برای چاپ، همه را در یک برنامه مدیریت کنید.</p>
         <div class="cta">
           <a class="btn primary js-dl" href="https://github.com/PearJam98/folio/releases/latest"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl_btn">دانلود فولیو</span></a>
           <a class="btn ghost" href="#pricing" data-i18n="hero_pricing">مشاهده تعرفه‌ها</a>
@@ -273,35 +280,35 @@
   <section id="features" class="sec wrap">
     <div class="sec-head"><h2 data-i18n="feat_title">امکانات اصلی</h2></div>
     <div class="frame"><div class="fgrid">
-      <article class="fcell lead-cell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-count"/></svg><h3 data-i18n="f1_t">شمارش هوشمند صفحه‌ها</h3><p data-i18n="f1_d">شمارش خودکار صفحه‌های چندین فایل به‌صورت یکجا، حتی فایل‌ها و آرشیوهای رمزدار؛ فایل تکراری یا معیوب هم هشدار داده می‌شود.</p></article>
+      <article class="fcell lead-cell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-count"/></svg><h3 data-i18n="f1_t">شمارش خودکار صفحه‌ها</h3><p data-i18n="f1_d">شمارش خودکار صفحه‌های چندین فایل به‌صورت یکجا، حتی فایل‌ها و آرشیوهای رمزدار؛ فایل تکراری یا معیوب هم هشدار داده می‌شود.</p></article>
       <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calc"/></svg><h3 data-i18n="f2_t">محاسبه‌ی دقیق برگ و هزینه</h3><p data-i18n="f2_d">محاسبه‌ی هزینه بر پایه‌ی اندازه‌ی کاغذ (A5 / A4 / A3)، سیاه‌وسفید یا رنگی و یک‌رو یا دورو، با تعرفه‌ی قابل‌ویرایش خودتان.</p></article>
       <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg><h3 data-i18n="f3_t">ارسال مستقیم به چاپگر</h3><p data-i18n="f3_d">انتخاب چاپگر، کاغذ، مقیاس، کیفیت، حاشیه، تعداد نسخه و Collate؛ چیدمان ۲ تا ۹ صفحه در هر طرف برگ و چاپ Booklet.</p></article>
       <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-align"/></svg><h3 data-i18n="f4_t">منگنه‌ی سمت راست برای فارسی</h3><p data-i18n="f4_d">ترتیب صفحه‌ها خودکار معکوس می‌شود تا اسناد فارسی و عربی را حتی با چاپگرهایی که فقط سمت چپ منگنه می‌زنند، بتوان از سمت راست منگنه کرد.</p></article>
       <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rotate"/></svg><h3 data-i18n="f5_t">جهت چاپ خودکار</h3><p data-i18n="f5_d">جهت عمودی یا افقی هر فایل خودکار تشخیص داده می‌شود؛ در چاپ چندصفحه‌ای در هر برگ هم صفحه‌ها بر اساس شکل غالب فایل چیده می‌شوند، همان‌طور که مشتری انتظار دارد.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clip"/></svg><h3 data-i18n="f6_t">منگنه و فنر سیمی</h3><p data-i18n="f6_d">تعداد منگنه‌ی موردنیاز و اندازه‌ی پیشنهادی فنر سیمی برای صحافی هر فایل خودکار برآورد می‌شود و بازه‌های آن قابل‌ویرایش است.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bind"/></svg><h3 data-i18n="f6_t">منگنه و فنر سیمی</h3><p data-i18n="f6_d">تعداد منگنه‌ی موردنیاز و اندازه‌ی پیشنهادی فنر سیمی برای صحافی هر فایل خودکار برآورد می‌شود و بازه‌های آن قابل‌ویرایش است.</p></article>
       <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg><h3 data-i18n="f7_t">انتخاب صفحه و تعداد نسخه</h3><p data-i18n="f7_d">با پیش‌نمایش بندانگشتی، فقط بازه‌ی موردنظر یا صفحه‌های زوج/فرد را چاپ کنید و برای هر فایل نسخه‌ی جداگانه تعیین کنید.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-layers"/></svg><h3 data-i18n="f8_t">پشتیبانی از قالب‌های گوناگون</h3><p data-i18n="f8_d">فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و حتی آرشیوهای فشرده بدون تبدیل دستی چاپ می‌شوند و همه را می‌توانید به PDF هم تبدیل کنید.</p></article>
-      <article class="fcell"><span class="soon" data-i18n="soon">به‌زودی</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-card"/></svg><h3 data-i18n="f9_t">ارتباط با کارتخوان / صندوق</h3><p data-i18n="f9_d">در نسخه‌های بعدی، مبلغ نهایی چاپ مستقیم برای کارتخوان یا صندوق فرستاده می‌شود؛ بدون تایپ دستی و بدون خطای انسانی.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-layers"/></svg><h3 data-i18n="f8_t">پشتیبانی از فرمت‌های گوناگون</h3><p data-i18n="f8_d">فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و حتی آرشیوهای فشرده بدون تبدیل دستی چاپ می‌شوند و همه را می‌توانید به PDF هم تبدیل کنید.</p></article>
+      <article class="fcell"><span class="soon" data-i18n="soon">به‌زودی</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-card"/></svg><h3 data-i18n="f9_t">اتصال به کارتخوان و صندوق</h3><p data-i18n="f9_d">در نسخه‌های بعدی، مبلغ نهایی چاپ مستقیم برای کارتخوان یا صندوق فرستاده می‌شود؛ بدون تایپ دستی و بدون خطای انسانی.</p></article>
     </div></div>
   </section>
 
   <section id="formats" class="sec wrap">
     <div class="sec-head"><h2 data-i18n="fmt_title">فرمت‌های پشتیبانی‌شده</h2><p data-i18n="fmt_sub">۵۲ پسوند در ۵ خانواده</p></div>
     <div class="frame">
-      <div class="frow"><h4><span class="dot" style="background:#2f6fdb"></span>Word</h4>
-        <div class="chips"><code>.doc</code><code>.docx</code><code>.rtf</code><code>.odt</code><code>…</code></div>
+      <div class="frow"><h4><span class="dot" style="background:#1565C0"></span>Word</h4>
+        <div class="chips"><code>.doc</code><code>.docx</code><code>.docm</code><code>.dot</code><code>.dotx</code><code>.dotm</code><code>.rtf</code><code>.odt</code></div>
         <span class="count" data-n="8">۸ پسوند</span></div>
-      <div class="frow"><h4><span class="dot" style="background:#e0662d"></span>PowerPoint</h4>
-        <div class="chips"><code>.ppt</code><code>.pptx</code><code>.ppsx</code><code>.odp</code><code>…</code></div>
+      <div class="frow"><h4><span class="dot" style="background:#BF360C"></span>PowerPoint</h4>
+        <div class="chips"><code>.ppt</code><code>.pptx</code><code>.pptm</code><code>.pot</code><code>.potx</code><code>.potm</code><code>.pps</code><code>.ppsx</code><code>.ppsm</code><code>.odp</code></div>
         <span class="count" data-n="10">۱۰ پسوند</span></div>
-      <div class="frow"><h4><span class="dot" style="background:#2e9b57"></span>Excel</h4>
-        <div class="chips"><code>.xls</code><code>.xlsx</code><code>.xlsb</code><code>.ods</code><code>…</code></div>
+      <div class="frow"><h4><span class="dot" style="background:#2E7D32"></span>Excel</h4>
+        <div class="chips"><code>.xls</code><code>.xlsx</code><code>.xlsm</code><code>.xlsb</code><code>.xlt</code><code>.xltx</code><code>.xltm</code><code>.ods</code></div>
         <span class="count" data-n="8">۸ پسوند</span></div>
-      <div class="frow"><h4><span class="dot" style="background:#d63b5c"></span>PDF</h4>
+      <div class="frow"><h4><span class="dot" style="background:#AD1457"></span>PDF</h4>
         <div class="chips"><code>.pdf</code></div>
         <span class="count" data-n="1">۱ پسوند</span></div>
-      <div class="frow"><h4><span class="dot" style="background:#8a5bd6"></span><span data-i18n="images">تصاویر</span></h4>
-        <div class="chips"><code>.jpg</code><code>.png</code><code>.webp</code><code>.heic</code><code>.tiff</code><code>.psd</code><code>…</code></div>
+      <div class="frow"><h4><span class="dot" style="background:#5E35B1"></span><span data-i18n="images">تصاویر</span></h4>
+        <div class="chips"><code>.jpg</code><code>.jpeg</code><code>.jfif</code><code>.jpe</code><code>.png</code><code>.gif</code><code>.bmp</code><code>.dib</code><code>.tif</code><code>.tiff</code><code>.webp</code><code>.heic</code><code>.heif</code><code>.avif</code><code>.jp2</code><code>.j2k</code><code>.jpx</code><code>.ico</code><code>.tga</code><code>.pcx</code><code>.ppm</code><code>.pgm</code><code>.pbm</code><code>.psd</code><code>.psb</code></div>
         <span class="count" data-n="25">۲۵ پسوند</span></div>
     </div>
   </section>
@@ -314,8 +321,8 @@
       <div>
         <p data-i18n="trial_d">فولیو را دانلود و نصب کنید. برای دریافت راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه، از طریق تلگرام یا اینستاگرام با ما در ارتباط باشید.</p>
         <div class="cta">
-          <a class="btn ghost" href="https://t.me/PearJam98" target="_blank" rel="noopener" data-i18n="trial_contact_tg">دریافت نسخه آزمایشی در تلگرام</a>
-          <a class="btn ghost" href="https://www.instagram.com/FolioAppFa/" target="_blank" rel="noopener" data-i18n="trial_contact_ig">پیام در اینستاگرام</a>
+          <a class="btn" href="https://t.me/PearJam98" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="trial_contact_tg">پیام در تلگرام</span></a>
+          <a class="btn" href="https://www.instagram.com/FolioAppFa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg><span data-i18n="trial_contact_ig">پیام در اینستاگرام</span></a>
         </div>
       </div>
     </div>
@@ -325,25 +332,33 @@
     <div class="sec-head"><h2 data-i18n="faq_title">قبل از دانلود، این‌ها را بدانید</h2></div>
     <div class="frame faq-list">
       <details><summary data-i18n="faq1_q">فولیو روی چه سیستم‌عاملی اجرا می‌شود؟</summary><p data-i18n="faq1_a">فولیو برای ویندوز ۱۰ به بالا و نسخه‌ی ۶۴ بیتی ارائه شده است.</p></details>
-      <details><summary data-i18n="faq2_q">چطور می‌توانم فولیو را امتحان کنم؟</summary><p data-i18n="faq2_a">نسخه را از دکمه‌ی دانلود دریافت کنید؛ برای راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه با ما در تلگرام یا اینستاگرام تماس بگیرید.</p></details>
-      <details><summary data-i18n="faq3_q">فولیو از چه فایل‌هایی پشتیبانی می‌کند؟</summary><p data-i18n="faq3_a">فولیو از فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و آرشیوهای فشرده پشتیبانی می‌کند. فهرست قالب‌ها در بخش فرمت‌های پشتیبانی‌شده آمده است.</p></details>
+      <details><summary data-i18n="faq_office_q">برای فایل‌های Word، PowerPoint و Excel به Office نیاز دارم؟</summary><p data-i18n="faq_office_a">بله، برای کار با فایل‌های Word، PowerPoint و Excel باید Microsoft Office روی همان کامپیوتر نصب باشد.</p></details>
+      <details><summary data-i18n="faq3_q">فولیو از چه فایل‌هایی پشتیبانی می‌کند؟</summary><p data-i18n="faq3_a">فولیو از فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و آرشیوهای فشرده پشتیبانی می‌کند. فهرست فرمت‌ها در بخش فرمت‌های پشتیبانی‌شده آمده است.</p></details>
+      <details><summary data-i18n="faq_pages_q">شمارش صفحه‌ها چقدر دقیق است؟</summary><p data-i18n="faq_pages_a">فولیو صفحه‌ها را دقیق می‌شمارد. اما در فایل‌های Word و Excel، تعداد صفحه‌ها به خودِ کامپیوتر بستگی دارد؛ چون چیدمان این فایل‌ها هنگام باز شدن و بر اساس فونت‌های نصب‌شده، نسخه‌ی Office و تنظیمات چاپگر محاسبه می‌شود، و روی دو کامپیوتر متفاوت ممکن است کمی فرق کند. اگر به عدد قطعی نیاز دارید، فایل را به PDF تبدیل کنید؛ فولیو این کار را هم انجام می‌دهد.</p></details>
+      <details><summary data-i18n="faq_printers_q">فولیو با چه چاپگرهایی کار می‌کند؟</summary><p data-i18n="faq_printers_a">با همه‌ی چاپگرها، چه فیزیکی و چه مجازی (مثل چاپگرهای PDF).</p></details>
+      <details><summary data-i18n="faq_prices_q">آیا می‌توانم تعرفه‌ی چاپ را خودم تنظیم کنم؟</summary><p data-i18n="faq_prices_a">بله. تعرفه‌ی چاپ کاملاً قابل‌ویرایش است و قیمت‌ها را مطابق نرخ مرکز خودتان تنظیم می‌کنید.</p></details>
+      <details><summary data-i18n="faq2_q">چطور می‌توانم فولیو را امتحان کنم؟</summary><p data-i18n="faq2_a">نسخه را از دکمه‌ی دانلود دریافت کنید؛ برای راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه با ما در تلگرام یا اینستاگرام تماس بگیرید. نسخه‌ی آزمایشی فقط محدودیت زمانی دارد، پس می‌توانید آن را با کارهای واقعی مرکز خود امتحان کنید.</p></details>
       <details><summary data-i18n="faq4_q">هزینه‌ی لایسنس چقدر است؟</summary><p data-i18n="faq4_a">قیمت لایسنس‌های ۶ و ۱۲ ماهه در بخش تعرفه درج شده است. برای خرید یا دریافت راهنمایی بیشتر با ما تماس بگیرید.</p></details>
+      <details><summary data-i18n="faq_terms_q">یک لایسنس روی چند کامپیوتر کار می‌کند؟</summary><p data-i18n="faq_terms_a">هر لایسنس تا ۵ کامپیوتر را پوشش می‌دهد و نصب دوباره مشکلی ایجاد نمی‌کند. به‌روزرسانی‌ها هم در طول مدت لایسنس شامل شما می‌شوند.</p></details>
+      <details><summary data-i18n="faq_buy_q">چطور لایسنس بخرم و چقدر طول می‌کشد؟</summary><p data-i18n="faq_buy_a">از طریق تلفن، تلگرام یا اینستاگرام با ما تماس بگیرید. کلید سریال شما کمتر از ۱۲ ساعت بعد برایتان ارسال می‌شود.</p></details>
+      <details><summary data-i18n="faq_net_q">آیا فولیو اینترنت می‌خواهد و فایل‌هایم کجا ذخیره می‌شوند؟</summary><p data-i18n="faq_net_a">اینترنت فقط برای فعال‌سازی اولیه لازم است و بعد از آن فولیو بدون اینترنت کار می‌کند. فایل‌های شما هیچ‌جا آپلود نمی‌شوند و همه‌چیز روی همان کامپیوتر می‌ماند.</p></details>
+      <details><summary data-i18n="faq_refund_q">آیا امکان بازگشت وجه وجود دارد؟</summary><p data-i18n="faq_refund_a">خیر، بازگشت وجه نداریم؛ اما نسخه‌ی آزمایشی ۱۴ روزه را دارید تا پیش از خرید، فولیو را با کار واقعی خود امتحان کنید.</p></details>
     </div>
   </section>
 
   <section id="pricing" class="sec wrap">
-    <div class="sec-head"><h2 data-i18n="price_title">تعرفه‌ی اشتراک</h2></div>
+    <div class="sec-head"><h2 data-i18n="price_title">تعرفه‌ی لایسنس</h2></div>
     <div class="plans">
       <div class="plan">
         <h3 data-i18n="p6_t">لایسنس ۶ ماهه</h3>
         <div class="price"><span class="now" data-i18n="p6_now">۶</span><span class="unit" data-i18n="unit">میلیون تومان</span><span class="old" data-i18n="p6_old">۹</span><span class="off" data-i18n="p6_off">۳۳٪ تخفیف</span></div>
-        <p class="for"><span data-i18n="p6_for">برای ۶ ماه</span><span data-i18n="p6_per">هر ماه ۱ میلیون تومان</span></p>
+        <p class="for"><span data-i18n="p6_per">هر ماه ۱ میلیون تومان</span></p>
       </div>
       <div class="plan best">
         <span class="flag" data-i18n="best">به‌صرفه‌تر</span>
         <h3 data-i18n="p12_t">لایسنس ۱۲ ماهه</h3>
         <div class="price"><span class="now" data-i18n="p12_now">۹</span><span class="unit" data-i18n="unit">میلیون تومان</span><span class="old" data-i18n="p12_old">۱۵</span><span class="off" data-i18n="p12_off">۴۰٪ تخفیف</span></div>
-        <p class="for"><span data-i18n="p12_for">برای ۱۲ ماه</span><span data-i18n="p12_per">هر ماه ۰٫۷۵ میلیون تومان</span></p>
+        <p class="for"><span data-i18n="p12_per">هر ماه ۰٫۷۵ میلیون تومان</span></p>
       </div>
     </div>
     <div class="contact">
@@ -376,83 +391,97 @@
 
   var T = {
     fa: {
-      meta_title: "فولیو | Folio؛ دستیار هوشمند کپی‌سنتر و مراکز چاپ",
-      meta_desc: "فولیو؛ دستیار هوشمند برای کپی‌سنتر و مراکز چاپ. شمارش صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.",
-      nav_features: "امکانات", nav_formats: "فرمت‌ها", nav_pricing: "تعرفه",
+      meta_title: "فولیو | Folio؛ نرم‌افزار مدیریت چاپ برای کپی‌سنتر و مراکز چاپ",
+      meta_desc: "فولیو؛ نرم‌افزار مدیریت چاپ برای کپی‌سنتر و مراکز چاپ. شمارش خودکار صفحه، محاسبه‌ی برگ و هزینه و ارسال مستقیم به چاپگر.",
+      nav_features: "امکانات", nav_formats: "فرمت‌ها", nav_trial: "آزمایشی", nav_pricing: "تعرفه",
       h1: "مدیریت سفارش‌های چاپ، ساده‌تر و سریع‌تر",
-      lead: "فولیو نرم‌افزار ویندوزی دفاتر فنی و کپی‌سنترهاست؛ از شمارش صفحه‌ها و محاسبه تعداد برگ و هزینه تا تنظیمات و ارسال فایل‌ها برای چاپ، همه را در یک محیط یکپارچه مدیریت کنید.",
+      lead: "فولیو نرم‌افزار ویندوزی دفاتر فنی و کپی‌سنترهاست؛ از شمارش صفحه‌ها و محاسبه تعداد برگ و هزینه تا تنظیمات و ارسال فایل‌ها برای چاپ، همه را در یک برنامه مدیریت کنید.",
       shot_alt: "پنجره‌ی اصلی فولیو: فهرست فایل‌ها با تعداد صفحه و برگ هر فایل و پنل محاسبه‌ی هزینه",
       dl_btn: "دانلود فولیو", hero_pricing: "مشاهده تعرفه‌ها",
       sys: "ویندوز ۱۰ به بالا (۶۴ بیتی)",
       feat_title: "امکانات اصلی",
-      f1_t: "شمارش هوشمند صفحه‌ها", f1_d: "شمارش خودکار صفحه‌های چندین فایل به‌صورت یکجا، حتی فایل‌ها و آرشیوهای رمزدار؛ فایل تکراری یا معیوب هم هشدار داده می‌شود.",
+      f1_t: "شمارش خودکار صفحه‌ها", f1_d: "شمارش خودکار صفحه‌های چندین فایل به‌صورت یکجا، حتی فایل‌ها و آرشیوهای رمزدار؛ فایل تکراری یا معیوب هم هشدار داده می‌شود.",
       f2_t: "محاسبه‌ی دقیق برگ و هزینه", f2_d: "محاسبه‌ی هزینه بر پایه‌ی اندازه‌ی کاغذ (A5 / A4 / A3)، سیاه‌وسفید یا رنگی و یک‌رو یا دورو، با تعرفه‌ی قابل‌ویرایش خودتان.",
       f3_t: "ارسال مستقیم به چاپگر", f3_d: "انتخاب چاپگر، کاغذ، مقیاس، کیفیت، حاشیه، تعداد نسخه و Collate؛ چیدمان ۲ تا ۹ صفحه در هر طرف برگ و چاپ Booklet.",
       f4_t: "منگنه‌ی سمت راست برای فارسی", f4_d: "ترتیب صفحه‌ها خودکار معکوس می‌شود تا اسناد فارسی و عربی را حتی با چاپگرهایی که فقط سمت چپ منگنه می‌زنند، بتوان از سمت راست منگنه کرد.",
       f5_t: "جهت چاپ خودکار", f5_d: "جهت عمودی یا افقی هر فایل خودکار تشخیص داده می‌شود؛ در چاپ چندصفحه‌ای در هر برگ هم صفحه‌ها بر اساس شکل غالب فایل چیده می‌شوند، همان‌طور که مشتری انتظار دارد.",
       f6_t: "منگنه و فنر سیمی", f6_d: "تعداد منگنه‌ی موردنیاز و اندازه‌ی پیشنهادی فنر سیمی برای صحافی هر فایل خودکار برآورد می‌شود و بازه‌های آن قابل‌ویرایش است.",
       f7_t: "انتخاب صفحه و تعداد نسخه", f7_d: "با پیش‌نمایش بندانگشتی، فقط بازه‌ی موردنظر یا صفحه‌های زوج/فرد را چاپ کنید و برای هر فایل نسخه‌ی جداگانه تعیین کنید.",
-      f8_t: "پشتیبانی از قالب‌های گوناگون", f8_d: "فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و حتی آرشیوهای فشرده بدون تبدیل دستی چاپ می‌شوند و همه را می‌توانید به PDF هم تبدیل کنید.",
-      f9_t: "ارتباط با کارتخوان / صندوق", f9_d: "در نسخه‌های بعدی، مبلغ نهایی چاپ مستقیم برای کارتخوان یا صندوق فرستاده می‌شود؛ بدون تایپ دستی و بدون خطای انسانی.",
+      f8_t: "پشتیبانی از فرمت‌های گوناگون", f8_d: "فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و حتی آرشیوهای فشرده بدون تبدیل دستی چاپ می‌شوند و همه را می‌توانید به PDF هم تبدیل کنید.",
+      f9_t: "اتصال به کارتخوان و صندوق", f9_d: "در نسخه‌های بعدی، مبلغ نهایی چاپ مستقیم برای کارتخوان یا صندوق فرستاده می‌شود؛ بدون تایپ دستی و بدون خطای انسانی.",
       soon: "به‌زودی",
       fmt_title: "فرمت‌های پشتیبانی‌شده", fmt_sub: "۵۲ پسوند در ۵ خانواده", images: "تصاویر",
       ext: function(n){ return fa(n) + " پسوند"; },
-      price_title: "تعرفه‌ی اشتراک", best: "به‌صرفه‌تر", unit: "میلیون تومان",
-      p6_t: "لایسنس ۶ ماهه", p6_now: "۶", p6_old: "۹", p6_off: "۳۳٪ تخفیف", p6_for: "برای ۶ ماه", p6_per: "هر ماه ۱ میلیون تومان",
-      p12_t: "لایسنس ۱۲ ماهه", p12_now: "۹", p12_old: "۱۵", p12_off: "۴۰٪ تخفیف", p12_for: "برای ۱۲ ماه", p12_per: "هر ماه ۰٫۷۵ میلیون تومان",
+      price_title: "تعرفه‌ی لایسنس", best: "به‌صرفه‌تر", unit: "میلیون تومان",
+      p6_t: "لایسنس ۶ ماهه", p6_now: "۶", p6_old: "۹", p6_off: "۳۳٪ تخفیف", p6_per: "هر ماه ۱ میلیون تومان",
+      p12_t: "لایسنس ۱۲ ماهه", p12_now: "۹", p12_old: "۱۵", p12_off: "۴۰٪ تخفیف", p12_per: "هر ماه ۰٫۷۵ میلیون تومان",
       contact_t: "برای خرید و دریافت راهنمایی، تماس بگیرید",
       ct_phone: "تماس تلفنی",
       gh: "فولیو در گیت‌هاب", ig: "اینستاگرام", tg: "تلگرام",
-      nav_trial: "آزمایشی",
       trial_title: "۱۴ روز رایگان امتحان کنید",
       trial_d: "فولیو را دانلود و نصب کنید. برای دریافت راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه، از طریق تلگرام یا اینستاگرام با ما در ارتباط باشید.",
       trial_num: "۱۴", trial_unit: "روز رایگان",
-      trial_contact_tg: "دریافت نسخه آزمایشی در تلگرام", trial_contact_ig: "پیام در اینستاگرام",
+      trial_contact_tg: "پیام در تلگرام", trial_contact_ig: "پیام در اینستاگرام",
       faq_title: "قبل از دانلود، این‌ها را بدانید",
       faq1_q: "فولیو روی چه سیستم‌عاملی اجرا می‌شود؟", faq1_a: "فولیو برای ویندوز ۱۰ به بالا و نسخه‌ی ۶۴ بیتی ارائه شده است.",
-      faq2_q: "چطور می‌توانم فولیو را امتحان کنم؟", faq2_a: "نسخه را از دکمه‌ی دانلود دریافت کنید؛ برای راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه با ما در تلگرام یا اینستاگرام تماس بگیرید.",
-      faq3_q: "فولیو از چه فایل‌هایی پشتیبانی می‌کند؟", faq3_a: "فولیو از فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و آرشیوهای فشرده پشتیبانی می‌کند. فهرست قالب‌ها در بخش فرمت‌های پشتیبانی‌شده آمده است.",
+      faq_office_q: "برای فایل‌های Word، PowerPoint و Excel به Office نیاز دارم؟", faq_office_a: "بله، برای کار با فایل‌های Word، PowerPoint و Excel باید Microsoft Office روی همان کامپیوتر نصب باشد.",
+      faq3_q: "فولیو از چه فایل‌هایی پشتیبانی می‌کند؟", faq3_a: "فولیو از فایل‌های Word، PowerPoint، Excel و PDF، تصاویر و آرشیوهای فشرده پشتیبانی می‌کند. فهرست فرمت‌ها در بخش فرمت‌های پشتیبانی‌شده آمده است.",
+      faq_pages_q: "شمارش صفحه‌ها چقدر دقیق است؟", faq_pages_a: "فولیو صفحه‌ها را دقیق می‌شمارد. اما در فایل‌های Word و Excel، تعداد صفحه‌ها به خودِ کامپیوتر بستگی دارد؛ چون چیدمان این فایل‌ها هنگام باز شدن و بر اساس فونت‌های نصب‌شده، نسخه‌ی Office و تنظیمات چاپگر محاسبه می‌شود، و روی دو کامپیوتر متفاوت ممکن است کمی فرق کند. اگر به عدد قطعی نیاز دارید، فایل را به PDF تبدیل کنید؛ فولیو این کار را هم انجام می‌دهد.",
+      faq_printers_q: "فولیو با چه چاپگرهایی کار می‌کند؟", faq_printers_a: "با همه‌ی چاپگرها، چه فیزیکی و چه مجازی (مثل چاپگرهای PDF).",
+      faq_prices_q: "آیا می‌توانم تعرفه‌ی چاپ را خودم تنظیم کنم؟", faq_prices_a: "بله. تعرفه‌ی چاپ کاملاً قابل‌ویرایش است و قیمت‌ها را مطابق نرخ مرکز خودتان تنظیم می‌کنید.",
+      faq2_q: "چطور می‌توانم فولیو را امتحان کنم؟", faq2_a: "نسخه را از دکمه‌ی دانلود دریافت کنید؛ برای راهنمای فعال‌سازی نسخه‌ی آزمایشی ۱۴ روزه با ما در تلگرام یا اینستاگرام تماس بگیرید. نسخه‌ی آزمایشی فقط محدودیت زمانی دارد، پس می‌توانید آن را با کارهای واقعی مرکز خود امتحان کنید.",
       faq4_q: "هزینه‌ی لایسنس چقدر است؟", faq4_a: "قیمت لایسنس‌های ۶ و ۱۲ ماهه در بخش تعرفه درج شده است. برای خرید یا دریافت راهنمایی بیشتر با ما تماس بگیرید.",
+      faq_terms_q: "یک لایسنس روی چند کامپیوتر کار می‌کند؟", faq_terms_a: "هر لایسنس تا ۵ کامپیوتر را پوشش می‌دهد و نصب دوباره مشکلی ایجاد نمی‌کند. به‌روزرسانی‌ها هم در طول مدت لایسنس شامل شما می‌شوند.",
+      faq_buy_q: "چطور لایسنس بخرم و چقدر طول می‌کشد؟", faq_buy_a: "از طریق تلفن، تلگرام یا اینستاگرام با ما تماس بگیرید. کلید سریال شما کمتر از ۱۲ ساعت بعد برایتان ارسال می‌شود.",
+      faq_net_q: "آیا فولیو اینترنت می‌خواهد و فایل‌هایم کجا ذخیره می‌شوند؟", faq_net_a: "اینترنت فقط برای فعال‌سازی اولیه لازم است و بعد از آن فولیو بدون اینترنت کار می‌کند. فایل‌های شما هیچ‌جا آپلود نمی‌شوند و همه‌چیز روی همان کامپیوتر می‌ماند.",
+      faq_refund_q: "آیا امکان بازگشت وجه وجود دارد؟", faq_refund_a: "خیر، بازگشت وجه نداریم؛ اما نسخه‌ی آزمایشی ۱۴ روزه را دارید تا پیش از خرید، فولیو را با کار واقعی خود امتحان کنید.",
       meta: function(v, mb, sys){ return (v ? "نسخه <bdi dir='ltr'>" + v + "</bdi>" + (mb ? " · " + fa(mb) + " مگابایت" : "") + " · " : "آخرین نسخه · ") + sys; }
     },
     en: {
-      meta_title: "Folio | The smart assistant for copy centers & print shops",
-      meta_desc: "Folio is a smart assistant for copy centers and print shops: page counting, sheet and cost calculation, and direct printing.",
-      nav_features: "Features", nav_formats: "Formats", nav_pricing: "Pricing",
+      meta_title: "Folio | Print management software for copy centers & print shops",
+      meta_desc: "Folio is Windows software for copy centers and print shops: automatic page counting, sheet and cost calculation, and direct printing.",
+      nav_features: "Features", nav_formats: "Formats", nav_trial: "Free trial", nav_pricing: "Pricing",
       h1: "Simplify print job management",
       lead: "Folio is Windows software for copy centers and print shops. Manage page counting, sheet and cost calculation, print settings, and sending files to the printer in one place.",
       shot_alt: "Folio's main window: the file list with pages and sheets for each file, and the cost panel",
       dl_btn: "Download Folio", hero_pricing: "View pricing",
       sys: "Windows 10 or later (64-bit)",
       feat_title: "Key features",
-      f1_t: "Smart page counting", f1_d: "Counts the pages of many files at once, even password-protected files and archives. Duplicate or damaged files are flagged.",
+      f1_t: "Automatic page counting", f1_d: "Counts the pages of many files at once, even password-protected files and archives. Duplicate or damaged files are flagged.",
       f2_t: "Accurate sheet & cost calculation", f2_d: "Cost is based on paper size (A5 / A4 / A3), black & white or color, and single- or double-sided printing, using your own editable price list.",
-      f3_t: "Print straight to the printer", f3_d: "Pick the printer, paper, scale, quality, margins, copies and collate. Lay out 2 to 9 pages per side of a sheet, or print a booklet.",
+      f3_t: "Send straight to your printer", f3_d: "Pick the printer, paper, scale, quality, margins, copies and collate. Lay out 2 to 9 pages per side of a sheet, or print a booklet.",
       f4_t: "Right-side stapling for Persian", f4_d: "Page order is reversed automatically so Persian and Arabic documents can be stapled on the right edge, even on printers that only staple on the left.",
-      f5_t: "Automatic orientation", f5_d: "Portrait or landscape is detected for every file, and multi-page-per-sheet layouts follow the file's dominant page shape, just as the customer expects.",
+      f5_t: "Automatic orientation", f5_d: "Portrait or landscape is detected for every file, and multi-page-per-sheet layouts follow the file's dominant page shape, so the result looks right.",
       f6_t: "Staples & wire binding", f6_d: "The number of staples and the suggested wire-coil size for each file are estimated automatically, and the ranges are editable.",
       f7_t: "Page range & copies", f7_d: "Use thumbnail previews to print only the range you need, or just odd or even pages, and set separate copies for each file.",
-      f8_t: "Wide format support", f8_d: "Word, PowerPoint, Excel, PDF, images and even archives print with no manual conversion, and you can convert everything to PDF.",
-      f9_t: "Card reader / register link", f9_d: "In upcoming versions, the final total will be sent straight to your card reader or register: no typing, no human error.",
+      f8_t: "Every format your customers bring", f8_d: "Word, PowerPoint, Excel, PDF, images and even archives print with no manual conversion, and you can convert everything to PDF.",
+      f9_t: "POS terminal / register link", f9_d: "In upcoming versions, the final total will be sent straight to your POS terminal or register: no typing, no human error.",
       soon: "Coming soon",
       fmt_title: "Supported formats", fmt_sub: "52 extensions in 5 families", images: "Images",
       ext: function(n){ return n + (n === 1 ? " extension" : " extensions"); },
-      price_title: "Subscription pricing", best: "Best value", unit: "million toman",
-      p6_t: "6-month license", p6_now: "6", p6_old: "9", p6_off: "33% off", p6_for: "for 6 months", p6_per: "1 million toman per month",
-      p12_t: "12-month license", p12_now: "9", p12_old: "15", p12_off: "40% off", p12_for: "for 12 months", p12_per: "0.75 million toman per month",
+      price_title: "License pricing", best: "Best value", unit: "million toman",
+      p6_t: "6-month license", p6_now: "6", p6_old: "9", p6_off: "33% off", p6_per: "1 million toman per month",
+      p12_t: "12-month license", p12_now: "9", p12_old: "15", p12_off: "40% off", p12_per: "0.75 million toman per month",
       contact_t: "To buy or get help, contact us",
       ct_phone: "Phone",
       gh: "Folio on GitHub", ig: "Instagram", tg: "Telegram",
-      nav_trial: "Free trial",
       trial_title: "Try it free for 14 days",
       trial_d: "Download and install Folio. Contact us on Telegram or Instagram for help activating the 14-day trial.",
       trial_num: "14", trial_unit: "days free",
-      trial_contact_tg: "Get trial help on Telegram", trial_contact_ig: "Message on Instagram",
+      trial_contact_tg: "Message on Telegram", trial_contact_ig: "Message on Instagram",
       faq_title: "Before you download",
       faq1_q: "Which operating systems does Folio support?", faq1_a: "Folio is available for 64-bit Windows 10 and later.",
-      faq2_q: "How can I try Folio?", faq2_a: "Download Folio using the download button, then contact us on Telegram or Instagram for help activating the 14-day trial.",
+      faq_office_q: "Do I need Office for Word, PowerPoint and Excel files?", faq_office_a: "Yes. To work with Word, PowerPoint and Excel files, Microsoft Office must be installed on the same computer.",
       faq3_q: "Which file types does Folio support?", faq3_a: "Folio supports Word, PowerPoint, Excel and PDF files, images, and compressed archives. See the supported formats section for details.",
+      faq_pages_q: "How accurate is the page count?", faq_pages_a: "Folio counts pages accurately. With Word and Excel files, though, the number of pages depends on the computer itself: these files are laid out when they are opened, based on the installed fonts, the Office version and the printer settings, so the same file can paginate slightly differently on two computers. If you need a fixed number, convert the file to PDF first; Folio can do that too.",
+      faq_printers_q: "Which printers does Folio work with?", faq_printers_a: "All of them, physical and virtual (such as PDF printers).",
+      faq_prices_q: "Can I set my own prices?", faq_prices_a: "Yes. The price list is fully editable, so you can set prices to match your own rates.",
+      faq2_q: "How can I try Folio?", faq2_a: "Download Folio using the download button, then contact us on Telegram or Instagram for help activating the 14-day trial. The trial has only a time limit, so you can try it with your real, everyday work.",
       faq4_q: "How much does a license cost?", faq4_a: "Prices for the 6- and 12-month licenses are listed in the pricing section. Contact us if you need help or want to purchase a license.",
+      faq_terms_q: "How many computers does one license cover?", faq_terms_a: "One license covers up to 5 computers, and reinstalling is no problem. Updates are included for the length of your license.",
+      faq_buy_q: "How do I buy a license, and how long does it take?", faq_buy_a: "Contact us by phone, Telegram or Instagram. Your serial key is sent to you in less than 12 hours.",
+      faq_net_q: "Does Folio need internet, and where are my files stored?", faq_net_a: "Internet is needed only for the first activation; after that Folio works offline. Your files are never uploaded anywhere, and everything stays on the same computer.",
+      faq_refund_q: "Is there a refund?", faq_refund_a: "No refunds, but there is a free 14-day trial so you can test Folio with real work before you buy.",
       meta: function(v, mb, sys){ return (v ? "Version <bdi dir='ltr'>" + v + "</bdi>" + (mb ? " · " + mb + " MB" : "") : "Latest release") + " · " + sys; }
     }
   };
@@ -471,22 +500,22 @@
     document.getElementById("footVer").textContent = release ? release.version : "";
   }
 
+  function setMeta(sel, attr, val){
+    var el = document.querySelector(sel);
+    if (el) el.setAttribute(attr, val);
+  }
+
   function apply(){
     var t = T[lang];
     var root = document.documentElement;
     root.lang = lang;
     root.dir = lang === "fa" ? "rtl" : "ltr";
     document.title = t.meta_title;
-    var md = document.querySelector('meta[name="description"]');
-    if (md) md.setAttribute("content", t.meta_desc);
-    var ogTitle = document.querySelector('meta[property="og:title"]');
-    var ogDesc = document.querySelector('meta[property="og:description"]');
-    var twTitle = document.querySelector('meta[name="twitter:title"]');
-    var twDesc = document.querySelector('meta[name="twitter:description"]');
-    if (ogTitle) ogTitle.setAttribute("content", t.meta_title);
-    if (ogDesc) ogDesc.setAttribute("content", t.meta_desc);
-    if (twTitle) twTitle.setAttribute("content", t.meta_title);
-    if (twDesc) twDesc.setAttribute("content", t.meta_desc);
+    setMeta('meta[name="description"]', "content", t.meta_desc);
+    setMeta('meta[property="og:title"]', "content", t.meta_title);
+    setMeta('meta[property="og:description"]', "content", t.meta_desc);
+    setMeta('meta[name="twitter:title"]', "content", t.meta_title);
+    setMeta('meta[name="twitter:description"]', "content", t.meta_desc);
     document.querySelectorAll("[data-i18n]").forEach(function(el){ el.textContent = t[el.getAttribute("data-i18n")]; });
     document.querySelectorAll("[data-i18n-alt]").forEach(function(el){ el.setAttribute("alt", t[el.getAttribute("data-i18n-alt")]); });
     document.querySelectorAll("[data-n]").forEach(function(el){ el.textContent = t.ext(+el.getAttribute("data-n")); });
@@ -496,9 +525,16 @@
 
   document.querySelectorAll("[data-lang]").forEach(function(b){
     b.addEventListener("click", function(){
-      lang = b.getAttribute("data-lang");
+      var next = b.getAttribute("data-lang");
+      if (next === lang) return;
+      lang = next;
       try { localStorage.setItem("folio-lang", lang); } catch (e) {}
-      apply();
+      if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { apply(); return; }
+      document.body.classList.add("swap");
+      setTimeout(function(){
+        apply();
+        requestAnimationFrame(function(){ document.body.classList.remove("swap"); });
+      }, 160);
     });
   });
 
@@ -550,6 +586,21 @@
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     Object.keys(navLinks).forEach(function(k){ var sec = document.getElementById(k); if (sec) io.observe(sec); });
+  }
+
+  // scroll reveal with a light stagger among siblings
+  if ("IntersectionObserver" in window){
+    var rvIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); rvIO.unobserve(e.target); }
+      });
+    }, { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+    document.querySelectorAll(".sec-head, .fcell, .frow, .trial, .faq-list, .plan, .contact").forEach(function(el){
+      var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.setProperty("--d", Math.min(i, 8) * 0.06 + "s");
+      el.classList.add("rv");
+      rvIO.observe(el);
+    });
   }
 
   apply();
