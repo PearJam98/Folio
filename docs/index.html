@@ -212,7 +212,7 @@
   .faq-list details{interpolate-size:allow-keywords}
   .faq-list details::details-content{block-size:0;overflow:hidden;opacity:0;transition:block-size .35s var(--ease),opacity .3s var(--ease),content-visibility .35s allow-discrete}
   .faq-list details[open]::details-content{block-size:auto;opacity:1}
-  .contact{margin-top:40px}
+  .contact{margin-top:40px;scroll-margin-top:96px}
   .contact-t{margin:0 0 16px;font-size:1.05rem;font-weight:600}
   .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
   .ctile{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;box-shadow:var(--shadow);transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
@@ -267,8 +267,8 @@
   .t-num{font-size:clamp(3.8rem,8vw,5.6rem);font-weight:600;letter-spacing:-.02em;line-height:1}
   .t-unit{margin-top:10px;font-size:1.05rem;font-weight:600;opacity:.9;line-height:1.4}
   .trial p{margin:0 0 18px;color:#fff;opacity:.92}
-  .trial .cta .btn{flex:1 1 200px;max-width:240px;background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.34);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .2s var(--ease),background .2s var(--ease),border-color .2s var(--ease)}
-  .trial .cta .btn:hover{background:rgba(255,255,255,.24);border-color:rgba(255,255,255,.5);transform:translateY(-2px)}
+  .trial .cta .btn{flex:0 1 auto;background:#fff;color:var(--blue-deep);border-color:#fff;transition:transform .2s var(--ease),background .2s var(--ease),border-color .2s var(--ease)}
+  .trial .cta .btn:hover{background:var(--tint);border-color:var(--tint);transform:translateY(-2px)}
   .trial .cta .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 
   /* ---------- who it's for ---------- */
@@ -280,7 +280,7 @@
   .who-list svg{width:16px;height:16px;padding:5px;box-sizing:content-box;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;background:var(--tint);border-radius:10px;flex:none}
 
   /* ---------- trial steps ---------- */
-  .steps{list-style:none;margin:0 0 22px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:step}
+  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:step}
   .steps li{position:relative;counter-increment:step;display:flex;flex-direction:column;gap:2px;padding:14px 16px 16px;border-radius:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26)}
   .steps li::before{content:counter(step);display:grid;place-items:center;width:28px;height:28px;margin-bottom:8px;border-radius:50%;background:#fff;color:var(--blue-deep);font-size:.9rem;font-weight:700;line-height:1}
   :lang(fa) .steps li::before{content:counter(step,persian)}
@@ -477,13 +477,9 @@
         <p data-i18n="trial_d">نسخه‌ی آزمایشی فقط محدودیت زمانی دارد؛ پس می‌توانید آن را با کارهای واقعی مرکز خود امتحان کنید.</p>
         <ol class="steps">
           <li><b data-i18n="s1_t">دانلود و نصب</b><span data-i18n="s1_d">فولیو را با دکمه‌ی دانلود دریافت و نصب کنید.</span></li>
-          <li><b data-i18n="s2_t">پیام به ما</b><span data-i18n="s2_d">در تلگرام یا اینستاگرام برای راهنمای فعال‌سازی پیام بدهید.</span></li>
-          <li><b data-i18n="s3_t">فعال‌سازی آزمایشی</b><span data-i18n="s3_d">طبق راهنما فعال کنید و ۱۴ روز رایگان کار کنید.</span></li>
+          <li><b data-i18n="s2_t">پیام به ما</b><span data-i18n="s2_d">در تلگرام یا اینستاگرام پیام بدهید تا کلید سریال آزمایشی برایتان ارسال شود.</span></li>
+          <li><b data-i18n="s3_t">فعال‌سازی آزمایشی</b><span data-i18n="s3_d">کلید سریال را در فولیو وارد کنید و ۱۴ روز رایگان کار کنید.</span></li>
         </ol>
-        <div class="cta">
-          <a class="btn" href="https://t.me/PearJam98" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="trial_contact_tg">پیام در تلگرام</span></a>
-          <a class="btn" href="https://www.instagram.com/FolioAppFa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg><span data-i18n="trial_contact_ig">پیام در اینستاگرام</span></a>
-        </div>
       </div>
     </div>
   </section>
@@ -505,7 +501,7 @@
         <a class="btn ghost" href="#trial" data-i18n="plan_trial">شروع ۱۴ روز رایگان</a>
       </div>
     </div>
-    <div class="contact">
+    <div class="contact" id="contact">
       <p class="contact-t" data-i18n="contact_t">برای خرید و دریافت راهنمایی، تماس بگیرید</p>
       <div class="contact-grid">
         <a class="ctile" href="tel:+989188078428"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span class="ct-text"><small data-i18n="ct_phone">تماس تلفنی</small><b dir="ltr">0918 807 8428</b></span></a>
@@ -625,8 +621,8 @@
       trial_title: "۱۴ روز رایگان امتحان کنید",
       trial_d: "نسخه‌ی آزمایشی فقط محدودیت زمانی دارد؛ پس می‌توانید آن را با کارهای واقعی مرکز خود امتحان کنید.",
       s1_t: "دانلود و نصب", s1_d: "فولیو را با دکمه‌ی دانلود دریافت و نصب کنید.",
-      s2_t: "پیام به ما", s2_d: "در تلگرام یا اینستاگرام برای راهنمای فعال‌سازی پیام بدهید.",
-      s3_t: "فعال‌سازی آزمایشی", s3_d: "طبق راهنما فعال کنید و ۱۴ روز رایگان کار کنید.",
+      s2_t: "پیام به ما", s2_d: "در تلگرام یا اینستاگرام پیام بدهید تا کلید سریال آزمایشی برایتان ارسال شود.",
+      s3_t: "فعال‌سازی آزمایشی", s3_d: "کلید سریال را در فولیو وارد کنید و ۱۴ روز رایگان کار کنید.",
       who_line: "اگر هنوز صفحه‌ها را دستی می‌شمارید، فولیو برای شماست.", who1_t: "دفاتر فنی", who2_t: "کپی‌سنترها", who3_t: "خدمات زیراکس", who4_t: "کافی‌نت‌ها", who5_t: "مراکز تکثیر دانشجویی",
       final_t: "شمارش صفحه‌ها را به فولیو بسپارید", final_d: "فولیو را دانلود کنید و ۱۴ روز با کارهای واقعی مرکز خود امتحان کنید.",
       trial_num: "۱۴", trial_unit: "روز رایگان",
@@ -634,7 +630,6 @@
       foot_desc: "نرم‌افزار مدیریت چاپ برای کپی‌سنترها و دفاتر فنی: شمارش صفحه‌ها، محاسبه هزینه و ارسال مستقیم به چاپگر.",
       foot_quick: "دسترسی سریع", foot_contact: "تماس با ما", foot_faq: "پرسش‌های متداول",
       foot_copy: "© ۲۰۲۶ فولیو · تمامی حقوق محفوظ است", foot_top: "بازگشت به بالا",
-      trial_contact_tg: "پیام در تلگرام", trial_contact_ig: "پیام در اینستاگرام",
       faq_title: "قبل از دانلود، این‌ها را بدانید",
       faq1_q: "فولیو روی چه سیستم‌عاملی اجرا می‌شود؟", faq1_a: "فولیو برای ویندوز ۱۰ به بالا و نسخه‌ی ۶۴ بیتی ارائه شده است.",
       faq_office_q: "برای فایل‌های Word، PowerPoint و Excel به Office نیاز دارم؟", faq_office_a: "بله، برای کار با فایل‌های Word، PowerPoint و Excel باید Microsoft Office روی همان کامپیوتر نصب باشد.",
@@ -684,8 +679,8 @@
       trial_title: "Try it free for 14 days",
       trial_d: "The trial has only a time limit, so you can try Folio with your real, everyday work.",
       s1_t: "Download & install", s1_d: "Get Folio with the download button and install it.",
-      s2_t: "Message us", s2_d: "Contact us on Telegram or Instagram for the activation guide.",
-      s3_t: "Activate your trial", s3_d: "Follow the guide and use Folio free for 14 days.",
+      s2_t: "Message us", s2_d: "Message us on Telegram or Instagram and we'll send you a trial serial key.",
+      s3_t: "Activate your trial", s3_d: "Enter the serial key in Folio and use it free for 14 days.",
       who_line: "Still counting pages by hand? Folio is built for you.", who1_t: "Technical offices", who2_t: "Copy centers", who3_t: "Xerox services", who4_t: "Internet cafés", who5_t: "Student print shops",
       final_t: "Let Folio do the counting", final_d: "Download Folio and try it for 14 days with your real, everyday work.",
       trial_num: "14", trial_unit: "days free",
@@ -693,7 +688,6 @@
       foot_desc: "Print management software for copy centers and technical offices: page counting, cost calculation and direct printing.",
       foot_quick: "Quick links", foot_contact: "Contact", foot_faq: "FAQ",
       foot_copy: "© 2026 Folio. All rights reserved.", foot_top: "Back to top",
-      trial_contact_tg: "Message on Telegram", trial_contact_ig: "Message on Instagram",
       faq_title: "Before you download",
       faq1_q: "Which operating systems does Folio support?", faq1_a: "Folio is available for 64-bit Windows 10 and later.",
       faq_office_q: "Do I need Office for Word, PowerPoint and Excel files?", faq_office_a: "Yes. To work with Word, PowerPoint and Excel files, Microsoft Office must be installed on the same computer.",
