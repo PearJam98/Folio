@@ -212,7 +212,7 @@
   .faq-list details{interpolate-size:allow-keywords}
   .faq-list details::details-content{block-size:0;overflow:hidden;opacity:0;transition:block-size .35s var(--ease),opacity .3s var(--ease),content-visibility .35s allow-discrete}
   .faq-list details[open]::details-content{block-size:auto;opacity:1}
-  .contact{margin-top:40px;scroll-margin-top:96px}
+  .contact{margin-top:40px}
   .contact-t{margin:0 0 16px;font-size:1.05rem;font-weight:600}
   .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
   .ctile{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;box-shadow:var(--shadow);transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
@@ -267,9 +267,6 @@
   .t-num{font-size:clamp(3.8rem,8vw,5.6rem);font-weight:600;letter-spacing:-.02em;line-height:1}
   .t-unit{margin-top:10px;font-size:1.05rem;font-weight:600;opacity:.9;line-height:1.4}
   .trial p{margin:0 0 18px;color:#fff;opacity:.92}
-  .trial .cta .btn{flex:0 1 auto;background:#fff;color:var(--blue-deep);border-color:#fff;transition:transform .2s var(--ease),background .2s var(--ease),border-color .2s var(--ease)}
-  .trial .cta .btn:hover{background:var(--tint);border-color:var(--tint);transform:translateY(-2px)}
-  .trial .cta .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 
   /* ---------- who it's for ---------- */
   #audience{padding-top:clamp(28px,4vw,40px)}
@@ -408,11 +405,11 @@
 
       <div class="stage">
         <div class="slides">
-          <img class="on" src="1.png" width="917" height="580" alt="پنجره‌ی اصلی فولیو: فهرست فایل‌ها با تعداد صفحه و برگ هر فایل و پنل محاسبه‌ی هزینه" data-i18n-alt="shot_alt" fetchpriority="high">
-          <img src="2.png" width="917" height="580" alt="" data-i18n-alt="shot_alt2">
-          <img src="3.png" width="917" height="580" alt="" data-i18n-alt="shot_alt3">
-          <img src="4.png" width="917" height="580" alt="" data-i18n-alt="shot_alt4">
-          <img src="5.png" width="917" height="580" alt="" data-i18n-alt="shot_alt5">
+          <img class="on" src="1.webp" width="917" height="580" alt="پنجره‌ی اصلی فولیو: فهرست فایل‌ها با تعداد صفحه و برگ هر فایل و پنل محاسبه‌ی هزینه" data-i18n-alt="shot_alt" fetchpriority="high">
+          <img src="2.webp" width="917" height="580" alt="" data-i18n-alt="shot_alt2">
+          <img src="3.webp" width="917" height="580" alt="" data-i18n-alt="shot_alt3">
+          <img src="4.webp" width="917" height="580" alt="" data-i18n-alt="shot_alt4">
+          <img src="5.webp" width="917" height="580" alt="" data-i18n-alt="shot_alt5">
         </div>
         <div class="dots" role="group" aria-label="تصاویر برنامه" data-i18n-aria="shots_label"></div>
       </div>
@@ -501,7 +498,7 @@
         <a class="btn ghost" href="#trial" data-i18n="plan_trial">شروع ۱۴ روز رایگان</a>
       </div>
     </div>
-    <div class="contact" id="contact">
+    <div class="contact">
       <p class="contact-t" data-i18n="contact_t">برای خرید و دریافت راهنمایی، تماس بگیرید</p>
       <div class="contact-grid">
         <a class="ctile" href="tel:+989188078428"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span class="ct-text"><small data-i18n="ct_phone">تماس تلفنی</small><b dir="ltr">0918 807 8428</b></span></a>
