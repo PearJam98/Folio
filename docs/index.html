@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <script>document.documentElement.classList.add("js");try{if(localStorage.getItem("folio-lang")==="en"){var d=document.documentElement;d.lang="en";d.dir="ltr"}}catch(e){}</script>
-<title>فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنتر و دفتر فنی</title>
+<title>فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها</title>
 <meta name="description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.">
-<meta property="og:title" content="فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنتر و دفتر فنی">
+<meta property="og:title" content="فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها">
 <meta property="og:description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
@@ -18,7 +18,7 @@
 <meta property="og:image:height" content="580">
 <meta property="og:image:alt" content="پنجره‌ی اصلی نرم‌افزار فولیو: فهرست فایل‌ها با تعداد صفحه و برگ و پنل محاسبه‌ی هزینه">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنتر و دفتر فنی">
+<meta name="twitter:title" content="فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها">
 <meta name="twitter:description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.">
 <meta name="twitter:image" content="https://folioapp.ir/1.png">
 <meta name="theme-color" content="#3b6ef6">
@@ -53,7 +53,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1f2430;
@@ -188,14 +188,10 @@
   .price{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .price .now{font-size:clamp(2.8rem,6vw,3.6rem);line-height:1.1;font-weight:600;color:var(--blue-deep)}
   .price .unit{font-size:1rem;font-weight:600;color:var(--ink)}
-  .off{background:#e4f6f0;color:#07835f;font-size:.76rem;font-weight:600;padding:0 10px;border-radius:999px}
   .for{margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line);color:var(--muted);font-size:.93rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .plan.best{background:linear-gradient(155deg,#5a86fa 0%,#3b6ef6 50%,#2f5ce0 100%);border-color:#4a79f7;color:#fff;box-shadow:0 30px 50px -28px rgba(59,110,246,.75)}
   .plan.best .now{color:#fff}.plan.best .unit{color:#e6edff}
   .plan.best .for{border-top-color:rgba(255,255,255,.3);color:#dbe5ff}
-  .plan.best .off{background:#fff;color:#07835f}
-  .was{font-size:1.35rem;font-weight:500;color:var(--muted);text-decoration:line-through;text-decoration-thickness:2px}
-  .plan.best .was{color:#c9d8ff}
   .plan .btn{width:100%;margin-top:18px}
   .plan.best .btn{background:#fff;border-color:#fff;color:var(--blue-deep)}
   .plan.best .btn:hover{background:var(--tint);border-color:var(--tint)}
@@ -406,8 +402,8 @@
       <div class="stage">
         <div class="slides">
           <img class="on" src="2.webp" width="917" height="580" alt="فولیو: تصویر ۱ از ۳" data-i18n-alt="shot_alt2" fetchpriority="high">
-          <img src="3.webp" width="917" height="580" alt="" data-i18n-alt="shot_alt3">
-          <img src="5.webp" width="917" height="580" alt="" data-i18n-alt="shot_alt5">
+          <img src="3.webp" width="917" height="580" alt="فولیو: تصویر ۲ از ۳" data-i18n-alt="shot_alt3">
+          <img src="5.webp" width="917" height="580" alt="فولیو: تصویر ۳ از ۳" data-i18n-alt="shot_alt5">
         </div>
         <div class="dots" role="group" aria-label="تصاویر برنامه" data-i18n-aria="shots_label"></div>
       </div>
@@ -484,20 +480,26 @@
     <div class="plans">
       <div class="plan">
         <h3 data-i18n="p6_t">لایسنس ۶ ماهه</h3>
-        <div class="price"><s class="was promo-only" data-i18n="p6_was">۶</s><span class="now" data-i18n="p6_now">۳٫۲</span><span class="unit" data-i18n="unit">میلیون تومان</span><span class="off promo-only" data-i18n="p6_off">۴۷٪ تخفیف</span></div>
-        <p class="for"><span data-i18n="p6_per">هر ماه حدود ۵۳۳ هزار تومان</span><span data-i18n="p6_day">روزی حدود ۱۸ هزار تومان</span></p>
+        <div class="price"><span class="now" data-i18n="p6_now">۳٫۲</span><span class="unit" data-i18n="unit">میلیون تومان</span></div>
+        <p class="for"><span data-i18n="p6_per">هر ماه حدود ۵۳۳ هزار تومان</span></p>
         <a class="btn ghost" href="#trial" data-i18n="plan_trial">شروع ۱۴ روز رایگان</a>
       </div>
       <div class="plan best">
         <span class="flag" data-i18n="best">به‌صرفه‌تر</span>
         <h3 data-i18n="p12_t">لایسنس ۱۲ ماهه</h3>
-        <div class="price"><s class="was promo-only" data-i18n="p12_was">۹</s><span class="now" data-i18n="p12_now">۵٫۴</span><span class="unit" data-i18n="unit">میلیون تومان</span><span class="off" data-i18n="p12_off">۴۰٪ تخفیف</span></div>
-        <p class="for"><span data-i18n="p12_per">هر ماه ۴۵۰ هزار تومان</span><span data-i18n="p12_day">روزی حدود ۱۵ هزار تومان</span></p>
+        <div class="price"><span class="now" data-i18n="p12_now">۵٫۴</span><span class="unit" data-i18n="unit">میلیون تومان</span></div>
+        <p class="for"><span data-i18n="p12_per">هر ماه ۴۵۰ هزار تومان</span></p>
+        <a class="btn ghost" href="#trial" data-i18n="plan_trial">شروع ۱۴ روز رایگان</a>
+      </div>
+      <div class="plan">
+        <h3 data-i18n="pl_t">لایسنس مادام‌العمر</h3>
+        <div class="price"><span class="now" data-i18n="pl_now">۱۵</span><span class="unit" data-i18n="unit">میلیون تومان</span></div>
+        <p class="for"><span data-i18n="pl_per">پرداخت یک‌باره</span><span data-i18n="pl_day">بدون نیاز به تمدید</span></p>
         <a class="btn ghost" href="#trial" data-i18n="plan_trial">شروع ۱۴ روز رایگان</a>
       </div>
     </div>
     <div class="contact">
-      <p class="contact-t" data-i18n="contact_t">برای خرید و دریافت راهنمایی، تماس بگیرید</p>
+      <p class="contact-t" data-i18n="contact_t">برای خرید، دریافت راهنمایی یا درخواست سریال نسخه‌ی آزمایشی، با ما در ارتباط باشید</p>
       <div class="contact-grid">
         <a class="ctile" href="tel:+989188078428"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span class="ct-text"><small data-i18n="ct_phone">تماس تلفنی</small><b dir="ltr">0918 807 8428</b></span></a>
         <a class="ctile" href="https://t.me/PearJam98" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-telegram"/></svg><span class="ct-text"><small data-i18n="tg">تلگرام</small><b dir="ltr">@PearJam98</b></span></a>
@@ -580,7 +582,7 @@
 
   var T = {
     fa: {
-      meta_title: "فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنتر و دفتر فنی",
+      meta_title: "فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها",
       meta_desc: "فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.",
       nav_features: "امکانات", nav_formats: "فرمت‌ها", nav_trial: "آزمایشی", nav_pricing: "تعرفه",
       h1: "مدیریت سفارش‌های چاپ، ساده‌تر، سریع‌تر",
@@ -605,10 +607,11 @@
       soon: "به‌زودی",
       fmt_title: "فرمت‌های پشتیبانی‌شده", fmt_sub: "۵۲ پسوند در ۵ خانواده", images: "تصاویر", show_all: "نمایش ۲۰ مورد دیگر", show_less: "نمایش کمتر",
       ext: function(n){ return fa(n) + " پسوند"; },
-      price_title: "تعرفه‌ی لایسنس", plan_trial: "شروع ۱۴ روز رایگان", p6_day: "روزی حدود ۱۸ هزار تومان", p12_day: "روزی حدود ۱۵ هزار تومان", best: "به‌صرفه‌تر", unit: "میلیون تومان",
-      p6_t: "لایسنس ۶ ماهه", p6_now: "۳٫۲", p6_was: "۶", p6_off: "۴۷٪ تخفیف", p6_per: "هر ماه حدود ۵۳۳ هزار تومان",
-      p12_t: "لایسنس ۱۲ ماهه", p12_now: "۵٫۴", p12_was: "۹", p12_off: "۴۰٪ تخفیف", p12_per: "هر ماه ۴۵۰ هزار تومان",
-      contact_t: "برای خرید و دریافت راهنمایی، تماس بگیرید",
+      price_title: "تعرفه‌ی لایسنس", plan_trial: "شروع ۱۴ روز رایگان", best: "به‌صرفه‌تر", unit: "میلیون تومان",
+      p6_t: "لایسنس ۶ ماهه", p6_now: "۳٫۲", p6_per: "هر ماه حدود ۵۳۳ هزار تومان",
+      p12_t: "لایسنس ۱۲ ماهه", p12_now: "۵٫۴", p12_per: "هر ماه ۴۵۰ هزار تومان",
+      pl_t: "لایسنس مادام‌العمر", pl_now: "۱۵", pl_per: "پرداخت یک‌باره", pl_day: "بدون نیاز به تمدید",
+      contact_t: "برای خرید، دریافت راهنمایی یا درخواست سریال نسخه‌ی آزمایشی، با ما در ارتباط باشید",
       ct_phone: "تماس تلفنی",
       gh: "فولیو در گیت‌هاب", ig: "اینستاگرام", tg: "تلگرام",
       trial_title: "۱۴ روز رایگان امتحان کنید",
@@ -636,7 +639,7 @@
       meta: function(v, mb, sys){ return (v ? "نسخه <bdi dir='ltr'>" + v + "</bdi>" + (mb ? " · " + fa(mb) + " مگابایت" : "") + " · " : "آخرین نسخه · ") + sys; }
     },
     en: {
-      meta_title: "Folio | Print management software for copy centers & technical offices",
+      meta_title: "Folio | Print management software for copy centers",
       meta_desc: "Folio is Windows print management software for copy centers, technical offices, Xerox services and internet cafés: automatic page counting, sheet and print cost calculation, and sending files straight to the printer. 14-day free trial.",
       nav_features: "Features", nav_formats: "Formats", nav_trial: "Free trial", nav_pricing: "Pricing",
       h1: "Simplify print job management",
@@ -661,10 +664,11 @@
       soon: "Coming soon",
       fmt_title: "Supported formats", fmt_sub: "52 extensions in 5 families", images: "Images", show_all: "Show 20 more", show_less: "Show less",
       ext: function(n){ return n + (n === 1 ? " extension" : " extensions"); },
-      price_title: "License pricing", plan_trial: "Start 14 days free", p6_day: "about 18,000 toman per day", p12_day: "about 15,000 toman per day", best: "Best value", unit: "million toman",
-      p6_t: "6-month license", p6_now: "3.2", p6_was: "6", p6_off: "47% off", p6_per: "about 533,000 toman per month",
-      p12_t: "12-month license", p12_now: "5.4", p12_was: "9", p12_off: "40% off", p12_per: "450,000 toman per month",
-      contact_t: "To buy or get help, contact us",
+      price_title: "License pricing", plan_trial: "Start 14 days free", best: "Best value", unit: "million toman",
+      p6_t: "6-month license", p6_now: "3.2", p6_per: "about 533,000 toman per month",
+      p12_t: "12-month license", p12_now: "5.4", p12_per: "450,000 toman per month",
+      pl_t: "Lifetime license", pl_now: "15", pl_per: "One-time payment", pl_day: "No renewals",
+      contact_t: "To buy, get help, or request a trial serial key, contact us",
       ct_phone: "Phone",
       gh: "Folio on GitHub", ig: "Instagram", tg: "Telegram",
       trial_title: "Try it free for 14 days",
