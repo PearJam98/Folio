@@ -41,13 +41,14 @@
   ],
   "downloadUrl": "https://github.com/PearJam98/folio/releases/latest",
   "featureList": [
-    "شمارش خودکار صفحه‌ها",
-    "محاسبه تعداد برگ و هزینه چاپ با تعرفه‌ی قابل‌ویرایش",
+    "شمارش صفحات فایل‌ها",
+    "محاسبه‌ی دقیق تعداد برگ و هزینه‌ی چاپ",
     "ارسال مستقیم فایل‌ها به چاپگر",
     "منگنه از سمت راست برای اسناد فارسی",
-    "تشخیص هوشمند جهت چاپ",
-    "انتخاب صفحات و تعداد نسخه",
-    "پشتیبانی از ۵۲ فرمت فایل"
+    "تشخیص خودکار جهت چاپ",
+    "چیدمان هوشمند صفحات",
+    "پشتیبانی از فرمت‌های مختلف فایل",
+    "برآورد تعداد منگنه و اندازه‌ی فنر سیمی"
   ]
 }
 </script>
@@ -331,13 +332,13 @@
 <body>
 <!-- icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-count" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-count" viewBox="0 0 24 24"><path d="M8 7V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2"/><rect x="4" y="7" width="12" height="14" rx="2"/><path d="M8.5 12.5l-1.2 4.5M12.5 12.5L11.3 17M7 14h6M6.6 15.8h6"/></symbol>
   <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 6.5h7"/><path stroke-width="2.4" d="M9 11.5h.01M12 11.5h.01M15 11.5h.01M9 15h.01M12 15h.01M15 15h.01M9 18h.01M12 18h.01M15 18h.01"/></symbol>
   <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v5"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
-  <symbol id="i-align" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M16 7.5h5M16 16.5h5M8.5 11h4M8.5 14h4"/></symbol>
+  <symbol id="i-align" viewBox="0 0 24 24"><path d="M17 3H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/><path d="M9.5 8.5h3.5M9.5 12h3.5M9.5 15.5h3.5"/><path d="M15.5 9v6M15.5 9h5M15.5 15h5"/></symbol>
   <symbol id="i-rotate" viewBox="0 0 24 24"><rect x="3" y="10" width="7" height="11" rx="2"/><rect x="13" y="14" width="8" height="7" rx="2"/><path d="M5 6.5a9 9 0 0 1 14 0M19.5 3v3.5H16"/></symbol>
   <symbol id="i-bind" viewBox="0 0 24 24"><rect x="7" y="3" width="12" height="18" rx="2"/><path d="M4 7h6M4 12h6M4 17h6"/></symbol>
-  <symbol id="i-grid" viewBox="0 0 24 24"><path d="M8 7V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-1"/><rect x="4" y="7" width="12" height="14" rx="2"/><path d="M7.5 14l2.5 2.5 4-5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M12 3.5v17M3.5 12h17"/></symbol>
   <symbol id="i-layers" viewBox="0 0 24 24"><path d="M9 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2"/><path d="M6 7h6l4 4v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><path d="M12 7v4h4M7.5 17h5"/></symbol>
   <symbol id="i-w-tech" viewBox="0 0 24 24"><path d="M4 4v16h16z"/><path d="M4 9h3M4 14h3M9 20v-3M14 20v-3"/></symbol>
   <symbol id="i-w-copy" viewBox="0 0 24 24"><path d="M8 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2"/><rect x="4" y="7" width="12" height="14" rx="2"/><path d="M7 12h6M7 16h4"/></symbol>
@@ -426,15 +427,15 @@
   <section id="features" class="sec wrap">
     <div class="sec-head"><h2 data-i18n="feat_title">امکانات اصلی</h2></div>
     <div class="frame"><div class="fgrid">
-      <article class="fcell lead-cell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-count"/></svg><h3 data-i18n="f1_t">شمارش خودکار صفحه‌ها</h3><p data-i18n="f1_d">شمارش هم‌زمان صفحات چندین فایل با فرمت های متنوع، حتی فایل‌ها و آرشیوهای رمزدار. فولیو هنگام شمارش فایل‌های تکراری یا معیوب را تشخیص و به شما هشدار می‌دهد.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calc"/></svg><h3 data-i18n="f2_t">محاسبه دقیق تعداد برگ و هزینه چاپ</h3><p data-i18n="f2_d">محاسبه هزینه چاپ بر اساس اندازه کاغذ، چاپ رنگی یا سیاه‌وسفید، چاپ یک‌رو یا دورو، تعداد نسخه‌ها و بازه صفحات انتخاب‌شده؛ با امکان تعریف و ویرایش تعرفه‌ها بر اساس نرخ‌های دلخواه شما.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg><h3 data-i18n="f3_t">ارسال مستقیم فایل‌ها به چاپگر</h3><p data-i18n="f3_d">تنظیم چاپگر، اندازه کاغذ، مقیاس، کیفیت چاپ، حاشیه‌ها، تعداد نسخه‌ها و ترتیب چاپ. همچنین می‌توانید بین ۲ تا ۹ صفحه را در هر طرف برگ بچینید یا از قابلیت چاپ جزوه‌ای (Booklet) استفاده کنید.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-align"/></svg><h3 data-i18n="f4_t">منگنه از سمت راست برای اسناد فارسی</h3><p data-i18n="f4_d">فولیو ترتیب صفحات را به‌صورت خودکار معکوس می‌کند تا بتوانید اسناد فارسی و عربی را از سمت راست منگنه کنید؛ حتی با چاپگرهایی که فقط امکان منگنه از سمت چپ را دارند.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rotate"/></svg><h3 data-i18n="f5_t">تشخیص هوشمند جهت چاپ</h3><p data-i18n="f5_d">فولیو جهت عمودی یا افقی فایل‌ها را به‌صورت خودکار تشخیص می‌دهد و هنگام چاپ چند صفحه در هر برگ، چیدمان آن‌ها را هوشمندانه تنظیم می‌کند تا صفحات با بهترین حالت ممکن روی هر طرف کاغذ قرار بگیرند.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bind"/></svg><h3 data-i18n="f6_t">برآورد منگنه و فنر سیمی</h3><p data-i18n="f6_d">فولیو تعداد منگنه‌های موردنیاز و اندازه پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg><h3 data-i18n="f7_t">انتخاب صفحات و تعداد نسخه</h3><p data-i18n="f7_d">با استفاده از پیش‌نمایش بندانگشتی، بازه دلخواهی از صفحات را برای چاپ انتخاب کنید و تعداد نسخه‌های موردنیاز را برای هر فایل به‌صورت جداگانه مشخص کنید.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-layers"/></svg><h3 data-i18n="f8_t">پشتیبانی از فرمت‌های مختلف فایل</h3><p data-i18n="f8_d">فولیو از ۵۲ فرمت مختلف پشتیبانی می‌کند؛ از فایل‌های Word، PowerPoint، Excel و PDF گرفته تا تصاویر PSD و HEIC و آرشیوهای فشرده. فایل‌ها را بدون نیاز به تبدیل دستی چاپ کنید.</p></article>
-      <article class="fcell"><span class="soon" data-i18n="soon">به‌زودی</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-card"/></svg><h3 data-i18n="f9_t">اتصال به کارتخوان و صندوق</h3><p data-i18n="f9_d">در نسخه‌های آینده، می‌توانید مبلغ نهایی چاپ را مستقیماً به کارتخوان یا صندوق ارسال کنید؛ بدون نیاز به وارد کردن دستی مبلغ و با کاهش احتمال خطای انسانی.</p></article>
+      <article class="fcell lead-cell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-count"/></svg><h3 data-i18n="f1_t">شمارش صفحات فایل‌ها</h3><p data-i18n="f1_d">شمارش خودکار صفحات فایل‌ها با فرمت‌های مختلف، حتی فایل‌ها و آرشیوهای رمزگذاری‌شده، با امکان وارد کردن رمز عبور توسط کاربر. فولیـو همچنین فایل‌های تکراری را شناسایی می‌کند و به شما هشدار می‌دهد.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calc"/></svg><h3 data-i18n="f2_t">محاسبه‌ی دقیق تعداد برگ و هزینه‌ی چاپ</h3><p data-i18n="f2_d">محاسبه‌ی هزینه‌ی چاپ بر اساس اندازه‌ی کاغذ، چاپ رنگی یا سیاه‌وسفید، چاپ یک‌رو یا دورو، تعداد نسخه‌ها و بازه‌ی صفحات انتخاب‌شده؛ با امکان تعریف و ویرایش تعرفه‌ها بر اساس نرخ‌های دلخواه شما.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg><h3 data-i18n="f3_t">ارسال مستقیم فایل‌ها به چاپگر</h3><p data-i18n="f3_d">چیدمان ۲ تا ۹ صفحه در هر طرف برگ یا استفاده از قابلیت چاپ Booklet. فولیـو جهت صفحات را هوشمندانه تشخیص می‌دهد، فایل‌ها را به PDF تبدیل می‌کند و مستقیماً برای چاپ ارسال می‌کند.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-align"/></svg><h3 data-i18n="f4_t">منگنه از سمت راست برای اسناد فارسی</h3><p data-i18n="f4_d">فولیـو ترتیب صفحات را با قابلیت Reverse به‌صورت هوشمند معکوس می‌کند تا بتوانید اسناد فارسی را از سمت راست منگنه کنید؛ حتی با چاپگرهایی که فقط امکان منگنه از سمت چپ را دارند.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rotate"/></svg><h3 data-i18n="f5_t">تشخیص خودکار جهت چاپ</h3><p data-i18n="f5_d">فولیـو جهت عمودی یا افقی صفحات فایل‌ها را تشخیص می‌دهد و تنظیمات Flip on Short Edge یا Flip on Long Edge را به‌صورت خودکار انتخاب می‌کند تا صفحات پشت‌ورو به‌درستی چاپ شوند.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg><h3 data-i18n="f6_t">چیدمان هوشمند صفحات</h3><p data-i18n="f6_d">هنگام چاپ چند صفحه در هر برگ، فولیـو ترتیب صفحات را متناسب با چیدمان انتخاب‌شده و جهت مرتب‌سازی (از راست به چپ یا از چپ به راست) تنظیم می‌کند تا صفحات به‌درستی در فضای هر برگ قرار بگیرند.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-layers"/></svg><h3 data-i18n="f7_t">پشتیبانی از فرمت‌های مختلف فایل</h3><p data-i18n="f7_d">فولیـو از ۵۲ فرمت مختلف پشتیبانی می‌کند؛ از فایل‌های Word، PowerPoint، Excel و PDF گرفته تا تصاویر PSD و HEIC و آرشیوهای فشرده. فایل‌ها را بدون نیاز به تبدیل دستی برای چاپ آماده کنید.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bind"/></svg><h3 data-i18n="f8_t">برآورد تعداد منگنه و اندازه‌ی فنر سیمی</h3><p data-i18n="f8_d">فولیـو تعداد منگنه‌های موردنیاز و اندازه‌ی پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.</p></article>
+      <article class="fcell"><span class="soon" data-i18n="soon">به‌زودی</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-card"/></svg><h3 data-i18n="f9_t">اتصال به کارتخوان و صندوق</h3><p data-i18n="f9_d">در نسخه‌های آینده، امکان ارسال مستقیم مبلغ نهایی چاپ به کارتخوان یا صندوق فراهم خواهد شد؛ بدون نیاز به وارد کردن دستی مبلغ و با هدف کاهش احتمال خطای انسانی.</p></article>
     </div></div>
   </section>
 
@@ -595,15 +596,15 @@
       dl_btn: "دانلود فولیو", hero_pricing: "مشاهده تعرفه‌ها", hero_trial: "۱۴ روز رایگان امتحان کنید",
       sys: "ویندوز ۱۰ به بالا (۶۴ بیتی)",
       feat_title: "امکانات اصلی",
-      f1_t: "شمارش خودکار صفحه‌ها", f1_d: "شمارش هم‌زمان صفحات چندین فایل با فرمت های متنوع، حتی فایل‌ها و آرشیوهای رمزدار. فولیو هنگام شمارش فایل‌های تکراری یا معیوب را تشخیص و به شما هشدار می‌دهد.",
-      f2_t: "محاسبه دقیق تعداد برگ و هزینه چاپ", f2_d: "محاسبه هزینه چاپ بر اساس اندازه کاغذ، چاپ رنگی یا سیاه‌وسفید، چاپ یک‌رو یا دورو، تعداد نسخه‌ها و بازه صفحات انتخاب‌شده؛ با امکان تعریف و ویرایش تعرفه‌ها بر اساس نرخ‌های دلخواه شما.",
-      f3_t: "ارسال مستقیم فایل‌ها به چاپگر", f3_d: "تنظیم چاپگر، اندازه کاغذ، مقیاس، کیفیت چاپ، حاشیه‌ها، تعداد نسخه‌ها و ترتیب چاپ. همچنین می‌توانید بین ۲ تا ۹ صفحه را در هر طرف برگ بچینید یا از قابلیت چاپ جزوه‌ای (Booklet) استفاده کنید.",
-      f4_t: "منگنه از سمت راست برای اسناد فارسی", f4_d: "فولیو ترتیب صفحات را به‌صورت خودکار معکوس می‌کند تا بتوانید اسناد فارسی و عربی را از سمت راست منگنه کنید؛ حتی با چاپگرهایی که فقط امکان منگنه از سمت چپ را دارند.",
-      f5_t: "تشخیص هوشمند جهت چاپ", f5_d: "فولیو جهت عمودی یا افقی فایل‌ها را به‌صورت خودکار تشخیص می‌دهد و هنگام چاپ چند صفحه در هر برگ، چیدمان آن‌ها را هوشمندانه تنظیم می‌کند تا صفحات با بهترین حالت ممکن روی هر طرف کاغذ قرار بگیرند.",
-      f6_t: "برآورد منگنه و فنر سیمی", f6_d: "فولیو تعداد منگنه‌های موردنیاز و اندازه پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.",
-      f7_t: "انتخاب صفحات و تعداد نسخه", f7_d: "با استفاده از پیش‌نمایش بندانگشتی، بازه دلخواهی از صفحات را برای چاپ انتخاب کنید و تعداد نسخه‌های موردنیاز را برای هر فایل به‌صورت جداگانه مشخص کنید.",
-      f8_t: "پشتیبانی از فرمت‌های مختلف فایل", f8_d: "فولیو از ۵۲ فرمت مختلف پشتیبانی می‌کند؛ از فایل‌های Word، PowerPoint، Excel و PDF گرفته تا تصاویر PSD و HEIC و آرشیوهای فشرده. فایل‌ها را بدون نیاز به تبدیل دستی چاپ کنید.",
-      f9_t: "اتصال به کارتخوان و صندوق", f9_d: "در نسخه‌های آینده، می‌توانید مبلغ نهایی چاپ را مستقیماً به کارتخوان یا صندوق ارسال کنید؛ بدون نیاز به وارد کردن دستی مبلغ و با کاهش احتمال خطای انسانی.",
+      f1_t: "شمارش صفحات فایل‌ها", f1_d: "شمارش خودکار صفحات فایل‌ها با فرمت‌های مختلف، حتی فایل‌ها و آرشیوهای رمزگذاری‌شده، با امکان وارد کردن رمز عبور توسط کاربر. فولیـو همچنین فایل‌های تکراری را شناسایی می‌کند و به شما هشدار می‌دهد.",
+      f2_t: "محاسبه‌ی دقیق تعداد برگ و هزینه‌ی چاپ", f2_d: "محاسبه‌ی هزینه‌ی چاپ بر اساس اندازه‌ی کاغذ، چاپ رنگی یا سیاه‌وسفید، چاپ یک‌رو یا دورو، تعداد نسخه‌ها و بازه‌ی صفحات انتخاب‌شده؛ با امکان تعریف و ویرایش تعرفه‌ها بر اساس نرخ‌های دلخواه شما.",
+      f3_t: "ارسال مستقیم فایل‌ها به چاپگر", f3_d: "چیدمان ۲ تا ۹ صفحه در هر طرف برگ یا استفاده از قابلیت چاپ Booklet. فولیـو جهت صفحات را هوشمندانه تشخیص می‌دهد، فایل‌ها را به PDF تبدیل می‌کند و مستقیماً برای چاپ ارسال می‌کند.",
+      f4_t: "منگنه از سمت راست برای اسناد فارسی", f4_d: "فولیـو ترتیب صفحات را با قابلیت Reverse به‌صورت هوشمند معکوس می‌کند تا بتوانید اسناد فارسی را از سمت راست منگنه کنید؛ حتی با چاپگرهایی که فقط امکان منگنه از سمت چپ را دارند.",
+      f5_t: "تشخیص خودکار جهت چاپ", f5_d: "فولیـو جهت عمودی یا افقی صفحات فایل‌ها را تشخیص می‌دهد و تنظیمات Flip on Short Edge یا Flip on Long Edge را به‌صورت خودکار انتخاب می‌کند تا صفحات پشت‌ورو به‌درستی چاپ شوند.",
+      f6_t: "چیدمان هوشمند صفحات", f6_d: "هنگام چاپ چند صفحه در هر برگ، فولیـو ترتیب صفحات را متناسب با چیدمان انتخاب‌شده و جهت مرتب‌سازی (از راست به چپ یا از چپ به راست) تنظیم می‌کند تا صفحات به‌درستی در فضای هر برگ قرار بگیرند.",
+      f7_t: "پشتیبانی از فرمت‌های مختلف فایل", f7_d: "فولیـو از ۵۲ فرمت مختلف پشتیبانی می‌کند؛ از فایل‌های Word، PowerPoint، Excel و PDF گرفته تا تصاویر PSD و HEIC و آرشیوهای فشرده. فایل‌ها را بدون نیاز به تبدیل دستی برای چاپ آماده کنید.",
+      f8_t: "برآورد تعداد منگنه و اندازه‌ی فنر سیمی", f8_d: "فولیـو تعداد منگنه‌های موردنیاز و اندازه‌ی پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.",
+      f9_t: "اتصال به کارتخوان و صندوق", f9_d: "در نسخه‌های آینده، امکان ارسال مستقیم مبلغ نهایی چاپ به کارتخوان یا صندوق فراهم خواهد شد؛ بدون نیاز به وارد کردن دستی مبلغ و با هدف کاهش احتمال خطای انسانی.",
       soon: "به‌زودی",
       fmt_title: "فرمت‌های پشتیبانی‌شده", fmt_sub: "۵۲ پسوند در ۵ خانواده", images: "تصاویر", show_all: "نمایش ۲۰ مورد دیگر", show_less: "نمایش کمتر",
       ext: function(n){ return fa(n) + " پسوند"; },
@@ -652,15 +653,15 @@
       dl_btn: "Download Folio", hero_pricing: "View pricing", hero_trial: "Try free for 14 days",
       sys: "Windows 10 or later (64-bit)",
       feat_title: "Key features",
-      f1_t: "Automatic page counting", f1_d: "Count the pages of multiple files in a variety of formats at once, even password-protected files and archives. While counting, Folio detects duplicate or corrupted files and warns you.",
+      f1_t: "Page counting for files", f1_d: "Automatically count the pages of files in a variety of formats, even encrypted files and archives, with the option for the user to enter the password. Folio also detects duplicate files and warns you.",
       f2_t: "Accurate sheet & cost calculation", f2_d: "Calculate printing cost based on paper size, color or black-and-white, single- or double-sided printing, number of copies, and the selected page range, with the ability to define and edit rates to match your own prices.",
-      f3_t: "Send files straight to the printer", f3_d: "Configure the printer, paper size, scale, print quality, margins, number of copies, and print order. You can also lay out 2 to 9 pages on each side of a sheet or use Booklet printing.",
-      f4_t: "Right-side stapling for Persian documents", f4_d: "Folio automatically reverses the page order so you can staple Persian and Arabic documents on the right side, even with printers that can only staple on the left.",
-      f5_t: "Smart print orientation", f5_d: "Folio automatically detects the portrait or landscape orientation of your files and, when printing several pages per sheet, arranges them intelligently so the pages fit as well as possible on each side of the paper.",
-      f6_t: "Staple & wire binding estimates", f6_d: "Folio estimates the number of staples needed and the recommended wire-binding size for each file. You can also adjust the calculation ranges to suit your needs.",
-      f7_t: "Page selection & number of copies", f7_d: "Use thumbnail previews to choose any range of pages to print, and set the number of copies for each file separately.",
-      f8_t: "Support for many file formats", f8_d: "Folio supports 52 different formats, from Word, PowerPoint, Excel, and PDF files to PSD and HEIC images and compressed archives. Print your files without converting them manually.",
-      f9_t: "POS terminal / register link", f9_d: "In upcoming versions, you will be able to send the final print total directly to a card reader or cash register, with no need to enter the amount manually and a lower chance of human error.",
+      f3_t: "Send files straight to the printer", f3_d: "Lay out 2 to 9 pages on each side of a sheet or use Booklet printing. Folio intelligently detects page orientation, converts files to PDF, and sends them straight to the printer.",
+      f4_t: "Right-side stapling for Persian documents", f4_d: "Folio intelligently reverses the page order with its Reverse feature so you can staple Persian documents on the right side, even with printers that can only staple on the left.",
+      f5_t: "Automatic print orientation detection", f5_d: "Folio detects the portrait or landscape orientation of each file's pages and automatically selects Flip on Short Edge or Flip on Long Edge so double-sided pages print correctly.",
+      f6_t: "Smart page layout", f6_d: "When printing several pages per sheet, Folio arranges the page order to match the chosen layout and reading direction (right-to-left or left-to-right) so the pages sit correctly in each sheet's space.",
+      f7_t: "Support for many file formats", f7_d: "Folio supports 52 different formats, from Word, PowerPoint, Excel, and PDF files to PSD and HEIC images and compressed archives. Prepare your files for printing without converting them manually.",
+      f8_t: "Staple count & wire-binding size estimates", f8_d: "Folio estimates the number of staples needed and the recommended wire-binding size for each file. You can also adjust the calculation ranges to suit your needs.",
+      f9_t: "POS terminal / register link", f9_d: "In upcoming versions, the final print total can be sent directly to a card reader or cash register, with no need to enter the amount manually and with the aim of reducing human error.",
       soon: "Coming soon",
       fmt_title: "Supported formats", fmt_sub: "52 extensions in 5 families", images: "Images", show_all: "Show 20 more", show_less: "Show less",
       ext: function(n){ return n + (n === 1 ? " extension" : " extensions"); },
