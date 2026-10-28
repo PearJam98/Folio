@@ -194,6 +194,9 @@
   .plan.best .now{color:#fff}.plan.best .unit{color:#e6edff}
   .plan.best .for{border-top-color:rgba(255,255,255,.3);color:#dbe5ff}
   .plan.best .off{background:#fff;color:#07835f}
+  .plan .btn{width:100%;margin-top:18px}
+  .plan.best .btn{background:#fff;border-color:#fff;color:var(--blue-deep)}
+  .plan.best .btn:hover{background:var(--tint);border-color:var(--tint)}
   .flag{position:absolute;inset-block-start:24px;inset-inline-end:26px;background:#fff;color:var(--blue-deep);font-size:.76rem;font-weight:700;padding:0 12px;border-radius:999px}
 
   .faq-list details{padding:18px 24px;border-top:1px solid var(--hair)}
@@ -396,7 +399,7 @@
         <p class="lead" data-i18n="lead">فولیو، دستیار هوشمند دفاتر فنی و کپی‌سنترها؛ نرم‌افزاری ویندوزی برای مدیریت تمام مراحل چاپ، از شمارش صفحات و محاسبه تعداد برگ و هزینه گرفته تا تنظیمات و ارسال فایل‌ها برای چاپ، همه در یک پنجره.</p>
         <div class="cta">
           <a class="btn primary js-dl" href="https://github.com/PearJam98/folio/releases/latest"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl_btn">دانلود فولیو</span></a>
-          <a class="btn ghost" href="#pricing" data-i18n="hero_pricing">مشاهده تعرفه‌ها</a>
+          <a class="btn ghost" href="#trial" data-i18n="hero_trial">۱۴ روز رایگان امتحان کنید</a>
         </div>
         <p class="dl-meta" id="dlMeta">آخرین نسخه · ویندوز ۱۰ به بالا (۶۴ بیتی)</p>
       </div>
@@ -489,13 +492,15 @@
       <div class="plan">
         <h3 data-i18n="p6_t">لایسنس ۶ ماهه</h3>
         <div class="price"><span class="now" data-i18n="p6_now">۶</span><span class="unit" data-i18n="unit">میلیون تومان</span></div>
-        <p class="for"><span data-i18n="p6_per">هر ماه ۱ میلیون تومان</span></p>
+        <p class="for"><span data-i18n="p6_per">هر ماه ۱ میلیون تومان</span><span data-i18n="p6_day">روزی حدود ۳۳ هزار تومان</span></p>
+        <a class="btn ghost" href="#trial" data-i18n="plan_trial">شروع ۱۴ روز رایگان</a>
       </div>
       <div class="plan best">
         <span class="flag" data-i18n="best">به‌صرفه‌تر</span>
         <h3 data-i18n="p12_t">لایسنس ۱۲ ماهه</h3>
         <div class="price"><span class="now" data-i18n="p12_now">۹</span><span class="unit" data-i18n="unit">میلیون تومان</span><span class="off" data-i18n="p12_off">ماهانه ۲۵٪ کمتر از ۶ ماهه</span></div>
-        <p class="for"><span data-i18n="p12_per">هر ماه ۰٫۷۵ میلیون تومان</span></p>
+        <p class="for"><span data-i18n="p12_per">هر ماه ۰٫۷۵ میلیون تومان</span><span data-i18n="p12_day">روزی حدود ۲۵ هزار تومان</span></p>
+        <a class="btn ghost" href="#trial" data-i18n="plan_trial">شروع ۱۴ روز رایگان</a>
       </div>
     </div>
     <div class="contact">
@@ -594,7 +599,7 @@
       shot_alt5: "فولیو در حالت پنجم: تصویر ۵ از ۵",
       shots_label: "تصاویر برنامه",
       shot_dot: "نمایش تصویر",
-      dl_btn: "دانلود فولیو", hero_pricing: "مشاهده تعرفه‌ها",
+      dl_btn: "دانلود فولیو", hero_pricing: "مشاهده تعرفه‌ها", hero_trial: "۱۴ روز رایگان امتحان کنید",
       sys: "ویندوز ۱۰ به بالا (۶۴ بیتی)",
       feat_title: "امکانات اصلی",
       f1_t: "شمارش خودکار صفحه‌ها", f1_d: "شمارش هم‌زمان صفحات چندین فایل با فرمت های متنوع، حتی فایل‌ها و آرشیوهای رمزدار. فولیو هنگام شمارش فایل‌های تکراری یا معیوب را تشخیص و به شما هشدار می‌دهد.",
@@ -609,7 +614,7 @@
       soon: "به‌زودی",
       fmt_title: "فرمت‌های پشتیبانی‌شده", fmt_sub: "۵۲ پسوند در ۵ خانواده", images: "تصاویر", show_all: "نمایش ۲۰ مورد دیگر", show_less: "نمایش کمتر",
       ext: function(n){ return fa(n) + " پسوند"; },
-      price_title: "تعرفه‌ی لایسنس", best: "به‌صرفه‌تر", unit: "میلیون تومان",
+      price_title: "تعرفه‌ی لایسنس", plan_trial: "شروع ۱۴ روز رایگان", p6_day: "روزی حدود ۳۳ هزار تومان", p12_day: "روزی حدود ۲۵ هزار تومان", best: "به‌صرفه‌تر", unit: "میلیون تومان",
       p6_t: "لایسنس ۶ ماهه", p6_now: "۶", p6_per: "هر ماه ۱ میلیون تومان",
       p12_t: "لایسنس ۱۲ ماهه", p12_now: "۹", p12_off: "ماهانه ۲۵٪ کمتر از ۶ ماهه", p12_per: "هر ماه ۰٫۷۵ میلیون تومان",
       contact_t: "برای خرید و دریافت راهنمایی، تماس بگیرید",
@@ -653,7 +658,7 @@
       shot_alt5: "Folio in another state: screenshot 5 of 5",
       shots_label: "App screenshots",
       shot_dot: "Show screenshot",
-      dl_btn: "Download Folio", hero_pricing: "View pricing",
+      dl_btn: "Download Folio", hero_pricing: "View pricing", hero_trial: "Try free for 14 days",
       sys: "Windows 10 or later (64-bit)",
       feat_title: "Key features",
       f1_t: "Automatic page counting", f1_d: "Count the pages of multiple files in a variety of formats at once, even password-protected files and archives. While counting, Folio detects duplicate or corrupted files and warns you.",
@@ -668,7 +673,7 @@
       soon: "Coming soon",
       fmt_title: "Supported formats", fmt_sub: "52 extensions in 5 families", images: "Images", show_all: "Show 20 more", show_less: "Show less",
       ext: function(n){ return n + (n === 1 ? " extension" : " extensions"); },
-      price_title: "License pricing", best: "Best value", unit: "million toman",
+      price_title: "License pricing", plan_trial: "Start 14 days free", p6_day: "about 33,000 toman per day", p12_day: "about 25,000 toman per day", best: "Best value", unit: "million toman",
       p6_t: "6-month license", p6_now: "6", p6_per: "1 million toman per month",
       p12_t: "12-month license", p12_now: "9", p12_off: "25% less per month than 6-month", p12_per: "0.75 million toman per month",
       contact_t: "To buy or get help, contact us",
