@@ -6,21 +6,22 @@
 <meta name="color-scheme" content="light">
 <script>document.documentElement.classList.add("js");try{if(localStorage.getItem("folio-lang")==="en"){var d=document.documentElement;d.lang="en";d.dir="ltr"}}catch(e){}</script>
 <title>فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها</title>
-<meta name="description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.">
+<meta name="description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها: شمارش خودکار صفحات، محاسبه هزینه و ارسال مستقیم به چاپگر. ۱۴ روز رایگان امتحان کنید.">
 <meta property="og:title" content="فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها">
-<meta property="og:description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.">
+<meta property="og:description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها: شمارش خودکار صفحات، محاسبه هزینه و ارسال مستقیم به چاپگر. ۱۴ روز رایگان امتحان کنید.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:site_name" content="Folio">
 <meta property="og:url" content="https://folioapp.ir/">
-<meta property="og:image" content="https://folioapp.ir/1.png">
-<meta property="og:image:width" content="917">
-<meta property="og:image:height" content="580">
-<meta property="og:image:alt" content="پنجره‌ی اصلی نرم‌افزار فولیو: فهرست فایل‌ها با تعداد صفحه و برگ و پنل محاسبه‌ی هزینه">
+<meta property="og:image" content="https://folioapp.ir/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="شعار فولیو: پرنده‌ی کاغذی آبی کنار نام Folio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها">
-<meta name="twitter:description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.">
-<meta name="twitter:image" content="https://folioapp.ir/1.png">
+<meta name="twitter:description" content="فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها: شمارش خودکار صفحات، محاسبه هزینه و ارسال مستقیم به چاپگر. ۱۴ روز رایگان امتحان کنید.">
+<meta name="twitter:image" content="https://folioapp.ir/og.png">
 <meta name="theme-color" content="#3b6ef6">
 <link rel="canonical" href="https://folioapp.ir/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -31,8 +32,8 @@
   "name": "فولیو (Folio)",
   "alternateName": "Folio",
   "url": "https://folioapp.ir/",
-  "image": "https://folioapp.ir/1.png",
-  "description": "فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.",
+  "image": "https://folioapp.ir/og.png",
+  "description": "فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها: شمارش خودکار صفحات، محاسبه هزینه و ارسال مستقیم به چاپگر. ۱۴ روز رایگان امتحان کنید.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Windows 10, Windows 11",
   "inLanguage": [
@@ -291,6 +292,19 @@
   body{transition:opacity .16s var(--ease)}
   body.swap{opacity:0}
 
+  /* ---------- mobile menu ---------- */
+  .menu-btn{display:none;place-items:center;flex:none;width:40px;height:40px;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease)}
+  .menu-btn:hover{background:var(--tint);border-color:#c7d4fb}
+  .menu-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+  .menu-btn .m-close,.menu-btn[aria-expanded="true"] .m-open{display:none}
+  .menu-btn[aria-expanded="true"] .m-close{display:inline}
+  @media (max-width:860px){
+    .menu-btn{display:grid}
+    nav.links{display:none;position:absolute;inset-inline:0;top:100%;margin:0;padding:8px 20px 16px;flex-direction:column;gap:2px;background:rgba(255,255,255,.98);border-bottom:1px solid var(--line);box-shadow:0 18px 30px -22px rgba(59,110,246,.35)}
+    header.site.menu-open nav.links{display:flex}
+    nav.links a{padding:12px 14px;font-size:1rem}
+  }
+
   /* ---------- responsive ---------- */
   @media (max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:34px;padding:44px 0 56px}
@@ -298,7 +312,6 @@
     .lead{max-width:none}
   }
   @media (max-width:720px){
-    nav.links{display:none}
     .bar{gap:10px}
     header .btn.small{padding:6px 14px}
     header .btn.small svg{display:none}
@@ -371,11 +384,12 @@
 <header class="site">
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Folio"><svg viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg>Folio</a>
-    <nav class="links">
+    <nav class="links" id="mainNav">
       <a href="#features" data-i18n="nav_features">امکانات</a>
       <a href="#formats" data-i18n="nav_formats">فرمت‌ها</a>
       <a href="#trial" data-i18n="nav_trial">آزمایشی</a>
       <a href="#pricing" data-i18n="nav_pricing">تعرفه</a>
+      <a href="#faq" data-i18n="nav_faq">پرسش‌ها</a>
     </nav>
     <div class="spacer"></div>
     <div class="lang" role="group" aria-label="Language">
@@ -383,6 +397,7 @@
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
     <a class="btn primary small js-dl" href="https://github.com/PearJam98/folio/releases/latest"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl_btn">دانلود فولیو</span></a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mainNav" aria-label="منو" data-i18n-aria="menu_label"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="m-open" d="M4 7h16M4 12h16M4 17h16"/><path class="m-close" d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
 </header>
 
@@ -427,14 +442,14 @@
   <section id="features" class="sec wrap">
     <div class="sec-head"><h2 data-i18n="feat_title">امکانات اصلی</h2></div>
     <div class="frame"><div class="fgrid">
-      <article class="fcell lead-cell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-count"/></svg><h3 data-i18n="f1_t">شمارش صفحات فایل‌ها</h3><p data-i18n="f1_d">شمارش خودکار صفحات فایل‌ها با فرمت‌های مختلف، حتی فایل‌ها و آرشیوهای رمزگذاری‌شده، با امکان وارد کردن رمز عبور توسط کاربر. فولیـو همچنین فایل‌های تکراری را شناسایی می‌کند و به شما هشدار می‌دهد.</p></article>
+      <article class="fcell lead-cell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-count"/></svg><h3 data-i18n="f1_t">شمارش صفحات فایل‌ها</h3><p data-i18n="f1_d">شمارش خودکار صفحات فایل‌ها با فرمت‌های مختلف، حتی فایل‌ها و آرشیوهای رمزگذاری‌شده، با امکان وارد کردن رمز عبور توسط کاربر. فولیو همچنین فایل‌های تکراری را شناسایی می‌کند و به شما هشدار می‌دهد.</p></article>
       <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calc"/></svg><h3 data-i18n="f2_t">محاسبه‌ی دقیق تعداد برگ و هزینه‌ی چاپ</h3><p data-i18n="f2_d">محاسبه‌ی هزینه‌ی چاپ بر اساس اندازه‌ی کاغذ، چاپ رنگی یا سیاه‌وسفید، چاپ یک‌رو یا دورو، تعداد نسخه‌ها و بازه‌ی صفحات انتخاب‌شده؛ با امکان تعریف و ویرایش تعرفه‌ها بر اساس نرخ‌های دلخواه شما.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg><h3 data-i18n="f3_t">ارسال مستقیم فایل‌ها به چاپگر</h3><p data-i18n="f3_d">چیدمان ۲ تا ۹ صفحه در هر طرف برگ یا استفاده از قابلیت چاپ Booklet. فولیـو جهت صفحات را هوشمندانه تشخیص می‌دهد، فایل‌ها را به PDF تبدیل می‌کند و مستقیماً برای چاپ ارسال می‌کند.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-align"/></svg><h3 data-i18n="f4_t">منگنه از سمت راست برای اسناد فارسی</h3><p data-i18n="f4_d">فولیـو ترتیب صفحات را با قابلیت Reverse به‌صورت هوشمند معکوس می‌کند تا بتوانید اسناد فارسی را از سمت راست منگنه کنید؛ حتی با چاپگرهایی که فقط امکان منگنه از سمت چپ را دارند.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rotate"/></svg><h3 data-i18n="f5_t">تشخیص خودکار جهت چاپ</h3><p data-i18n="f5_d">فولیـو جهت عمودی یا افقی صفحات فایل‌ها را تشخیص می‌دهد و تنظیمات Flip on Short Edge یا Flip on Long Edge را به‌صورت خودکار انتخاب می‌کند تا صفحات پشت‌ورو به‌درستی چاپ شوند.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg><h3 data-i18n="f6_t">چیدمان هوشمند صفحات</h3><p data-i18n="f6_d">هنگام چاپ چند صفحه در هر برگ، فولیـو ترتیب صفحات را متناسب با چیدمان انتخاب‌شده و جهت مرتب‌سازی (از راست به چپ یا از چپ به راست) تنظیم می‌کند تا صفحات به‌درستی در فضای هر برگ قرار بگیرند.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-layers"/></svg><h3 data-i18n="f7_t">پشتیبانی از فرمت‌های مختلف فایل</h3><p data-i18n="f7_d">فولیـو از ۵۲ فرمت مختلف پشتیبانی می‌کند؛ از فایل‌های Word، PowerPoint، Excel و PDF گرفته تا تصاویر PSD و HEIC و آرشیوهای فشرده. فایل‌ها را بدون نیاز به تبدیل دستی برای چاپ آماده کنید.</p></article>
-      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bind"/></svg><h3 data-i18n="f8_t">برآورد تعداد منگنه و اندازه‌ی فنر سیمی</h3><p data-i18n="f8_d">فولیـو تعداد منگنه‌های موردنیاز و اندازه‌ی پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg><h3 data-i18n="f3_t">ارسال مستقیم فایل‌ها به چاپگر</h3><p data-i18n="f3_d">چیدمان ۲ تا ۹ صفحه در هر طرف برگ یا استفاده از قابلیت چاپ Booklet. فولیو جهت صفحات را هوشمندانه تشخیص می‌دهد، فایل‌ها را به PDF تبدیل می‌کند و مستقیماً برای چاپ ارسال می‌کند.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-align"/></svg><h3 data-i18n="f4_t">منگنه از سمت راست برای اسناد فارسی</h3><p data-i18n="f4_d">فولیو ترتیب صفحات را با قابلیت Reverse به‌صورت هوشمند معکوس می‌کند تا بتوانید اسناد فارسی را از سمت راست منگنه کنید؛ حتی با چاپگرهایی که فقط امکان منگنه از سمت چپ را دارند.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rotate"/></svg><h3 data-i18n="f5_t">تشخیص خودکار جهت چاپ</h3><p data-i18n="f5_d">فولیو جهت عمودی یا افقی صفحات فایل‌ها را تشخیص می‌دهد و تنظیمات Flip on Short Edge یا Flip on Long Edge را به‌صورت خودکار انتخاب می‌کند تا صفحات پشت‌ورو به‌درستی چاپ شوند.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg><h3 data-i18n="f6_t">چیدمان هوشمند صفحات</h3><p data-i18n="f6_d">هنگام چاپ چند صفحه در هر برگ، فولیو ترتیب صفحات را متناسب با چیدمان انتخاب‌شده و جهت مرتب‌سازی (از راست به چپ یا از چپ به راست) تنظیم می‌کند تا صفحات به‌درستی در فضای هر برگ قرار بگیرند.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-layers"/></svg><h3 data-i18n="f7_t">پشتیبانی از فرمت‌های مختلف فایل</h3><p data-i18n="f7_d">فولیو از ۵۲ فرمت مختلف پشتیبانی می‌کند؛ از فایل‌های Word، PowerPoint، Excel و PDF گرفته تا تصاویر PSD و HEIC و آرشیوهای فشرده. فایل‌ها را بدون نیاز به تبدیل دستی برای چاپ آماده کنید.</p></article>
+      <article class="fcell"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bind"/></svg><h3 data-i18n="f8_t">برآورد تعداد منگنه و اندازه‌ی فنر سیمی</h3><p data-i18n="f8_d">فولیو تعداد منگنه‌های موردنیاز و اندازه‌ی پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.</p></article>
       <article class="fcell"><span class="soon" data-i18n="soon">به‌زودی</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-card"/></svg><h3 data-i18n="f9_t">اتصال به کارتخوان و صندوق</h3><p data-i18n="f9_d">در نسخه‌های آینده، امکان ارسال مستقیم مبلغ نهایی چاپ به کارتخوان یا صندوق فراهم خواهد شد؛ بدون نیاز به وارد کردن دستی مبلغ و با هدف کاهش احتمال خطای انسانی.</p></article>
     </div></div>
   </section>
@@ -556,6 +571,8 @@
           <li><a href="#trial" data-i18n="nav_trial">آزمایشی</a></li>
           <li><a href="#pricing" data-i18n="nav_pricing">تعرفه</a></li>
           <li><a href="#faq" data-i18n="foot_faq">پرسش‌های متداول</a></li>
+          <li><a href="guides/print-cost.html" data-i18n="foot_g1">راهنمای محاسبه‌ی هزینه‌ی چاپ</a></li>
+          <li><a href="guides/right-side-stapling.html" data-i18n="foot_g2">منگنه از سمت راست برای اسناد فارسی</a></li>
         </ul>
       </nav>
       <div class="foot-col">
@@ -584,8 +601,8 @@
   var T = {
     fa: {
       meta_title: "فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها",
-      meta_desc: "فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها، دفاتر فنی، خدمات زیراکس و کافی‌نت‌ها: شمارش خودکار صفحات، محاسبه تعداد برگ و هزینه چاپ و ارسال مستقیم فایل‌ها به چاپگر. ۱۴ روز رایگان امتحان کنید.",
-      nav_features: "امکانات", nav_formats: "فرمت‌ها", nav_trial: "آزمایشی", nav_pricing: "تعرفه",
+      meta_desc: "فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها: شمارش خودکار صفحات، محاسبه هزینه و ارسال مستقیم به چاپگر. ۱۴ روز رایگان امتحان کنید.",
+      nav_features: "امکانات", nav_formats: "فرمت‌ها", nav_trial: "آزمایشی", nav_pricing: "تعرفه", nav_faq: "پرسش‌ها", menu_label: "منو", foot_g1: "راهنمای محاسبه‌ی هزینه‌ی چاپ", foot_g2: "منگنه از سمت راست برای اسناد فارسی",
       h1: "مدیریت سفارش‌های چاپ، ساده‌تر، سریع‌تر",
       lead: "فولیو، دستیار هوشمند دفاتر فنی و کپی‌سنترها؛ نرم‌افزاری ویندوزی برای مدیریت تمام مراحل چاپ، از شمارش صفحات و محاسبه تعداد برگ و هزینه گرفته تا تنظیمات و ارسال فایل‌ها برای چاپ، همه در یک پنجره.",
       shot_alt2: "فولیو: تصویر ۱ از ۳",
@@ -596,14 +613,14 @@
       dl_btn: "دانلود فولیو", hero_pricing: "مشاهده تعرفه‌ها", hero_trial: "۱۴ روز رایگان امتحان کنید",
       sys: "ویندوز ۱۰ به بالا (۶۴ بیتی)",
       feat_title: "امکانات اصلی",
-      f1_t: "شمارش صفحات فایل‌ها", f1_d: "شمارش خودکار صفحات فایل‌ها با فرمت‌های مختلف، حتی فایل‌ها و آرشیوهای رمزگذاری‌شده، با امکان وارد کردن رمز عبور توسط کاربر. فولیـو همچنین فایل‌های تکراری را شناسایی می‌کند و به شما هشدار می‌دهد.",
+      f1_t: "شمارش صفحات فایل‌ها", f1_d: "شمارش خودکار صفحات فایل‌ها با فرمت‌های مختلف، حتی فایل‌ها و آرشیوهای رمزگذاری‌شده، با امکان وارد کردن رمز عبور توسط کاربر. فولیو همچنین فایل‌های تکراری را شناسایی می‌کند و به شما هشدار می‌دهد.",
       f2_t: "محاسبه‌ی دقیق تعداد برگ و هزینه‌ی چاپ", f2_d: "محاسبه‌ی هزینه‌ی چاپ بر اساس اندازه‌ی کاغذ، چاپ رنگی یا سیاه‌وسفید، چاپ یک‌رو یا دورو، تعداد نسخه‌ها و بازه‌ی صفحات انتخاب‌شده؛ با امکان تعریف و ویرایش تعرفه‌ها بر اساس نرخ‌های دلخواه شما.",
-      f3_t: "ارسال مستقیم فایل‌ها به چاپگر", f3_d: "چیدمان ۲ تا ۹ صفحه در هر طرف برگ یا استفاده از قابلیت چاپ Booklet. فولیـو جهت صفحات را هوشمندانه تشخیص می‌دهد، فایل‌ها را به PDF تبدیل می‌کند و مستقیماً برای چاپ ارسال می‌کند.",
-      f4_t: "منگنه از سمت راست برای اسناد فارسی", f4_d: "فولیـو ترتیب صفحات را با قابلیت Reverse به‌صورت هوشمند معکوس می‌کند تا بتوانید اسناد فارسی را از سمت راست منگنه کنید؛ حتی با چاپگرهایی که فقط امکان منگنه از سمت چپ را دارند.",
-      f5_t: "تشخیص خودکار جهت چاپ", f5_d: "فولیـو جهت عمودی یا افقی صفحات فایل‌ها را تشخیص می‌دهد و تنظیمات Flip on Short Edge یا Flip on Long Edge را به‌صورت خودکار انتخاب می‌کند تا صفحات پشت‌ورو به‌درستی چاپ شوند.",
-      f6_t: "چیدمان هوشمند صفحات", f6_d: "هنگام چاپ چند صفحه در هر برگ، فولیـو ترتیب صفحات را متناسب با چیدمان انتخاب‌شده و جهت مرتب‌سازی (از راست به چپ یا از چپ به راست) تنظیم می‌کند تا صفحات به‌درستی در فضای هر برگ قرار بگیرند.",
-      f7_t: "پشتیبانی از فرمت‌های مختلف فایل", f7_d: "فولیـو از ۵۲ فرمت مختلف پشتیبانی می‌کند؛ از فایل‌های Word، PowerPoint، Excel و PDF گرفته تا تصاویر PSD و HEIC و آرشیوهای فشرده. فایل‌ها را بدون نیاز به تبدیل دستی برای چاپ آماده کنید.",
-      f8_t: "برآورد تعداد منگنه و اندازه‌ی فنر سیمی", f8_d: "فولیـو تعداد منگنه‌های موردنیاز و اندازه‌ی پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.",
+      f3_t: "ارسال مستقیم فایل‌ها به چاپگر", f3_d: "چیدمان ۲ تا ۹ صفحه در هر طرف برگ یا استفاده از قابلیت چاپ Booklet. فولیو جهت صفحات را هوشمندانه تشخیص می‌دهد، فایل‌ها را به PDF تبدیل می‌کند و مستقیماً برای چاپ ارسال می‌کند.",
+      f4_t: "منگنه از سمت راست برای اسناد فارسی", f4_d: "فولیو ترتیب صفحات را با قابلیت Reverse به‌صورت هوشمند معکوس می‌کند تا بتوانید اسناد فارسی را از سمت راست منگنه کنید؛ حتی با چاپگرهایی که فقط امکان منگنه از سمت چپ را دارند.",
+      f5_t: "تشخیص خودکار جهت چاپ", f5_d: "فولیو جهت عمودی یا افقی صفحات فایل‌ها را تشخیص می‌دهد و تنظیمات Flip on Short Edge یا Flip on Long Edge را به‌صورت خودکار انتخاب می‌کند تا صفحات پشت‌ورو به‌درستی چاپ شوند.",
+      f6_t: "چیدمان هوشمند صفحات", f6_d: "هنگام چاپ چند صفحه در هر برگ، فولیو ترتیب صفحات را متناسب با چیدمان انتخاب‌شده و جهت مرتب‌سازی (از راست به چپ یا از چپ به راست) تنظیم می‌کند تا صفحات به‌درستی در فضای هر برگ قرار بگیرند.",
+      f7_t: "پشتیبانی از فرمت‌های مختلف فایل", f7_d: "فولیو از ۵۲ فرمت مختلف پشتیبانی می‌کند؛ از فایل‌های Word، PowerPoint، Excel و PDF گرفته تا تصاویر PSD و HEIC و آرشیوهای فشرده. فایل‌ها را بدون نیاز به تبدیل دستی برای چاپ آماده کنید.",
+      f8_t: "برآورد تعداد منگنه و اندازه‌ی فنر سیمی", f8_d: "فولیو تعداد منگنه‌های موردنیاز و اندازه‌ی پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.",
       f9_t: "اتصال به کارتخوان و صندوق", f9_d: "در نسخه‌های آینده، امکان ارسال مستقیم مبلغ نهایی چاپ به کارتخوان یا صندوق فراهم خواهد شد؛ بدون نیاز به وارد کردن دستی مبلغ و با هدف کاهش احتمال خطای انسانی.",
       soon: "به‌زودی",
       fmt_title: "فرمت‌های پشتیبانی‌شده", fmt_sub: "۵۲ پسوند در ۵ خانواده", images: "تصاویر", show_all: "نمایش ۲۰ مورد دیگر", show_less: "نمایش کمتر",
@@ -641,8 +658,8 @@
     },
     en: {
       meta_title: "Folio | Print management software for copy centers",
-      meta_desc: "Folio is Windows print management software for copy centers, technical offices, Xerox services and internet cafés: automatic page counting, sheet and print cost calculation, and sending files straight to the printer. 14-day free trial.",
-      nav_features: "Features", nav_formats: "Formats", nav_trial: "Free trial", nav_pricing: "Pricing",
+      meta_desc: "Windows print management software for copy centers: automatic page counting, sheet and cost calculation, and direct printing. Try it free for 14 days.",
+      nav_features: "Features", nav_formats: "Formats", nav_trial: "Free trial", nav_pricing: "Pricing", nav_faq: "FAQ", menu_label: "Menu", foot_g1: "Print cost guide (in Persian)", foot_g2: "Right-side stapling guide (in Persian)",
       h1: "Simplify print job management",
       lead: "Folio, the smart assistant for print shops and copy centers: Windows software that manages every stage of printing, from page counting and calculating sheets and cost to print settings and sending files to print, all in one window.",
       shot_alt2: "Folio: screenshot 1 of 3",
@@ -706,7 +723,7 @@
   try { var saved = localStorage.getItem("folio-lang"); if (saved === "en" || saved === "fa") lang = saved; } catch (e) {}
   var release = null; // {version, mb}
 
-  // hero slideshow: 1.png -> 5.png in order, looping; the active dot's fill animation drives the timing
+  // hero slideshow: the images in order, looping; the active dot's fill animation drives the timing
   var SLIDE_MS = 4000;
   var stage = document.querySelector(".stage");
   var slideImgs = stage ? Array.prototype.slice.call(stage.querySelectorAll(".slides img")) : [];
@@ -867,6 +884,17 @@
       var open = chipBtn.closest(".chips-wrap").classList.toggle("open");
       chipBtn.setAttribute("aria-expanded", String(open));
     });
+  }
+
+  // mobile menu
+  var menuBtn = document.querySelector(".menu-btn");
+  if (menuBtn){
+    var setMenu = function(o){ head.classList.toggle("menu-open", o); menuBtn.setAttribute("aria-expanded", String(o)); };
+    menuBtn.addEventListener("click", function(){ setMenu(!head.classList.contains("menu-open")); });
+    head.querySelectorAll("nav.links a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+    document.addEventListener("click", function(e){ if (!head.contains(e.target)) setMenu(false); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape" && head.classList.contains("menu-open")){ setMenu(false); menuBtn.focus(); } });
+    window.addEventListener("resize", function(){ if (window.innerWidth > 860) setMenu(false); });
   }
 
   apply();
