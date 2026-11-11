@@ -125,7 +125,7 @@
   .stage{position:relative;isolation:isolate;width:min(100%,380px);justify-self:center}
   .stage::before{content:"";position:absolute;inset:10% -5% -6%;z-index:-1;background:radial-gradient(closest-side,rgba(59,110,246,.24),rgba(164,203,255,.12) 60%,transparent);filter:blur(28px)}
   .vid{position:relative;aspect-ratio:3/4;border-radius:26px;overflow:hidden;background:var(--ink);box-shadow:0 30px 60px -28px rgba(40,70,170,.45),0 4px 14px rgba(40,70,170,.12)}
-  .vid video{display:block;width:100%;height:100%;object-fit:contain}
+  .vid video{display:block;width:100%;height:100%;object-fit:cover}
   .vid-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;padding:0;border:0;cursor:pointer;color:#fff;font:inherit;font-weight:600;background:linear-gradient(180deg,rgba(15,23,48,.05),rgba(15,23,48,.5))}
   .vid-ic{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#fff;color:var(--blue-deep);box-shadow:0 14px 34px -10px rgba(15,23,48,.55);transition:transform .25s var(--ease)}
   .vid-play:hover .vid-ic{transform:scale(1.08)}
