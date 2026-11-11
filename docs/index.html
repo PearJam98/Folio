@@ -55,7 +55,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
   :root{
     --ink:#1f2430;
@@ -75,7 +76,7 @@
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--mist);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{margin:0;background:var(--mist);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:opacity .16s var(--ease)}
   :lang(fa){font-family:"Vazirmatn","Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.9}
   :lang(en){font-family:"Manrope","Segoe UI",system-ui,sans-serif;line-height:1.65}
   a{color:inherit}
@@ -121,18 +122,17 @@
 
   .ghost-bird{position:absolute;inset-inline-end:-110px;top:-70px;width:560px;height:560px;opacity:.3;pointer-events:none}
 
-  /* intro video (3:4 portrait, click to play) */
+  /* intro video (1:1 square, click to play) */
   .stage{position:relative;isolation:isolate;width:min(100%,380px);justify-self:center}
   .stage::before{content:"";position:absolute;inset:10% -5% -6%;z-index:-1;background:radial-gradient(closest-side,rgba(59,110,246,.24),rgba(164,203,255,.12) 60%,transparent);filter:blur(28px)}
-  .vid{position:relative;aspect-ratio:3/4;border-radius:26px;overflow:hidden;background:var(--ink);box-shadow:0 30px 60px -28px rgba(40,70,170,.45),0 4px 14px rgba(40,70,170,.12)}
+  .vid{position:relative;aspect-ratio:1/1;border-radius:26px;overflow:hidden;background:var(--ink);box-shadow:0 0 0 1px #cfd3dc,0 30px 60px -28px rgba(40,70,170,.45),0 4px 14px rgba(40,70,170,.12)}
   .vid video{display:block;width:100%;height:100%;object-fit:cover}
   .vid-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;padding:0;border:0;cursor:pointer;color:#fff;font:inherit;font-weight:600;background:linear-gradient(180deg,rgba(15,23,48,.05),rgba(15,23,48,.5))}
   .vid-ic{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#fff;color:var(--blue-deep);box-shadow:0 14px 34px -10px rgba(15,23,48,.55);transition:transform .25s var(--ease)}
   .vid-play:hover .vid-ic{transform:scale(1.08)}
   .vid-play:focus-visible{outline:3px solid #fff;outline-offset:-8px;border-radius:26px}
   .vid-ic svg{width:30px;height:30px;margin-left:3px;fill:currentColor;stroke:none}
-  .vid.playing .vid-play{display:none}
-  .vid.ended .vid-play{display:none}
+  .vid.playing .vid-play,.vid.ended .vid-play{display:none}
   .vid:fullscreen{width:100%;height:100%;aspect-ratio:auto;border-radius:0;box-shadow:none}
   .vid:-webkit-full-screen{width:100%;height:100%;aspect-ratio:auto;border-radius:0;box-shadow:none}
 
@@ -204,7 +204,7 @@
   .frow{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:16px;align-items:start;padding:14px 24px;border-top:1px solid var(--hair);transition:background .25s var(--ease)}
   .frow:first-child{border-top:0}
   .frow:hover{background:#f8f9fc}
-  .frow h4{margin:0;padding-block:2px;font-size:1rem;display:flex;align-items:center;gap:10px;font-weight:600}
+  .frow h3{margin:0;padding-block:2px;font-size:1rem;display:flex;align-items:center;gap:10px;font-weight:600}
   .ficon{width:18px;height:18px;padding:5px;box-sizing:content-box;border-radius:10px;fill:none;stroke:var(--c);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;background:rgba(0,0,0,.05);background:color-mix(in srgb,var(--c) 11%,#fff);flex:none}
   .chips{display:flex;flex-wrap:wrap;gap:6px;direction:ltr;justify-content:flex-start}
   .chips code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.78rem;padding:0 11px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:var(--ink);line-height:1.7}
@@ -333,7 +333,6 @@
   .js .rv.in{animation:rise .7s var(--ease) var(--d,0s) backwards}
 
   /* ---------- language crossfade ---------- */
-  body{transition:opacity .16s var(--ease)}
   body.swap{opacity:0}
 
   /* ---------- mobile menu ---------- */
@@ -386,7 +385,7 @@
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 </head>
-<body>
+<body id="top">
 <!-- icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-count" viewBox="0 0 24 24"><path d="M8 7V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2"/><rect x="4" y="7" width="12" height="14" rx="2"/><path d="M8.5 12.5l-1.2 4.5M12.5 12.5L11.3 17M7 14h6M6.6 15.8h6"/></symbol>
@@ -406,7 +405,7 @@
   <symbol id="i-fmt-word" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M7.5 9l1.9 7 2.6-5.5 2.6 5.5 1.9-7"/></symbol>
   <symbol id="i-fmt-ppt" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8M8 13v-1.5M12 13V8.5M16 13v-3.5"/></symbol>
   <symbol id="i-fmt-xls" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 14.5h18M9 9.5V20M15 9.5V20"/></symbol>
-  <symbol id="i-fmt-pdf" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8.5 17c2.7-1 4-4 3.4-6.6-.6 2 .7 4.800 3.600 5.600-2-.5-4.600.2-7 1z"/></symbol>
+  <symbol id="i-fmt-pdf" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8.5 17c2.7-1 4-4 3.4-6.6-.6 2 .7 4.8 3.6 5.6-2-.5-4.6.2-7 1z"/></symbol>
   <symbol id="i-fmt-img" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M3 17l5-5 4 4 3-3 6 5"/></symbol>
   <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></symbol>
@@ -426,7 +425,7 @@
 <header class="site">
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Folio"><img src="favicon.svg" alt="" width="32" height="32" aria-hidden="true">Folio</a>
-    <nav class="links" id="mainNav">
+    <nav class="links" id="mainNav" aria-label="منوی اصلی" data-i18n-aria="main_nav">
       <a href="#features" data-i18n="nav_features">امکانات</a>
       <a href="#formats" data-i18n="nav_formats">فرمت‌ها</a>
       <a href="#trial" data-i18n="nav_trial">آزمایشی</a>
@@ -434,7 +433,7 @@
       <a href="#faq" data-i18n="nav_faq">پرسش‌ها</a>
     </nav>
     <div class="spacer"></div>
-    <div class="lang" role="group" aria-label="Language">
+    <div class="lang" role="group" aria-label="زبان" data-i18n-aria="lang_label">
       <button type="button" data-lang="fa" aria-pressed="true">فارسی</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
@@ -443,7 +442,7 @@
   </div>
 </header>
 
-<main id="top">
+<main>
   <div class="hero">
     <img class="ghost-bird" src="favicon.svg" alt="" aria-hidden="true">
     <div class="wrap hero-grid">
@@ -512,19 +511,19 @@
   <section id="formats" class="sec wrap">
     <div class="sec-head"><h2 data-i18n="fmt_title">فرمت‌های پشتیبانی‌شده</h2><p data-i18n="fmt_sub">۵۲ پسوند در ۵ خانواده</p></div>
     <div class="frame">
-      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#1565C0" aria-hidden="true"><use href="#i-fmt-word"/></svg>Word</h4>
+      <div class="frow"><h3><svg class="ficon" viewBox="0 0 24 24" style="--c:#1565C0" aria-hidden="true"><use href="#i-fmt-word"/></svg>Word</h3>
         <div class="chips"><code>.doc</code><code>.docx</code><code>.docm</code><code>.dot</code><code>.dotx</code><code>.dotm</code><code>.rtf</code><code>.odt</code></div>
         <span class="count" data-n="8">۸ پسوند</span></div>
-      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#BF360C" aria-hidden="true"><use href="#i-fmt-ppt"/></svg>PowerPoint</h4>
+      <div class="frow"><h3><svg class="ficon" viewBox="0 0 24 24" style="--c:#BF360C" aria-hidden="true"><use href="#i-fmt-ppt"/></svg>PowerPoint</h3>
         <div class="chips"><code>.ppt</code><code>.pptx</code><code>.pptm</code><code>.pot</code><code>.potx</code><code>.potm</code><code>.pps</code><code>.ppsx</code><code>.ppsm</code><code>.odp</code></div>
         <span class="count" data-n="10">۱۰ پسوند</span></div>
-      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#2E7D32" aria-hidden="true"><use href="#i-fmt-xls"/></svg>Excel</h4>
+      <div class="frow"><h3><svg class="ficon" viewBox="0 0 24 24" style="--c:#2E7D32" aria-hidden="true"><use href="#i-fmt-xls"/></svg>Excel</h3>
         <div class="chips"><code>.xls</code><code>.xlsx</code><code>.xlsm</code><code>.xlsb</code><code>.xlt</code><code>.xltx</code><code>.xltm</code><code>.ods</code></div>
         <span class="count" data-n="8">۸ پسوند</span></div>
-      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#AD1457" aria-hidden="true"><use href="#i-fmt-pdf"/></svg>PDF</h4>
+      <div class="frow"><h3><svg class="ficon" viewBox="0 0 24 24" style="--c:#AD1457" aria-hidden="true"><use href="#i-fmt-pdf"/></svg>PDF</h3>
         <div class="chips"><code>.pdf</code></div>
         <span class="count" data-n="1">۱ پسوند</span></div>
-      <div class="frow"><h4><svg class="ficon" viewBox="0 0 24 24" style="--c:#5E35B1" aria-hidden="true"><use href="#i-fmt-img"/></svg><span data-i18n="images">تصاویر</span></h4>
+      <div class="frow"><h3><svg class="ficon" viewBox="0 0 24 24" style="--c:#5E35B1" aria-hidden="true"><use href="#i-fmt-img"/></svg><span data-i18n="images">تصاویر</span></h3>
         <div class="chips-wrap"><div class="chips"><code>.jpg</code><code>.png</code><code>.heic</code><code>.psd</code><code>.tiff</code><button type="button" class="chip-toggle" aria-expanded="false" aria-controls="imgMore"><span class="t-more" data-i18n="show_all">نمایش ۲۰ مورد دیگر</span><span class="t-less" data-i18n="show_less">نمایش کمتر</span></button></div><div class="more" id="imgMore"><div class="more-inner"><div class="chips"><code>.jpeg</code><code>.jfif</code><code>.jpe</code><code>.gif</code><code>.bmp</code><code>.dib</code><code>.tif</code><code>.webp</code><code>.heif</code><code>.avif</code><code>.jp2</code><code>.j2k</code><code>.jpx</code><code>.ico</code><code>.tga</code><code>.pcx</code><code>.ppm</code><code>.pgm</code><code>.pbm</code><code>.psb</code></div></div></div></div>
         <span class="count" data-n="25">۲۵ پسوند</span></div>
     </div>
@@ -613,12 +612,12 @@
       <div class="foot-about">
         <div class="foot-brand"><img src="favicon.svg" alt="" width="32" height="32" aria-hidden="true"><span class="nm">Folio</span></div>
         <p data-i18n="foot_desc">نرم‌افزار مدیریت چاپ برای کپی‌سنترها و دفاتر فنی: شمارش صفحه‌ها، محاسبه هزینه و ارسال مستقیم به چاپگر.</p>
-        <div class="lang" role="group" aria-label="Language">
+        <div class="lang" role="group" aria-label="زبان" data-i18n-aria="lang_label">
           <button type="button" data-lang="fa" aria-pressed="true">فارسی</button>
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
       </div>
-      <nav class="foot-col" aria-label="Footer">
+      <nav class="foot-col" aria-label="پیوندهای پایین صفحه" data-i18n-aria="foot_nav">
         <h3 data-i18n="foot_quick">دسترسی سریع</h3>
         <ul>
           <li><a href="#features" data-i18n="nav_features">امکانات</a></li>
@@ -657,7 +656,7 @@
     fa: {
       meta_title: "فولیو | نرم‌افزار مدیریت چاپ و محاسبه هزینه برای کپی‌سنترها",
       meta_desc: "فولیو، نرم‌افزار ویندوزی مدیریت چاپ برای کپی‌سنترها: شمارش خودکار صفحات، محاسبه هزینه و ارسال مستقیم به چاپگر. ۱۴ روز رایگان امتحان کنید.",
-      nav_features: "امکانات", nav_formats: "فرمت‌ها", nav_trial: "آزمایشی", nav_pricing: "تعرفه", nav_faq: "پرسش‌ها", menu_label: "منو", foot_g1: "راهنمای محاسبه‌ی هزینه‌ی چاپ", foot_g2: "منگنه از سمت راست برای اسناد فارسی",
+      nav_features: "امکانات", nav_formats: "فرمت‌ها", nav_trial: "آزمایشی", nav_pricing: "تعرفه", nav_faq: "پرسش‌ها", menu_label: "منو", main_nav: "منوی اصلی", lang_label: "زبان", foot_nav: "پیوندهای پایین صفحه", foot_g1: "راهنمای محاسبه‌ی هزینه‌ی چاپ", foot_g2: "منگنه از سمت راست برای اسناد فارسی",
       h1: "مدیریت سفارش‌های چاپ، ساده‌تر، سریع‌تر",
       lead: "فولیو، دستیار هوشمند دفاتر فنی و کپی‌سنترها؛ نرم‌افزاری ویندوزی برای مدیریت تمام مراحل چاپ، از شمارش صفحات و محاسبه تعداد برگ و هزینه گرفته تا تنظیمات و ارسال فایل‌ها برای چاپ، همه در یک پنجره.",
       vid_label: "ویدیوی معرفی فولیو", vid_play: "پخش ویدیوی معرفی", vid_cta: "ویدیوی معرفی فولیو",
@@ -711,7 +710,7 @@
     en: {
       meta_title: "Folio | Print management software for copy centers",
       meta_desc: "Windows print management software for copy centers: automatic page counting, sheet and cost calculation, and direct printing. Try it free for 14 days.",
-      nav_features: "Features", nav_formats: "Formats", nav_trial: "Free trial", nav_pricing: "Pricing", nav_faq: "FAQ", menu_label: "Menu", foot_g1: "Print cost guide (in Persian)", foot_g2: "Right-side stapling guide (in Persian)",
+      nav_features: "Features", nav_formats: "Formats", nav_trial: "Free trial", nav_pricing: "Pricing", nav_faq: "FAQ", menu_label: "Menu", main_nav: "Main", lang_label: "Language", foot_nav: "Footer", foot_g1: "Print cost guide (in Persian)", foot_g2: "Right-side stapling guide (in Persian)",
       h1: "Simplify print job management",
       lead: "Folio, the smart assistant for print shops and copy centers: Windows software that manages every stage of printing, from page counting and calculating sheets and cost to print settings and sending files to print, all in one window.",
       vid_label: "Folio intro video", vid_play: "Play the intro video", vid_cta: "Watch the demo",
@@ -781,8 +780,13 @@
   if (demo && vidBox && vidPlay){
     var heroGrid = document.querySelector(".hero-grid");
     var noVideo = function(){ if (heroGrid) heroGrid.classList.add("no-vid"); };
-    demo.addEventListener("error", noVideo);
-    if (demo.error || demo.networkState === 3) noVideo();
+    // a dropped or failed download gets two retries before the player is hidden
+    var loadTries = 0;
+    demo.addEventListener("error", function(){
+      if (loadTries++ < 2) setTimeout(function(){ demo.load(); }, 1500 * loadTries);
+      else noVideo();
+    });
+    if (demo.error) noVideo();
 
     var vBar = document.getElementById("vBar"), vToggle = document.getElementById("vToggle"),
         vSeek = document.getElementById("vSeek"), vMute = document.getElementById("vMute"),
@@ -878,6 +882,12 @@
       if (vidBox.contains(document.activeElement)) setTimeout(function(){ vReplay.focus({ preventScroll: true }); }, 60);
     });
     demo.addEventListener("volumechange", sync);
+    // after a retried load succeeds, resume autoplay if the player is on screen
+    demo.addEventListener("canplay", function(){
+      var r = vidBox.getBoundingClientRect();
+      var visible = r.top < innerHeight * .75 && r.bottom > innerHeight * .25;
+      if (visible && demo.paused && !userStopped && !reduceMotion) tryPlay();
+    });
 
     // controls
     vidPlay.addEventListener("click", function(){ userPlay(); vToggle.focus({ preventScroll: true }); });
@@ -973,25 +983,39 @@
     });
   });
 
-  // latest release -> direct download link
-  fetch("https://api.github.com/repos/" + REPO + "/releases/latest", { headers: { "Accept": "application/vnd.github+json" } })
-    .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(function(rel){
-      var assets = rel.assets || [];
-      var pick =
-        assets.find(function(a){ return /(setup|install)/i.test(a.name) && /\.(exe|msi)$/i.test(a.name); }) ||
-        assets.find(function(a){ return /\.(exe|msi)$/i.test(a.name); }) ||
-        assets.find(function(a){ return /\.zip$/i.test(a.name); }) ||
-        assets[0];
-      var href = pick ? pick.browser_download_url : (rel.html_url || FALLBACK);
-      document.querySelectorAll(".js-dl").forEach(function(a){ a.href = href; });
-      release = {
-        version: rel.tag_name || rel.name || "",
-        mb: pick && pick.size ? (pick.size / 1048576).toFixed(pick.size > 10485760 ? 0 : 1) : ""
-      };
-      renderMeta();
-    })
-    .catch(function(){ /* keep the /releases/latest fallback link */ });
+  // latest release -> direct download link; the answer is cached for an hour, so a slow,
+  // blocked or rate-limited GitHub API call still leaves the last known direct link in place
+  var REL_KEY = "folio-release", REL_TTL = 60 * 60 * 1000;
+  function useRelease(href, version, mb){
+    document.querySelectorAll(".js-dl").forEach(function(a){ a.href = href; });
+    release = { version: version, mb: mb };
+    renderMeta();
+  }
+  var cachedRel = null;
+  try { cachedRel = JSON.parse(localStorage.getItem(REL_KEY)); } catch (e) {}
+  if (cachedRel && typeof cachedRel.href === "string" && cachedRel.href.indexOf("https://github.com/") === 0){
+    useRelease(cachedRel.href, cachedRel.version || "", cachedRel.mb || "");
+  } else {
+    cachedRel = null;
+  }
+  if (!cachedRel || Date.now() - (cachedRel.t || 0) > REL_TTL){
+    fetch("https://api.github.com/repos/" + REPO + "/releases/latest", { headers: { "Accept": "application/vnd.github+json" } })
+      .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(rel){
+        var assets = rel.assets || [];
+        var pick =
+          assets.find(function(a){ return /(setup|install)/i.test(a.name) && /\.(exe|msi)$/i.test(a.name); }) ||
+          assets.find(function(a){ return /\.(exe|msi)$/i.test(a.name); }) ||
+          assets.find(function(a){ return /\.zip$/i.test(a.name); }) ||
+          assets[0];
+        var href = pick ? pick.browser_download_url : (rel.html_url || FALLBACK);
+        var version = rel.tag_name || rel.name || "";
+        var mb = pick && pick.size ? (pick.size / 1048576).toFixed(pick.size > 10485760 ? 0 : 1) : "";
+        useRelease(href, version, mb);
+        try { localStorage.setItem(REL_KEY, JSON.stringify({ href: href, version: version, mb: mb, t: Date.now() })); } catch (e) {}
+      })
+      .catch(function(){ /* keep whatever link is already in place */ });
+  }
 
   // header shadow on scroll + active nav link
   var head = document.querySelector("header.site");
