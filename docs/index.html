@@ -89,7 +89,7 @@
   header.site.scrolled{background:rgba(255,255,255,.92);border-bottom-color:var(--line);box-shadow:0 12px 30px -22px rgba(59,110,246,.3)}
   .bar{display:flex;align-items:center;gap:16px;height:64px}
   .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Manrope",sans-serif;font-weight:700;font-size:1.3rem;color:var(--ink);letter-spacing:-.01em}
-  .brand svg{width:32px;height:32px}
+  .brand img{width:32px;height:32px}
   nav.links{display:flex;gap:2px;margin-inline-start:20px}
   nav.links a{padding:6px 14px;border-radius:10px;text-decoration:none;color:var(--muted);font-size:.93rem;font-weight:500;transition:background .2s var(--ease),color .2s var(--ease)}
   nav.links a:hover{background:var(--mist);color:var(--ink)}
@@ -234,7 +234,7 @@
   .foot-cta .foot-note{margin:18px auto 0;max-width:none;font-size:.86rem}
   .foot-main{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1.2fr);gap:32px 56px;padding:40px 0 36px;border-top:1px solid rgba(59,110,246,.16)}
   .foot-brand{display:flex;align-items:center;gap:10px;color:var(--ink)}
-  .foot-brand svg{width:30px;height:30px;flex:none}
+  .foot-brand img{width:30px;height:30px;flex:none}
   .foot-brand .nm{font-family:"Manrope",sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.01em}
   .foot-about p{margin:12px 0 18px;max-width:340px;color:var(--muted);font-size:.92rem;line-height:1.85}
   :lang(en) .foot-about p{line-height:1.6}
@@ -370,20 +370,11 @@
   <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol>
   <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M20.8 3.5 3.1 10.4l6.3 2.5 2.4 6.7 3.1-3.7 4.7 3.5z"/><path d="M9.4 12.9 20.8 3.5"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5.6 3h3.1c.4 0 .8.3.9.7l.8 3.4c.1.4 0 .8-.3 1.1L8.6 9.5a12.5 12.5 0 0 0 5.9 5.9l1.3-1.5c.3-.3.7-.4 1.1-.3l3.4.8c.4.1.7.5.7.9v3.1c0 1-.8 1.9-1.9 1.9C10.5 20.3 3.7 13.5 3.7 4.9 3.7 3.8 4.6 3 5.6 3z"/></symbol>
-  <symbol id="bird" viewBox="0 0 512 512">
-    <polygon fill="#a8cfff" points="95,62 4,112 95,140"/>
-    <polygon fill="#c4dcff" points="95,62 212,140 95,218"/>
-    <polygon fill="#a4cbff" points="95,218 212,140 375,35 322,218"/>
-    <polygon fill="#8db3ea" points="375,35 508,60 482,95 322,218"/>
-    <polygon fill="#7399d6" points="482,95 508,128 322,218 352,160"/>
-    <polygon fill="#7399d6" points="95,218 322,218 268,385"/>
-    <polygon fill="#8db3ea" points="322,218 268,385 256,412 305,468 322,468"/>
-  </symbol>
 </svg>
 
 <header class="site">
   <div class="wrap bar">
-    <a class="brand" href="#top" aria-label="Folio"><svg viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg>Folio</a>
+    <a class="brand" href="#top" aria-label="Folio"><img src="favicon.svg" alt="" width="32" height="32" aria-hidden="true">Folio</a>
     <nav class="links" id="mainNav">
       <a href="#features" data-i18n="nav_features">امکانات</a>
       <a href="#formats" data-i18n="nav_formats">فرمت‌ها</a>
@@ -403,7 +394,7 @@
 
 <main id="top">
   <div class="hero">
-    <svg class="ghost-bird" viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg>
+    <img class="ghost-bird" src="favicon.svg" alt="" aria-hidden="true">
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1 data-i18n="h1">مدیریت سفارش‌های چاپ، ساده‌تر، سریع‌تر</h1>
@@ -478,7 +469,7 @@
   <section id="trial" class="sec wrap">
     <div class="sec-head"><h2 data-i18n="trial_title">۱۴ روز رایگان امتحان کنید</h2></div>
     <div class="trial">
-      <svg class="t-bird" viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg>
+      <img class="t-bird" src="favicon.svg" alt="" aria-hidden="true">
       <div class="t-days"><span class="t-num" data-i18n="trial_num">۱۴</span><span class="t-unit" data-i18n="trial_unit">روز رایگان</span></div>
       <div>
         <p data-i18n="trial_d">نسخه‌ی آزمایشی فقط محدودیت زمانی دارد؛ پس می‌توانید آن را با کارهای واقعی مرکز خود امتحان کنید.</p>
@@ -542,7 +533,7 @@
 </main>
 
 <footer id="get">
-  <svg class="foot-bird" viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg>
+  <img class="foot-bird" src="favicon.svg" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="foot-cta">
       <h2 data-i18n="final_t">شمارش صفحه‌ها را به فولیو بسپارید</h2>
@@ -556,7 +547,7 @@
 
     <div class="foot-main">
       <div class="foot-about">
-        <div class="foot-brand"><svg viewBox="0 0 512 512" aria-hidden="true"><use href="#bird"/></svg><span class="nm">Folio</span></div>
+        <div class="foot-brand"><img src="favicon.svg" alt="" width="32" height="32" aria-hidden="true"><span class="nm">Folio</span></div>
         <p data-i18n="foot_desc">نرم‌افزار مدیریت چاپ برای کپی‌سنترها و دفاتر فنی: شمارش صفحه‌ها، محاسبه هزینه و ارسال مستقیم به چاپگر.</p>
         <div class="lang" role="group" aria-label="Language">
           <button type="button" data-lang="fa" aria-pressed="true">فارسی</button>
