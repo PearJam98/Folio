@@ -34,7 +34,7 @@ a{color:var(--blue-deep)}
 .top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(1.5) blur(14px);backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid var(--line)}
 .bar{width:min(720px,100% - 40px);margin-inline:auto;height:62px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.25rem;letter-spacing:-.01em}
-.brand svg{width:30px;height:30px}
+.brand img{width:30px;height:30px}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 18px;border-radius:12px;background:var(--blue-deep);color:#fff;text-decoration:none;font-weight:600;font-size:.92rem;transition:background .2s var(--ease),color .2s var(--ease)}
 .btn:hover{background:#2649b8}
 .hero{background:linear-gradient(180deg,#fff,var(--mist));border-bottom:1px solid var(--line);padding:48px 0 38px}
@@ -66,7 +66,7 @@ p,li{font-size:1.03rem;text-wrap:pretty}
 .tip b{display:block;margin-bottom:2px;color:var(--blue-deep)}
 .tip p{margin:0}
 .cta{position:relative;overflow:hidden;isolation:isolate;margin-top:52px;padding:30px 32px;border-radius:24px;color:#fff;background:linear-gradient(135deg,#3a66e8,#2f5ce0 60%,#2649b8);box-shadow:0 34px 60px -34px rgba(59,110,246,.7)}
-.cta svg{position:absolute;inset-inline-start:-30px;bottom:-70px;width:240px;height:240px;opacity:.13;z-index:-1;pointer-events:none}
+.cta img{position:absolute;inset-inline-start:-30px;bottom:-70px;width:240px;height:240px;opacity:.13;z-index:-1;pointer-events:none}
 .cta p{margin:0 0 18px;max-width:56ch}
 .cta .btn{padding:10px 24px;background:#fff;color:var(--blue-deep)}
 .cta .btn:hover{background:var(--tint)}
@@ -81,7 +81,7 @@ p,li{font-size:1.03rem;text-wrap:pretty}
 </style>
 </head>
 <body>
-<header class="top"><div class="bar"><a class="brand" href="../" aria-label="Folio"><svg viewBox="0 0 512 512" aria-hidden="true"><polygon fill="#a8cfff" points="95,62 4,112 95,140"/><polygon fill="#c4dcff" points="95,62 212,140 95,218"/><polygon fill="#a4cbff" points="95,218 212,140 375,35 322,218"/><polygon fill="#8db3ea" points="375,35 508,60 482,95 322,218"/><polygon fill="#7399d6" points="482,95 508,128 322,218 352,160"/><polygon fill="#7399d6" points="95,218 322,218 268,385"/><polygon fill="#8db3ea" points="322,218 268,385 256,412 305,468 322,468"/></svg>Folio</a><a class="btn" href="../#trial">۱۴ روز رایگان امتحان کنید</a></div></header>
+<header class="top"><div class="bar"><a class="brand" href="../" aria-label="Folio"><img src="../favicon.svg" alt="" width="30" height="30" aria-hidden="true">Folio</a><a class="btn" href="../#trial">۱۴ روز رایگان امتحان کنید</a></div></header>
 <div class="hero"><div class="wrap"><h1>هزینه‌ی چاپ را چطور درست حساب کنیم؟ (فرمول و مثال)</h1><p class="meta">راهنمای فولیو · ۱۹ آبان ۱۴۰۵</p></div></div>
 <main class="wrap">
 <article>
@@ -99,7 +99,7 @@ p,li{font-size:1.03rem;text-wrap:pretty}
 <h2>خطاهای رایج</h2>
 <ul class="cards"><li><b>یکی گرفتن نرخ یک‌رو و دورو.</b> برگ‌ها را جدا بشمارید و هر دسته را با نرخ خودش حساب کنید. برگ آخرِ تعداد صفحه‌ی فرد در چاپ دورو را فراموش نکنید.</li><li><b>اعتماد به شمارش صفحه‌ی Word و Excel.</b> این فایل‌ها هنگام باز شدن چیدمان می‌شوند و تعداد صفحه‌شان به فونت‌ها، نسخه‌ی Office و تنظیمات چاپگر بستگی دارد. برای عدد قطعی، اول به PDF تبدیلشان کنید.</li><li><b>نادرست شمردن بازه‌ی صفحات.</b> تعداد صفحه‌های بازه‌ی «۱۰ تا ۲۰» برابر ۱۱ است، نه ۱۰، چون هر دو سر بازه حساب می‌شود (پایان − آغاز + ۱). اگر چند بازه دارید، مثل «۱–۱۰، ۱۵، ۲۰–۳۰»، هر کدام را جدا بشمارید (۱۰ + ۱ + ۱۱ = ۲۲ صفحه). بازه‌های هم‌پوشان را دو بار نگیرید، و بعد از جمع‌زدن، فرد یا زوج بودن کل صفحه‌ها را برای چاپ دورو بررسی کنید.</li><li><b>فایل تکراری.</b> یک فایل که دو بار در پوشه‌ی مشتری آمده، دو بار هزینه می‌شود.</li></ul>
 </article>
-<aside class="cta"><svg viewBox="0 0 512 512" aria-hidden="true"><polygon fill="#a8cfff" points="95,62 4,112 95,140"/><polygon fill="#c4dcff" points="95,62 212,140 95,218"/><polygon fill="#a4cbff" points="95,218 212,140 375,35 322,218"/><polygon fill="#8db3ea" points="375,35 508,60 482,95 322,218"/><polygon fill="#7399d6" points="482,95 508,128 322,218 352,160"/><polygon fill="#7399d6" points="95,218 322,218 268,385"/><polygon fill="#8db3ea" points="322,218 268,385 256,412 305,468 322,468"/></svg><p>فولیو صفحه‌ها و بازه‌ی انتخاب‌شده را می‌شمارد و هزینه را با تعرفه‌ی جداگانه‌ی یک‌رو و دورو، رنگی یا سیاه‌وسفید و اندازه‌ی کاغذ شما حساب می‌کند؛ فایل‌های تکراری را هم هشدار می‌دهد.</p><a class="btn" href="../#trial">دانلود و شروع ۱۴ روز رایگان</a></aside>
+<aside class="cta"><img src="../favicon.svg" alt="" aria-hidden="true"><p>فولیو صفحه‌ها و بازه‌ی انتخاب‌شده را می‌شمارد و هزینه را با تعرفه‌ی جداگانه‌ی یک‌رو و دورو، رنگی یا سیاه‌وسفید و اندازه‌ی کاغذ شما حساب می‌کند؛ فایل‌های تکراری را هم هشدار می‌دهد.</p><a class="btn" href="../#trial">دانلود و شروع ۱۴ روز رایگان</a></aside>
 <a class="related" href="right-side-stapling.html"><small>راهنمای بعدی</small><b>منگنه از سمت راست برای اسناد فارسی؛ مشکل و راه‌حل</b></a>
 <a class="back" href="../">بازگشت به صفحه‌ی اصلی فولیو</a>
 </main>
