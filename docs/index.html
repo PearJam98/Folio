@@ -208,23 +208,6 @@
   .ficon{width:18px;height:18px;padding:5px;box-sizing:content-box;border-radius:10px;fill:none;stroke:var(--c);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;background:rgba(0,0,0,.05);background:color-mix(in srgb,var(--c) 11%,#fff);flex:none}
   .chips{display:flex;flex-wrap:wrap;gap:6px;direction:ltr;justify-content:flex-start}
   .chips code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.78rem;padding:0 11px;border-radius:999px;background:var(--mist);border:1px solid var(--line);color:var(--ink);line-height:1.7}
-  .chips-wrap{min-width:0}
-  .chip-toggle{display:none;align-items:center;gap:7px;font:inherit;font-size:.78rem;font-weight:600;padding:0 12px;border-radius:999px;background:var(--paper);border:1px dashed #b9c8f5;color:var(--blue-deep);line-height:1.7;cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease),border-style .2s}
-  .chip-toggle:hover{background:var(--tint);border-color:var(--blue)}
-  .chip-toggle::after{content:"";width:6px;height:6px;margin-top:-3px;border:solid currentColor;border-width:0 1.8px 1.8px 0;transform:rotate(45deg);transition:transform .3s var(--ease)}
-  .chip-toggle[aria-expanded="true"]{border-style:solid;border-color:#c7d4fb;background:var(--tint)}
-  .chip-toggle[aria-expanded="true"]::after{transform:rotate(-135deg);margin-top:3px}
-  .chip-toggle .t-less,.chip-toggle[aria-expanded="true"] .t-more{display:none}
-  .chip-toggle[aria-expanded="true"] .t-less{display:inline}
-  .js .chip-toggle{display:inline-flex}
-  /* collapsible extra chips: height animates 0 -> auto via grid rows */
-  .more-inner{min-height:0;overflow:hidden}
-  .more-inner .chips{padding-top:6px}
-  .more{display:grid;grid-template-rows:1fr}
-  .js .more{grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .38s var(--ease),visibility 0s .38s}
-  .js .more-inner .chips{opacity:0;transform:translateY(-4px);transition:opacity .28s var(--ease),transform .38s var(--ease)}
-  .js .chips-wrap.open .more{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .38s var(--ease),visibility 0s 0s}
-  .js .chips-wrap.open .more-inner .chips{opacity:1;transform:none}
   .frow .count{padding-block:2px;font-size:.84rem;color:var(--muted);white-space:nowrap}
 
   .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
@@ -524,8 +507,8 @@
         <div class="chips"><code>.pdf</code></div>
         <span class="count" data-n="1">۱ پسوند</span></div>
       <div class="frow"><h3><svg class="ficon" viewBox="0 0 24 24" style="--c:#5E35B1" aria-hidden="true"><use href="#i-fmt-img"/></svg><span data-i18n="images">تصاویر</span></h3>
-        <div class="chips-wrap"><div class="chips"><code>.jpg</code><code>.png</code><code>.heic</code><code>.psd</code><code>.tiff</code><button type="button" class="chip-toggle" aria-expanded="false" aria-controls="imgMore"><span class="t-more" data-i18n="show_all">نمایش ۲۲ مورد دیگر</span><span class="t-less" data-i18n="show_less">نمایش کمتر</span></button></div><div class="more" id="imgMore"><div class="more-inner"><div class="chips"><code>.jpeg</code><code>.jfif</code><code>.jpe</code><code>.gif</code><code>.bmp</code><code>.dib</code><code>.tif</code><code>.webp</code><code>.heif</code><code>.avif</code><code>.jp2</code><code>.j2k</code><code>.jpx</code><code>.ico</code><code>.tga</code><code>.pcx</code><code>.ppm</code><code>.pgm</code><code>.pbm</code><code>.psb</code><code>.svg</code><code>.eps</code></div></div></div></div>
-        <span class="count" data-n="25">۲۵ پسوند</span></div>
+        <div class="chips"><code>.jpg</code><code>.png</code><code>.heic</code><code>.psd</code><code>.tiff</code><code>.jpeg</code><code>.jfif</code><code>.jpe</code><code>.gif</code><code>.bmp</code><code>.dib</code><code>.tif</code><code>.webp</code><code>.heif</code><code>.avif</code><code>.jp2</code><code>.j2k</code><code>.jpx</code><code>.ico</code><code>.tga</code><code>.pcx</code><code>.ppm</code><code>.pgm</code><code>.pbm</code><code>.psb</code><code>.svg</code><code>.eps</code></div>
+        <span class="count" data-n="27">۲۷ پسوند</span></div>
     </div>
   </section>
 
@@ -674,7 +657,7 @@
       f8_t: "برآورد تعداد منگنه و اندازه‌ی فنر سیمی", f8_d: "فولیو تعداد منگنه‌های موردنیاز و اندازه‌ی پیشنهادی فنر سیمی را برای صحافی هر فایل برآورد می‌کند. همچنین می‌توانید بازه‌های محاسباتی را مطابق نیاز خود تغییر دهید.",
       f9_t: "اتصال به کارتخوان و صندوق", f9_d: "در نسخه‌های آینده، امکان ارسال مستقیم مبلغ نهایی چاپ به کارتخوان یا صندوق فراهم خواهد شد؛ بدون نیاز به وارد کردن دستی مبلغ و با هدف کاهش احتمال خطای انسانی.",
       soon: "به‌زودی",
-      fmt_title: "فرمت‌های پشتیبانی‌شده", fmt_sub: "۵۴ پسوند در ۵ خانواده", images: "تصاویر", show_all: "نمایش ۲۲ مورد دیگر", show_less: "نمایش کمتر",
+      fmt_title: "فرمت‌های پشتیبانی‌شده", fmt_sub: "۵۴ پسوند در ۵ خانواده", images: "تصاویر",
       ext: function(n){ return fa(n) + " پسوند"; },
       price_title: "تعرفه‌ی لایسنس", plan_trial: "شروع ۱۴ روز رایگان", best: "به‌صرفه‌تر", unit: "میلیون تومان",
       p6_t: "لایسنس ۶ ماهه", p6_now: "۳٫۲", p6_per: "قابل استفاده روی حداکثر ۳ سیستم",
@@ -728,7 +711,7 @@
       f8_t: "Staple count & wire-binding size estimates", f8_d: "Folio estimates the number of staples needed and the recommended wire-binding size for each file. You can also adjust the calculation ranges to suit your needs.",
       f9_t: "POS terminal / register link", f9_d: "In upcoming versions, the final print total can be sent directly to a card reader or cash register, with no need to enter the amount manually and with the aim of reducing human error.",
       soon: "Coming soon",
-      fmt_title: "Supported formats", fmt_sub: "54 extensions in 5 families", images: "Images", show_all: "Show 22 more", show_less: "Show less",
+      fmt_title: "Supported formats", fmt_sub: "54 extensions in 5 families", images: "Images",
       ext: function(n){ return n + (n === 1 ? " extension" : " extensions"); },
       price_title: "License pricing", plan_trial: "Start 14 days free", best: "Best value", unit: "million toman",
       p6_t: "6-month license", p6_now: "3.2", p6_per: "Use on up to 3 computers",
@@ -1049,15 +1032,6 @@
       el.style.setProperty("--d", Math.min(i, 8) * 0.06 + "s");
       el.classList.add("rv");
       rvIO.observe(el);
-    });
-  }
-
-  // formats: expand / collapse the long image list
-  var chipBtn = document.querySelector(".chip-toggle");
-  if (chipBtn){
-    chipBtn.addEventListener("click", function(){
-      var open = chipBtn.closest(".chips-wrap").classList.toggle("open");
-      chipBtn.setAttribute("aria-expanded", String(open));
     });
   }
 
