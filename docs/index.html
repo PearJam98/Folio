@@ -325,6 +325,12 @@
   :lang(fa) .steps li:not(:last-child)::after{transform:translateY(-50%) rotate(135deg)}
   .steps b{font-weight:600;font-size:.98rem}
   .steps span{font-size:.88rem;opacity:.9;line-height:1.7}
+  .steps .code{display:block;width:100%;margin-top:8px;padding:8px 10px;border-radius:10px;border:1px dashed rgba(255,255,255,.6);background:rgba(255,255,255,.16);color:#fff;font:600 .8rem/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;direction:ltr;text-align:center;word-break:break-all;cursor:pointer;transition:background .2s}
+  .steps .code:hover{background:rgba(255,255,255,.26)}
+  .steps .code[hidden]{display:none}
+  .steps span:empty{display:none}
+  .steps .code-hint{margin-top:6px;font-size:.78rem;opacity:.85}
+  .steps .code-hint[hidden]{display:none}
 
   /* ---------- scroll reveal (only active when JS runs) ---------- */
   .js .rv:not(.in){opacity:0}
@@ -552,7 +558,7 @@
         <p data-i18n="trial_d">نسخه‌ی آزمایشی فقط محدودیت زمانی دارد؛ پس می‌توانید آن را با کارهای واقعی مرکز خود امتحان کنید.</p>
         <ol class="steps">
           <li><b data-i18n="s1_t">دانلود و نصب</b><span data-i18n="s1_d">فولیو را با دکمه‌ی دانلود دریافت و نصب کنید.</span></li>
-          <li><b data-i18n="s2_t">پیام به ما</b><span data-i18n="s2_d">در تلگرام یا اینستاگرام پیام بدهید تا کلید سریال آزمایشی برایتان ارسال شود.</span></li>
+          <li><b data-i18n="s2_t">پیام به ما</b><span data-i18n="s2_d">در تلگرام یا اینستاگرام پیام بدهید تا کلید سریال آزمایشی برایتان ارسال شود.</span><button type="button" class="code" id="trialCode" hidden></button><span class="code-hint" id="trialCodeHint" data-i18n="code_copy" hidden></span></li>
           <li><b data-i18n="s3_t">فعال‌سازی آزمایشی</b><span data-i18n="s3_d">کلید سریال را در فولیو وارد کنید و ۱۴ روز رایگان کار کنید.</span></li>
         </ol>
       </div>
@@ -959,7 +965,37 @@
   // Black Friday sale on the 6-month license: ends automatically after this moment
   // (end of Friday 27 Nov 2026, Iran time). Change the date here to extend or shorten it.
   var SALE_END = new Date("2026-11-27T23:59:59+03:30").getTime();
+  // Trial serial key shown inside step 2 of the trial card until the sale ends.
+  // Paste the key between the quotes. Leave it empty to keep the normal "message us" step.
+  var TRIAL_CODE = "AIB4GA-SM5ELQ-URTPNR-UW6VDS-NFQWY6-T2ZZVC-FMKYU5-CGZE72-OCYIXD-YOAKZK-LVEQVC-UUUZUK-OGK4AA-NEOCSD-HAFLPE-JQS2HF-KPONA3-TVGBOD-VNJX3G-NPY5AR-GUF5CT-ESM4EA";
+  var STEP2_ORIG = { fa: { t: T.fa.s2_t, d: T.fa.s2_d }, en: { t: T.en.s2_t, d: T.en.s2_d } };
+  T.fa.code_copy = "برای کپی روی کلید بزنید"; T.en.code_copy = "Click the key to copy it";
+  T.fa.code_done = "کپی شد ✓"; T.en.code_done = "Copied ✓";
+  function showTrialCode(){
+    if (!TRIAL_CODE) return;
+    T.fa.s2_t = "کلید سریال آزمایشی"; T.fa.s2_d = "";
+    T.en.s2_t = "Your trial serial key"; T.en.s2_d = "";
+    var b = document.getElementById("trialCode"), h = document.getElementById("trialCodeHint");
+    if (!b || !h) return;
+    var g = TRIAL_CODE.split("-");
+    b.textContent = g.length > 8 ? g.slice(0, 5).join("-") + "-\u2026-" + g.slice(-4).join("-") : TRIAL_CODE; // shows 5 groups, \u2026, last 4; click copies the full key
+    b.setAttribute("aria-label", TRIAL_CODE); b.hidden = false; h.hidden = false;
+    b.addEventListener("click", function(){
+      function done(){
+        h.textContent = T[lang].code_done;
+        setTimeout(function(){ h.textContent = T[lang].code_copy; }, 1800);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(TRIAL_CODE).then(done, function(){});
+      else { var ta = document.createElement("textarea"); ta.value = TRIAL_CODE; ta.style.cssText = "position:fixed;opacity:0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); }
+    });
+  }
+  function hideTrialCode(){
+    ["fa", "en"].forEach(function(l){ T[l].s2_t = STEP2_ORIG[l].t; T[l].s2_d = STEP2_ORIG[l].d; });
+    var b = document.getElementById("trialCode"), h = document.getElementById("trialCodeHint");
+    if (b) b.remove(); if (h) h.remove();
+  }
   function endSale(){
+    hideTrialCode();
     ["fa", "en"].forEach(function(l){ T[l].p6_now = T[l].p6_was; });
     var f = document.querySelector(".flag.sale"); if (f) f.remove();
     var w = document.querySelector(".price .was"); if (w) w.remove();
@@ -967,7 +1003,8 @@
   }
   var saleLeft = SALE_END - Date.now();
   if (saleLeft <= 0) endSale();
-  else setTimeout(function(){ endSale(); apply(); }, Math.min(saleLeft, 2147483647));
+  else showTrialCode();
+  if (saleLeft > 0) setTimeout(function(){ endSale(); apply(); }, Math.min(saleLeft, 2147483647));
 
   function apply(){
     var t = T[lang];
